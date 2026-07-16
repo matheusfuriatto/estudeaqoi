@@ -1,0 +1,61 @@
+:root {
+    --rcc-navy-base: #070a12;
+    --rcc-navy-surface: #0c111d;
+    --rcc-navy-card: #121826;
+    --rcc-gold: #cca142;
+    --rcc-gold-hover: #e5b853;
+    --rcc-border: #1e293b;
+    --rcc-border-focus: #cca142;
+    --rcc-success: #10b981;
+    --rcc-danger: #ef4444;
+}
+
+body {
+    background-color: var(--rcc-navy-base);
+    color: #f1f5f9;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.tactic-card {
+    background-color: var(--rcc-navy-card);
+    border: 1px solid var(--rcc-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease-in-out;
+}
+
+.tactic-card:hover {
+    border-color: rgba(204, 161, 66, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.gold-badge {
+    background: rgba(204, 161, 66, 0.1);
+    border: 1px solid rgba(204, 161, 66, 0.2);
+    color: var(--rcc-gold);
+}
+
+.tactical-input {
+    background-color: var(--rcc-navy-base) !important;
+    border: 1px solid var(--rcc-border) !important;
+    color: #ffffff !important;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+.tactical-input:focus {
+    border-color: var(--rcc-gold) !important;
+    box-shadow: 0 0 0 3px rgba(204, 161, 66, 0.15) !important;
+    outline: none;
+}
+
+.btn-rcc {
+    background-color: var(--rcc-gold) !important;
+    color: #070a12 !important;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+
+.btn-rcc:hover {
+    background-color: var(--rcc-gold-hover) !important;
+}

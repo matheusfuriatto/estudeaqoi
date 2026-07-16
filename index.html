@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQOI // Central de Estudos Integrada</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#070a12] text-slate-100 min-h-screen flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-[#0c111d]/90 backdrop-blur sticky top-0 z-50 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="location.reload()">
+                <div class="w-3 h-3 bg-amber-500 rounded-full"></div>
+                <div>
+                    <h1 class="text-md font-bold tracking-wider text-amber-500">AQOI // CENTRAL DE ESTUDOS</h1>
+                    <p class="text-[9px] font-mono text-slate-500">PROGRAMA DE QUALIFICAÇÃO E TREINAMENTO</p>
+                </div>
+            </div>
+            <nav class="flex flex-wrap gap-2">
+                <button id="nav-estudos" class="px-3 py-2 rounded font-mono text-xs transition-all">MANUAL</button>
+                <button id="nav-simulado" class="px-3 py-2 rounded font-mono text-xs transition-all">SIMULADOR</button>
+                <button id="nav-flashcards" class="px-3 py-2 rounded font-mono text-xs transition-all">FLASHCARDS</button>
+                <button id="nav-tira-duvidas" class="px-3 py-2 rounded font-mono text-xs transition-all">TIRA-DÚVIDAS</button>
+                <button id="nav-ranking" class="px-3 py-2 rounded font-mono text-xs transition-all">RANKING</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-6 flex-grow w-full font-sans">
+
+        <!-- SEÇÃO: MANUAL (ESTUDOS) -->
+        <section id="sec-estudos" class="space-y-6">
+            <div class="tactic-card p-6 shadow-xl">
+                <h2 class="text-xl font-bold text-amber-500 mb-2">Diretrizes da Avaliação (AQOI)</h2>
+                <p class="text-xs text-slate-400 font-light leading-relaxed mb-4">
+                    A Avaliação de Qualificação do Oficialato Intermediário tem como principal objetivo aferir a adequação dos oficiais intermediários para avançar em suas carreiras.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                    <div class="bg-[#070a12] p-4 rounded-lg border border-slate-800">
+                        <span class="text-amber-500 font-bold block mb-2">🎯 COMPOSIÇÃO:</span>
+                        • 3 Questões de Código de Conduta Militar<br>
+                        • 3 Questões de Código de Processo/Penal Militar<br>
+                        • 2 Questões de Código de Comando do Batalhão<br>
+                        • 2 Questões de Plano de Controle Emergencial
+                    </div>
+                    <div class="bg-[#070a12] p-4 rounded-lg border border-slate-800">
+                        <span class="text-rose-500 font-bold block mb-2">⚠️ CRITÉRIOS CRÍTICOS:</span>
+                        • Média mínima para aprovação: 7.0 pontos<br>
+                        • Eliminatório: Errar as duas questões de Plano de Controle Emergencial (PCE).
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: SIMULADOR -->
+        <section id="sec-simulado" class="space-y-6 hidden">
+            <!-- Setup da Prova -->
+            <div id="setup-militar" class="tactic-card p-6 space-y-4">
+                <h2 class="text-lg font-bold text-white">Iniciar Nova Sessão de Avaliação</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" id="input-nome-militar" placeholder="Nickname do Militar..." class="tactical-input p-3 text-xs focus:outline-none">
+                    <div class="flex items-center gap-6 text-xs font-mono pl-2">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="dispositivo" value="desktop" checked class="accent-amber-500"> Desktop (3min / 2min30s)
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="dispositivo" value="mobile" class="accent-amber-500"> Mobile (+1 minuto)
+                        </label>
+                    </div>
+                </div>
+                <button id="btn-iniciar-prova" class="w-full btn-rcc text-slate-950 font-bold py-3 rounded text-xs font-mono tracking-wider">
+                    GERAR MINHA FOLHA DE PROVA
+                </button>
+            </div>
+
+            <!-- Area de Prova Ativa -->
+            <div id="area-prova" class="hidden space-y-6">
+                <div id="container-questoes" class="space-y-6"></div>
+            </div>
+
+            <!-- Dashboard de Resultado -->
+            <div id="dashboard-resultado" class="hidden text-center space-y-6">
+                <div class="tactic-card p-6 max-w-lg mx-auto">
+                    <h3 id="result-nota" class="text-5xl font-mono text-amber-500 font-black">0.0</h3>
+                    <div id="result-badge" class="mt-2 inline-block">STATUS</div>
+                    <p id="result-desc" class="text-xs text-slate-400 mt-4 leading-relaxed"></p>
+                </div>
+                <div id="correcao-feedback-list" class="space-y-4 text-left"></div>
+                <button onclick="location.reload()" class="border border-slate-800 text-slate-400 hover:text-white px-6 py-2 rounded text-xs font-mono">Reiniciar</button>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: FLASHCARDS -->
+        <section id="sec-flashcards" class="space-y-6 hidden">
+            <div class="tactic-card p-6 text-center space-y-6">
+                <div>
+                    <h2 class="text-lg font-bold text-amber-500">Memorização e Doutrina Rápida</h2>
+                    <p class="text-xs text-slate-400 mt-1">Estude os 75 pontos mais críticos de conduta, comando e diretrizes do PCE de forma ativa.</p>
+                </div>
+
+                <!-- Card Dinâmico -->
+                <div class="max-w-xl mx-auto bg-[#0c111d] border border-slate-800 rounded-xl p-8 min-h-[220px] flex flex-col justify-between shadow-inner">
+                    <div class="text-[10px] font-mono text-slate-500 uppercase" id="fc-contador">FLASHCARD 1 DE 75</div>
+                    <div class="my-4">
+                        <p class="text-sm font-semibold text-white leading-relaxed" id="fc-pergunta">Carregando pergunta...</p>
+                        <p class="text-xs text-amber-400 mt-4 font-light border-t border-slate-800/60 pt-4 hidden transition-all duration-300" id="fc-resposta">Carregando resposta...</p>
+                    </div>
+                    <button id="btn-revelar-fc" class="mx-auto bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono px-4 py-2 rounded">
+                        REVELAR RESPOSTA
+                    </button>
+                </div>
+
+                <!-- Botões de Navegação -->
+                <div class="flex justify-center gap-4 max-w-xs mx-auto">
+                    <button onclick="window.app.navegarFlashcard(-1)" class="flex-1 bg-slate-900 border border-slate-800 hover:border-amber-500/40 text-slate-300 text-xs py-2 rounded font-mono">Anterior</button>
+                    <button onclick="window.app.navegarFlashcard(1)" class="flex-1 bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs py-2 rounded font-mono font-bold">Próximo</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: TIRA-DÚVIDAS PÚBLICO -->
+        <section id="sec-tira-duvidas" class="space-y-6 hidden">
+            <div class="tactic-card p-6 space-y-6">
+                <div>
+                    <h2 class="text-lg font-bold text-amber-500">Mural de Discussão e Tira-Dúvidas Público</h2>
+                    <p class="text-xs text-slate-400 mt-1">Envie suas dúvidas operacionais para que outros oficiais e mentores possam interagir e responder.</p>
+                </div>
+
+                <!-- Formulário de Nova Pergunta -->
+                <div class="bg-[#0c111d] border border-slate-800 p-4 rounded-xl space-y-3">
+                    <span class="text-xs font-mono text-slate-400 block">// ENVIAR UMA NOVA PERGUNTA</span>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                        <input type="text" id="forum-nick" placeholder="Seu Nick..." class="md:col-span-1 tactical-input p-2 text-xs focus:outline-none">
+                        <input type="text" id="forum-duvida" placeholder="Qual a sua dúvida operacional sobre o regulamento?" class="md:col-span-3 tactical-input p-2 text-xs focus:outline-none">
+                    </div>
+                    <button id="btn-enviar-duvida" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-mono font-bold py-2 rounded">
+                        PUBLICAR NO MURAL
+                    </button>
+                </div>
+
+                <!-- Lista de Perguntas e Respostas -->
+                <div id="container-forum-posts" class="space-y-4">
+                    <!-- Gerado dinamicamente no app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: RANKING -->
+        <section id="sec-ranking" class="space-y-6 hidden">
+            <div class="tactic-card p-6">
+                <h2 class="text-lg font-bold text-white mb-4">Quadro de Honra (Aprovados)</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs text-slate-400">
+                        <thead>
+                            <tr class="text-amber-500 font-mono border-b border-slate-800">
+                                <th class="p-3">Classificação</th>
+                                <th class="p-3">Militar</th>
+                                <th class="p-3">Aproveitamento Histórico</th>
+                                <th class="p-3">Histórico Detalhado de Tentativas</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpo-ranking"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-4 border-t border-slate-900 bg-[#0c111d]/50 text-slate-600 text-[10px] font-mono">
+        PM-RCC SESSÃO AQOI // DESENVOLVIDO POR MATHEUSLATREL
+    </footer>
+
+    <!-- Scripts -->
+    <script src="questions.js"></script>
+    <script src="evaluator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
