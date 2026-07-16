@@ -1,3 +1,6 @@
+/* ==========================================================================
+   ESTILOS GLOBAIS DA CENTRAL PM-RCC (PRESERVADOS DO ORIGINAL)
+   ========================================================================== */
 :root {
     --bg-main: #060a13;
     --bg-surface: #0a1020;
@@ -87,4 +90,227 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+/* ==========================================================================
+   ESTILOS ISOLADOS: SIMULADOR DE SALA TÁTICA DO HABBO HOTEL
+   ========================================================================== */
+
+/* Animação física de subida do balão ao surgir */
+@keyframes habboSpeechSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade {
+    animation: habboSpeechSlide 0.2s ease-out forwards;
+}
+
+/* Cenário de Sala do Habbo Hotel */
+.habbo-room-container {
+    position: relative;
+    width: 100%;
+    height: 320px; /* Altura fixa confortável para desktop */
+    background-color: #0c152b;
+    overflow: hidden;
+    border-bottom: 1px solid #1e2e4a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Mantém chat no topo e personagens no chão */
+    padding: 16px;
+    background-image: radial-gradient(circle, #1a2d54 1px, transparent 1px);
+    background-size: 16px 16px;
+    box-sizing: border-box;
+}
+
+/* Área de Rolagem do Chat */
+#habbo-speech-area {
+    width: 100%;
+    flex-grow: 1;
+    max-height: calc(100% - 95px); /* Garante que os balões nunca sobreponham os bonecos */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+/* Container que junta o balão e a seta indicadora */
+.habbo-bubble-container {
+    position: relative;
+    display: inline-block;
+    max-width: 85%;
+    margin-right: 8px;
+}
+
+/* Corpo do Balão Clássico Pixel-Art */
+.habbo-bubble {
+    background-color: #ffffff !important;
+    border: 1px solid #000000 !important;
+    border-radius: 5px !important;
+    padding: 6px 10px !important;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.2), inset 0px -1px 0px rgba(0, 0, 0, 0.1) !important;
+    display: inline-block;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+/* Texto interno do Balão */
+.habbo-bubble-text {
+    color: #000000 !important;
+    font-family: "Volter", "Ubuntu", "Segoe UI", sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0.1px;
+}
+
+/* Seta indicadora do Balão apontando para o avaliador */
+.habbo-bubble-pointer {
+    position: absolute;
+    bottom: -6px;
+    right: 18px;
+    width: 9px;
+    height: 6px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none"><path d="M0 0H9V1H8V2H7V3H6V4H5V5H4V4H3V3H2V2H1V1H0V0Z" fill="white"/><path d="M0 0V1H1V2H2V3H3V4H4V5H5V4H6V3H7V2H8V1H9V0" stroke="black" stroke-width="1"/></svg>');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+/* Área do Chão: Avatares e stands */
+.habbo-floor-stage {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 4px;
+    box-sizing: border-box;
+    z-index: 3;
+    height: 90px;
+}
+
+/* Container individual de cada militar na sala */
+.habbo-character-slot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 90px;
+}
+
+/* Stand visual do Habbo (Podium) */
+.habbo-podium-stand {
+    width: 56px;
+    height: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.stand-evaluated {
+    background-color: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+}
+
+.stand-evaluator {
+    background-color: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(71, 85, 105, 0.5);
+}
+
+/* Bonecos do Habbo */
+.habbo-char-img {
+    transform: scale(1.15);
+    margin-bottom: -4px;
+    margin-top: -50px;
+    filter: drop-shadow(0 4px 5px rgba(0,0,0,0.5));
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Crachá de Nome do Militar */
+.habbo-char-tag {
+    font-size: 8px;
+    font-family: monospace;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid #1e2e4a;
+    background-color: #060a13;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90px;
+}
+
+/* Customização de Rolagem do Chat */
+#habbo-speech-area::-webkit-scrollbar {
+    width: 4px;
+}
+#habbo-speech-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+#habbo-speech-area::-webkit-scrollbar-thumb {
+    background: #1e2e4a;
+    border-radius: 10px;
+}
+
+/* ==========================================================================
+   MÍDIA QUERIES: RESPONSIVIDADE COMPLETA (ANDROID / IPHONE)
+   ========================================================================== */
+@media (max-width: 640px) {
+    .habbo-room-container {
+        height: 240px; /* Reduz a altura do cenário no celular para caber na tela sem scroll */
+        padding: 8px;
+    }
+
+    #habbo-speech-area {
+        max-height: calc(100% - 75px);
+    }
+
+    .habbo-floor-stage {
+        height: 70px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .habbo-character-slot {
+        width: 70px;
+    }
+
+    .habbo-podium-stand {
+        width: 44px;
+        height: 8px;
+    }
+
+    .habbo-char-img {
+        transform: scale(0.95); /* Reduz suavemente os personagens em telas pequenas */
+        margin-top: -40px;
+        margin-bottom: -4px;
+    }
+
+    .habbo-char-tag {
+        font-size: 7px;
+        padding: 1px 4px;
+        max-width: 70px;
+    }
+
+    .habbo-bubble-container {
+        max-width: 90%;
+    }
 }
