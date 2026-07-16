@@ -3,11 +3,11 @@ const AQOI_QUESTION_BANK = [
     {
         id: 1,
         title: "CONDUTA_PENAL",
-        text: "1° QUESTÃO - O coronel Pistache registrou sua licença no RCCSystem do dia 02 até 17 de abril. Contudo, após resolver suas pendências, registrou seu retorno no dia 11 de abril. Após seu retorno, observou que o tenente Labubu não estava apresentando presença no batalhão. Diante disso, no dia 18 de abril, o coronel decidiu rebaixar o tenente pelo crime de insuficiência para a patente, baseado na falta de quaisquer habilidades necessárias para um Oficial do Corpo Militar, utilizando como prova no requerimento apenas prints do perfil do militar, nos quais constava, reiteradas vezes, o status de 48 horas offline. Com base nas informações fornecidas, analise a ação do rebaixamento e a postagem do coronel, indicando se estão corretas ou incorretas e justificando sua resposta.",
+        text: "1° QUESTÃO - O coronel Pistache registrou sua licença no RCCSystem do dia 02 até 17 de abril. Contudo, após resolver suas pendências, registrou seu retorno no dia 11 de abril. Após seu retorno, observou que o tenente Labubu não estava apresentando presença no batalhão. Diante disso, no dia 18 de abril, o coronel decidiu rebaixar o tenente pelo crime de insuficiência para a patente, baseado na falta de quaisquer habilidades necessárias para um Oficial do Corpo Militar, utilizando como prova no requerimento apenas prints do perfil do militar, nos quais constava, reiteradas vezes, o status de 48 hours offline. Com base nas informações fornecidas, analise a ação do rebaixamento e a postagem do coronel, indicando se estão corretas ou incorretas e justificando sua resposta.",
         answer: "A atitude do coronel em rebaixar está correta, uma vez que este compensou 07 dias de atividade após retornar de sua licença de serviço. Entretanto, as provas utilizadas no rebaixamento estão incorretas. Em casos de rebaixamento de um militar por insuficiência para a patente, feito por um promotor que tenha compensado pelo menos 07 dias de licença, mas que ainda restem dias para compensar, deverá conter obrigatoriamente, como prova, depoimentos de superiores do policial rebaixado.",
         keywords: ["correta", "compensou", "07 dias", "licenca", "provas", "incorretas", "depoimentos de superiores", "reanimar", "insuficiencia"],
-        timeDesktop: 180, // 3 minutos
-        timeMobile: 240   // 4 minutos
+        timeDesktop: 180,
+        timeMobile: 240
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ const AQOI_QUESTION_BANK = [
     {
         id: 3,
         title: "CONDUTA_PENAL",
-        text: "3° QUESTÃO - Joãozinho iniciou a sua carreira como trainee em 2023, encerrando no mesmo como VIP, portador da Especialização Avançada e sem comprar nenhum cargo. Com isso, solicitou o passe de oficial reformado, sendo este aprovado. Em 2024 retornou ao Corpo Executivo, alcançando o posto de inspetor-geral e como não alcançou o cargo exigido para obter o passe, solicitou à Corregedoria em prol de sua carreira passada, sendo concedido. Por fim, no ano de 2025 retornou à instituição, mas dessa vez chegou até supervisor, soliciting novamente o passe de oficial reformado, que também foi aceito. Os pedidos de Joãozinho foram concedidos corretamente? Justifique. Além disso, fale quais requisitos um oficial do corpo executivo precisa ter para obter o passe de oficial reformado.",
+        text: "3° QUESTÃO - Joãozinho iniciou a sua carreira como trainee em 2023, encerrando no mesmo como VIP, portador da Especialização Avançada e sem comprar nenhum cargo. Com isso, solicitou o passe de oficial reformado, sendo este aprovado. Em 2024 retornou ao Corpo Executivo, alcançando o posto de inspetor-geral e como não alcançou o cargo exigido para obter o passe, solicitou à Corregedoria em prol de sua carreira passada, sendo concedido. Por fim, no ano de 2025 retornou à instituição, mas dessa vez chegou até supervisor, solicitando novamente o passe de oficial reformado, que também foi aceito. Os pedidos de Joãozinho foram concedidos corretamente? Justifique. Além disso, fale quais requisitos um oficial do corpo executivo precisa ter para obter o passe de oficial reformado.",
         answer: "Não. Ele só poderá solicitar o seu passe em prol da carreira anterior uma única vez, sendo restrito a uma solicitação por cada conquista de reformado. Em relação aos requisitos, são: Ter se reformado no cargo de superintendente ou superior, desde que tenha iniciado como trainee ou sido reintegrado como analista, e não tenha efetuado compra de cargo até o posto em que se reformou; Ser portador da Especialização Avançada; Obter o reconhecimento como oficial reformado em segunda instância, mediante o envio de pedido à Corregedoria.",
         keywords: ["nao", "anterior", "unica vez", "requisitos", "superintendente", "trainee", "compra", "avancada", "corregedoria"],
         timeDesktop: 180,
@@ -67,7 +67,7 @@ const AQOI_QUESTION_BANK = [
         id: 8,
         title: "COMANDO_BATALHAO",
         text: "8° QUESTÃO - Analise as afirmativas a seguir, classificando-as como verdadeira ou falsa, justificando a(s) falsa(s): I. O Oficial da Guarda pode realizar a migração de batalhão sempre que julgar conveniente para melhorar a organização, independentemente da motivação. II. Caso o batalhão atinja 75 policiais, o Oficial da Guarda pode abrir outro batalhão desde que haja, no mínimo, 10 policiais disponíveis para deslocamento. III. Ao abrir um segundo batalhão, o Oficial da Guarda não precisa se preocupar com a lotação do batalhão principal, desde que ambos permaneçam com quantidade equilibrada de policiais. IV. A atividade de recrutamento pode ser realizada mesmo que o batalhão esteja abaixo do contingente mínimo exigido para outras atividades.",
-        answer: "I. Falsa. A migração entre batalhões é proibida por motivos fúteis, sendo permitida apenas em situações específicas, como baixo ou alto contingente, falta de portadores de direitos ou emergências que inutilizem o funcionamento pleno do batalhão. II. Verdadeira. III. Falsa. Ao abrir outro batalhão, o Oficial da Guarda deve manter o controle do batalhão principal, garantindo que este não fique com menos de 60 policiais e realizando deslocamentos quando necessário. IV. Verdadeira.",
+        answer: "I. Falsa. A migração entre batalhões é proibida por motivos fúteis, sendo permitida apenas em situações específicas, como baixo ou alto contingente, falta de portadores de direitos ou emergências que inutilizem o funcionamento pleno do batalhão. II. Verdadeira. III. Falsa. Ao abrir outro batalhão, o Oficial da Guarda deve manter o controle do batalhão principal, guaranteeing que este não fique com menos de 60 policiais e realizando deslocamentos quando necessário. IV. Verdadeira.",
         keywords: ["i. falsa", "proibida", "futis", "ii. verdadeira", "iii. falsa", "batalhao principal", "60 policiais", "iv. verdadeira"],
         timeDesktop: 180,
         timeMobile: 240
@@ -92,7 +92,7 @@ const AQOI_QUESTION_BANK = [
     }
 ];
 
-// Banco de Dados Dinâmico de 75 Flashcards (A-Z)
+// Banco de dados dos 75 flashcards doutrinários
 const AQOI_FLASHCARDS = [
     { q: "Qual a punição aplicada a um oficial que concede permissão para uma promoção sem verificar previamente os requisitos do promotor?", a: "Advertência escrita pelo crime de Abandono de Dever/Negligência." },
     { q: "Em que circunstância um Marechal em licença de serviço possui autonomia para aplicar punições administrativas legitimamente?", a: "Quando o militar ocupa o cargo de Corregedor." },

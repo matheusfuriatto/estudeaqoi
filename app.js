@@ -1,9 +1,8 @@
-// REGISTRO IMEDIATO NO ESCOPO GLOBAL
 window.app = null;
 
 class AQOIApplication {
     constructor() {
-        window.app = this; // Vincula a instância global imediatamente no início
+        window.app = this;
 
         this.state = {
             militarNome: "",
@@ -21,8 +20,6 @@ class AQOIApplication {
 
         this.cacheDOM();
         this.bindEvents();
-
-        // Garante a renderização dos dados salvos no F5 logo na abertura
         this.renderRanking();
         this.renderFlashcard();
         this.renderForum();
@@ -33,12 +30,14 @@ class AQOIApplication {
             navEstudos: document.getElementById('nav-estudos'),
             navSimulado: document.getElementById('nav-simulado'),
             navFlashcards: document.getElementById('nav-flashcards'),
+            navPodcast: document.getElementById('nav-podcast'),
             navTiraDuvidas: document.getElementById('nav-tira-duvidas'),
             navRanking: document.getElementById('nav-ranking'),
 
             secEstudos: document.getElementById('sec-estudos'),
             secSimulado: document.getElementById('sec-simulado'),
             secFlashcards: document.getElementById('sec-flashcards'),
+            secPodcast: document.getElementById('sec-podcast'),
             secTiraDuvidas: document.getElementById('sec-tira-duvidas'),
             secRanking: document.getElementById('sec-ranking'),
 
@@ -56,6 +55,7 @@ class AQOIApplication {
         if (this.DOM.navEstudos) this.DOM.navEstudos.addEventListener('click', () => this.mudarAba('estudos'));
         if (this.DOM.navSimulado) this.DOM.navSimulado.addEventListener('click', () => this.mudarAba('simulado'));
         if (this.DOM.navFlashcards) this.DOM.navFlashcards.addEventListener('click', () => this.mudarAba('flashcards'));
+        if (this.DOM.navPodcast) this.DOM.navPodcast.addEventListener('click', () => this.mudarAba('podcast'));
         if (this.DOM.navTiraDuvidas) this.DOM.navTiraDuvidas.addEventListener('click', () => this.mudarAba('tira-duvidas'));
         if (this.DOM.navRanking) this.DOM.navRanking.addEventListener('click', () => this.mudarAba('ranking'));
 
@@ -67,10 +67,37 @@ class AQOIApplication {
 
         const btnDuvida = document.getElementById('btn-enviar-duvida');
         if (btnDuvida) btnDuvida.addEventListener('click', () => this.publicarPerguntaForum());
+
+        const inputNome = document.getElementById('input-nome-militar');
+        if (inputNome) {
+            inputNome.addEventListener('input', (e) => this.atualizarPreviewAvatar(e.target.value.trim()));
+        }
+    }
+
+    getHabboAvatarUrl(nick) {
+        if (!nick) return "https://www.habbo.com.br/habbo-imaging/avatarimage?user=null&direction=2&head_direction=2&gesture=std&size=m";
+        return `https://www.habbo.com.br/habbo-imaging/avatarimage?user=${encodeURIComponent(nick)}&direction=2&head_direction=2&gesture=std&size=m`;
+    }
+
+    atualizarPreviewAvatar(nick) {
+        let previewContainer = document.getElementById('avatar-preview-setup');
+        if (!previewContainer) {
+            const inputNome = document.getElementById('input-nome-militar');
+            if (inputNome && inputNome.parentElement) {
+                previewContainer = document.createElement('div');
+                previewContainer.id = 'avatar-preview-setup';
+                previewContainer.className = 'flex justify-center items-center bg-[#060a13] border border-slate-800 rounded-lg p-2 w-20 h-20 mx-auto mb-4';
+                previewContainer.innerHTML = `<img id="img-preview-setup" src="${this.getHabboAvatarUrl(nick)}" class="scale-125" alt="Avatar">`;
+                inputNome.parentElement.insertBefore(previewContainer, inputNome);
+            }
+        } else {
+            const img = document.getElementById('img-preview-setup');
+            if (img) img.src = this.getHabboAvatarUrl(nick);
+        }
     }
 
     mudarAba(aba) {
-        const abas = ['estudos', 'simulado', 'flashcards', 'tira-duvidas', 'ranking'];
+        const abas = ['estudos', 'simulado', 'flashcards', 'podcast', 'tira-duvidas', 'ranking'];
 
         abas.forEach(a => {
             const secao = document.getElementById(`sec-${a}`);
@@ -100,7 +127,7 @@ class AQOIApplication {
         }
     }
 
-    // --- SISTEMA DE SIMULADO ---
+    // --- SIMULADO ---
     iniciarExame() {
         const nomeInput = document.getElementById('input-nome-militar');
         const nome = nomeInput ? nomeInput.value.trim() : "";
@@ -130,9 +157,7 @@ class AQOIApplication {
     renderQuestaoAtiva() {
         if (!this.DOM.containerQuestoes) return;
 
-        if (this.state.activeTimerId) {
-            clearInterval(this.state.activeTimerId);
-        }
+        if (this.state.activeTimerId) clearInterval(this.state.activeTimerId);
 
         const idx = this.state.currentQuestionIndex;
         const q = this.state.questoesAtivas[idx];
@@ -163,7 +188,6 @@ class AQOIApplication {
                 <div class="text-xs text-slate-500 font-mono">PERGUNTA ${idx + 1} DE 10</div>
                 <h3 class="text-sm font-semibold text-slate-100 leading-relaxed">${q.text}</h3>
                 <textarea id="resposta-ativa" rows="6" placeholder="Escreva a resposta fundamentada com detalhes aqui..." class="w-full tactical-input p-3 text-xs focus:outline-none">${respostaSalva}</textarea>
-
                 <div class="flex justify-between items-center pt-4 border-t border-slate-800/60">
                     ${esquerdoBtn}
                     ${direitoBtn}
@@ -186,9 +210,7 @@ class AQOIApplication {
             const tempo = this.state.tempoRestanteQuestoes[index];
 
             const timerElement = document.getElementById('timer-ativo');
-            if (timerElement) {
-                timerElement.innerText = `Tempo restante: ${this.formatarTempo(tempo)}`;
-            }
+            if (timerElement) timerElement.innerText = `Tempo restante: ${this.formatarTempo(tempo)}`;
 
             if (tempo <= 0) {
                 clearInterval(this.state.activeTimerId);
@@ -197,19 +219,13 @@ class AQOIApplication {
                     txtArea.disabled = true;
                     txtArea.placeholder = "TEMPO ESGOTADO! Sua resposta foi travada.";
                 }
-                if (timerElement) {
-                    timerElement.innerText = "TEMPO ESGOTADO";
-                    timerElement.className = "text-rose-500 font-bold font-mono";
-                }
             }
         }, 1000);
     }
 
     navegarQuestao(direcao) {
         const txtArea = document.getElementById('resposta-ativa');
-        if (txtArea) {
-            this.state.respostasMilitares[this.state.currentQuestionIndex] = txtArea.value.trim();
-        }
+        if (txtArea) this.state.respostasMilitares[this.state.currentQuestionIndex] = txtArea.value.trim();
 
         this.state.currentQuestionIndex += direcao;
         this.renderQuestaoAtiva();
@@ -224,13 +240,9 @@ class AQOIApplication {
 
     finalizarExame() {
         const txtArea = document.getElementById('resposta-ativa');
-        if (txtArea) {
-            this.state.respostasMilitares[this.state.currentQuestionIndex] = txtArea.value.trim();
-        }
+        if (txtArea) this.state.respostasMilitares[this.state.currentQuestionIndex] = txtArea.value.trim();
 
-        if (this.state.activeTimerId) {
-            clearInterval(this.state.activeTimerId);
-        }
+        if (this.state.activeTimerId) clearInterval(this.state.activeTimerId);
 
         let totalSomaDasNotas = 0;
         let errosNoPce = 0;
@@ -241,10 +253,7 @@ class AQOIApplication {
             this.state.notasQuestoes[idx] = nota;
 
             totalSomaDasNotas += nota;
-
-            if (q.title === "CONTROLE_EMERGENCIAL" && nota < 50) {
-                errosNoPce++;
-            }
+            if (q.title === "CONTROLE_EMERGENCIAL" && nota < 50) errosNoPce++;
         });
 
         const mediaFinal = parseFloat(((totalSomaDasNotas / 1000) * 10).toFixed(1));
@@ -268,17 +277,17 @@ class AQOIApplication {
         if (reprovadoPeloPce) {
             statusFinal = "ELIMINADO (PCE)";
             badgeResult.innerText = statusFinal;
-            badgeResult.className = "text-rose-500 bg-rose-500/10 border border-rose-500/20 text-xs font-mono font-bold tracking-widest px-4 py-2 rounded inline-block";
+            badgeResult.className = "text-rose-500 bg-rose-500/10 border border-rose-500/20 text-xs font-mono font-bold px-4 py-2 rounded inline-block";
             descResult.innerHTML = `⚠️ <strong>Reprovado por Regra Crítica:</strong> Apesar de obter nota de aprovação, o militar foi eliminado por errar ambas as questões de <strong>Plano de Controle Emergencial (PCE)</strong>.`;
         } else if (nota >= 7.0) {
             statusFinal = "APROVADO";
             badgeResult.innerText = "APROVADO OPERACIONAL";
-            badgeResult.className = "text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono font-bold tracking-widest px-4 py-2 rounded inline-block";
+            badgeResult.className = "text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono font-bold px-4 py-2 rounded inline-block";
             descResult.innerHTML = `🏆 Excelente desempenho! O militar obteve nota compatível com os requisitos exigidos e foi aprovado.`;
         } else {
             statusFinal = "REPROVADO";
             badgeResult.innerText = "REPROVADO POR NOTA";
-            badgeResult.className = "text-rose-500 bg-rose-500/10 border border-rose-500/20 text-xs font-mono font-bold tracking-widest px-4 py-2 rounded inline-block";
+            badgeResult.className = "text-rose-500 bg-rose-500/10 border border-rose-500/20 text-xs font-mono font-bold px-4 py-2 rounded inline-block";
             descResult.innerHTML = `🚨 O militar não obteve a média mínima exigida de 7.0 pontos para admissão ou especialização.`;
         }
 
@@ -289,7 +298,7 @@ class AQOIApplication {
             gabaritoDiv.innerHTML = '';
             this.state.questoesAtivas.forEach((q, idx) => {
                 const cardFeedback = document.createElement('div');
-                cardFeedback.className = "bg-[#0c111d] border border-slate-800 p-4 rounded-lg space-y-2 mb-2";
+                cardFeedback.className = "bg-[#0a1020] border border-slate-800 p-4 rounded-lg space-y-2 mb-2 text-left";
                 cardFeedback.innerHTML = `
                     <p class="text-xs font-mono text-slate-500 uppercase">Questão ${idx + 1} - Pontuação Individual: ${this.state.notasQuestoes[idx]}%</p>
                     <p class="text-sm font-semibold text-slate-200">${q.text}</p>
@@ -301,7 +310,7 @@ class AQOIApplication {
         }
     }
 
-    // --- SISTEMA DE FLASHCARDS ---
+    // --- FLASHCARDS ---
     renderFlashcard() {
         const idx = this.state.currentFlashcardIndex;
         const fc = AQOI_FLASHCARDS[idx];
@@ -316,7 +325,6 @@ class AQOIApplication {
             rEl.innerText = fc.a;
             rEl.classList.add('hidden');
         }
-
         const btn = document.getElementById('btn-revelar-fc');
         if (btn) btn.innerText = "REVELAR RESPOSTA";
     }
@@ -338,22 +346,17 @@ class AQOIApplication {
 
     navegarFlashcard(direcao) {
         this.state.currentFlashcardIndex += direcao;
-        if (this.state.currentFlashcardIndex < 0) {
-            this.state.currentFlashcardIndex = AQOI_FLASHCARDS.length - 1;
-        } else if (this.state.currentFlashcardIndex >= AQOI_FLASHCARDS.length) {
-            this.state.currentFlashcardIndex = 0;
-        }
+        if (this.state.currentFlashcardIndex < 0) this.state.currentFlashcardIndex = AQOI_FLASHCARDS.length - 1;
+        else if (this.state.currentFlashcardIndex >= AQOI_FLASHCARDS.length) this.state.currentFlashcardIndex = 0;
         this.renderFlashcard();
     }
 
-    // --- MURAL TIRA-DÚVIDAS OPERACIONAL ---
+    // --- TIRA-DÚVIDAS PÚBLICO ---
     carregarForum() {
         try {
             const salvos = localStorage.getItem('rcc_forum_tira_duvidas');
             return salvos ? JSON.parse(salvos) : [];
-        } catch {
-            return [];
-        }
+        } catch { return []; }
     }
 
     publicarPerguntaForum() {
@@ -366,14 +369,7 @@ class AQOIApplication {
         if (!nick || !duvida) return alert("Preencha seu nick e digite sua dúvida antes de enviar.");
 
         const posts = this.carregarForum();
-        posts.push({
-            id: Date.now(),
-            autor: nick,
-            pergunta: duvida,
-            respostas: [],
-            data: new Date().toLocaleDateString('pt-BR')
-        });
-
+        posts.push({ id: Date.now(), autor: nick, pergunta: duvida, respostas: [], data: new Date().toLocaleDateString('pt-BR') });
         localStorage.setItem('rcc_forum_tira_duvidas', JSON.stringify(posts));
         this.state.forumPosts = posts;
 
@@ -394,11 +390,7 @@ class AQOIApplication {
         const post = posts.find(p => p.id === postId);
 
         if (post) {
-            post.respostas.push({
-                autor: autor,
-                texto: texto,
-                data: new Date().toLocaleDateString('pt-BR')
-            });
+            post.respostas.push({ autor: autor, texto: texto, data: new Date().toLocaleDateString('pt-BR') });
             localStorage.setItem('rcc_forum_tira_duvidas', JSON.stringify(posts));
             this.state.forumPosts = posts;
             this.renderForum();
@@ -410,79 +402,73 @@ class AQOIApplication {
         this.DOM.containerForum.innerHTML = '';
 
         const posts = this.carregarForum();
-
         if (posts.length === 0) {
-            this.DOM.containerForum.innerHTML = `<p class="text-slate-500 font-mono text-center text-xs py-6">Nenhuma dúvida registrada no mural público ainda. Seja o primeiro!</p>`;
+            this.DOM.containerForum.innerHTML = `<p class="text-slate-500 font-mono text-center text-xs py-6">Nenhuma dúvida registrada no mural público ainda.</p>`;
             return;
         }
 
         posts.forEach(p => {
             const respostasHTML = p.respostas.map(r => `
-                <div class="bg-[#070a12]/60 p-3 rounded border border-slate-800/40">
-                    <div class="flex justify-between text-[10px] font-mono text-slate-500 mb-1">
-                        <span class="text-amber-500/80 font-bold">R: @${r.autor.toUpperCase()}</span>
-                        <span>${r.data}</span>
+                <div class="bg-[#060a13]/60 p-3 rounded border border-slate-800/40 flex items-start gap-2 text-left">
+                    <img src="${this.getHabboAvatarUrl(r.autor)}" class="w-10 h-10 -mt-2 object-cover" alt="Avatar">
+                    <div class="flex-grow">
+                        <div class="flex justify-between text-[10px] font-mono text-slate-500 mb-1">
+                            <span class="text-amber-500/80 font-bold">R: @${r.autor.toUpperCase()}</span>
+                            <span>${r.data}</span>
+                        </div>
+                        <p class="text-xs text-slate-300 font-light leading-relaxed">${r.texto}</p>
                     </div>
-                    <p class="text-xs text-slate-300 font-light leading-relaxed">${r.texto}</p>
                 </div>
             `).join('');
 
             this.DOM.containerForum.innerHTML += `
-                <div class="bg-[#131a2e] border border-slate-800 p-5 rounded-xl space-y-4 shadow-md text-left">
-                    <div class="border-b border-slate-800 pb-3">
-                        <div class="flex justify-between text-[10px] font-mono text-slate-500 mb-1">
-                            <span class="text-amber-500 font-bold">@${p.autor.toUpperCase()} PERGUNTOU:</span>
-                            <span>${p.data}</span>
+                <div class="bg-[#111a30] border border-slate-800 p-5 rounded-xl space-y-4 shadow-md text-left">
+                    <div class="border-b border-slate-800 pb-3 flex items-start gap-3">
+                        <div class="bg-[#060a13] border border-slate-800 rounded p-1 w-12 h-12 flex items-center justify-center overflow-hidden shrink-0">
+                            <img src="${this.getHabboAvatarUrl(p.autor)}" class="scale-110" alt="Avatar">
                         </div>
-                        <h3 class="text-sm font-semibold text-white">${p.pergunta}</h3>
+                        <div class="flex-grow">
+                            <div class="flex justify-between text-[10px] font-mono text-slate-500 mb-1">
+                                <span class="text-amber-500 font-bold">@${p.autor.toUpperCase()} PERGUNTOU:</span>
+                                <span>${p.data}</span>
+                            </div>
+                            <h3 class="text-sm font-semibold text-white">${p.pergunta}</h3>
+                        </div>
                     </div>
                     <div class="space-y-2 pl-4">
-                        ${p.respostas.length > 0 ? respostasHTML : '<p class="text-[10px] text-slate-500 font-mono">Nenhuma resposta publicada para esta dúvida ainda.</p>'}
+                        ${p.respostas.length > 0 ? respostasHTML : '<p class="text-[10px] text-slate-500 font-mono">Nenhuma resposta publicada ainda.</p>'}
                     </div>
                     <div class="pt-3 border-t border-slate-800/60 space-y-2">
-                        <span class="text-[10px] font-mono text-slate-500 block">Escrever uma resposta pública:</span>
                         <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
                             <input type="text" id="reply-nick-${p.id}" placeholder="Seu Nick..." class="md:col-span-1 tactical-input p-2 text-[10px] focus:outline-none">
                             <input type="text" id="reply-input-${p.id}" placeholder="Adicione seu embasamento técnico aqui..." class="md:col-span-3 tactical-input p-2 text-[10px] focus:outline-none">
                         </div>
-                        <button onclick="window.app.publicarRespostaForum(${p.id})" class="w-full bg-slate-800 hover:bg-slate-700 text-white text-[10px] font-mono py-1 rounded">
-                            Enviar Resposta
-                        </button>
+                        <button onclick="window.app.publicarRespostaForum(${p.id})" class="w-full bg-slate-800 hover:bg-slate-700 text-white text-[10px] font-mono py-1 rounded">Enviar Resposta</button>
                     </div>
                 </div>
             `;
         });
     }
 
-    // --- SISTEMA DE RANKING HISTÓRICO ---
+    // --- RANKING ---
     carregarRanking() {
         try {
             const dadosSalvos = localStorage.getItem('rcc_ranking_aqoi_v2');
             return dadosSalvos ? JSON.parse(dadosSalvos) : [];
-        } catch {
-            return [];
-        }
+        } catch { return []; }
     }
 
     salvarTentativaNoRanking(nome, nota, status) {
         let ranking = this.carregarRanking();
         let militar = ranking.find(r => r.nome.toLowerCase() === nome.toLowerCase());
 
-        const novaTentativa = {
-            nota: nota,
-            status: status,
-            data: new Date().toLocaleDateString('pt-BR')
-        };
+        const novaTentativa = { nota: nota, status: status, data: new Date().toLocaleDateString('pt-BR') };
 
         if (militar) {
             militar.tentativas.push(novaTentativa);
             militar.melhorNota = Math.max(militar.melhorNota, nota);
         } else {
-            ranking.push({
-                nome: nome,
-                melhorNota: nota,
-                tentativas: [novaTentativa]
-            });
+            ranking.push({ nome: nome, melhorNota: nota, tentatives: [novaTentativa] });
         }
 
         ranking.sort((a, b) => parseFloat(b.melhorNota) - parseFloat(a.melhorNota));
@@ -496,29 +482,25 @@ class AQOIApplication {
         this.DOM.corpoRanking.innerHTML = '';
 
         const rankingAtualizado = this.carregarRanking();
-
         if (rankingAtualizado.length === 0) {
-            this.DOM.corpoRanking.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-slate-500 font-mono text-xs">Nenhum militar registrado no ranking de aprovados.</td></tr>`;
+            this.DOM.corpoRanking.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-slate-500 font-mono text-xs">Nenhum registro.</td></tr>`;
             return;
         }
 
         rankingAtualizado.forEach((militar, idx) => {
             let medalhaBadge = `<span class="text-slate-400">#${idx + 1}</span>`;
             if (idx === 0) medalhaBadge = `🥇 <span class="text-amber-500 font-bold">1º Lugar</span>`;
-            if (idx === 1) badge = `🥈 <span class="text-slate-300 font-bold">2º Lugar</span>`;
+            if (idx === 1) medalhaBadge = `🥈 <span class="text-slate-300 font-bold">2º Lugar</span>`;
             if (idx === 2) medalhaBadge = `🥉 <span class="text-amber-700 font-bold">3º Lugar</span>`;
 
             const listaTentativasHTML = militar.tentativas.map((t, tIdx) => {
                 let badgeClass = "text-rose-400 bg-rose-500/10 border border-rose-500/10";
-                if (t.status === "APROVADO") {
-                    badgeClass = "text-emerald-400 bg-emerald-500/10 border border-emerald-500/10";
-                } else if (t.status === "ELIMINADO (PCE)") {
-                    badgeClass = "text-orange-400 bg-orange-500/10 border border-orange-500/10";
-                }
+                if (t.status === "APROVADO") badgeClass = "text-emerald-400 bg-emerald-500/10 border border-emerald-500/10";
+                else if (t.status === "ELIMINADO (PCE)") badgeClass = "text-orange-400 bg-orange-500/10 border border-orange-500/10";
 
                 return `
-                    <div class="flex items-center justify-between text-[10px] font-mono p-1 rounded border border-slate-800/40 bg-[#070a12]/50 mt-1">
-                        <span class="text-slate-400">Tentativa ${tIdx + 1} (${t.data}):</span>
+                    <div class="flex items-center justify-between text-[10px] font-mono p-1 rounded border border-slate-800/40 bg-[#060a13]/50 mt-1">
+                        <span>Tentativa ${tIdx + 1}:</span>
                         <span class="font-bold px-2 rounded ${badgeClass}">${t.nota.toFixed(1)}/10 [${t.status}]</span>
                     </div>
                 `;
@@ -526,17 +508,19 @@ class AQOIApplication {
 
             this.DOM.corpoRanking.innerHTML += `
                 <tr class="border-b border-slate-800/60 font-mono text-xs text-slate-300">
-                    <td class="p-3 align-top">${medalhaBadge}</td>
-                    <td class="p-3 align-top font-semibold text-white">${militar.nome.toUpperCase()}</td>
-                    <td class="p-3 align-top text-amber-500 font-bold text-center">${militar.melhorNota.toFixed(1)} / 10</td>
-                    <td class="p-3 align-top space-y-1 max-w-[280px]">
-                        ${listaTentativasHTML}
+                    <td class="p-3 align-middle">${medalhaBadge}</td>
+                    <td class="p-1 align-middle w-12">
+                        <div class="bg-[#111a30] border border-slate-800 rounded flex items-center justify-center overflow-hidden w-10 h-10">
+                            <img src="${this.getHabboAvatarUrl(militar.nome)}" class="scale-110" alt="Avatar">
+                        </div>
                     </td>
+                    <td class="p-3 align-middle font-semibold text-white">${militar.nome.toUpperCase()}</td>
+                    <td class="p-3 align-middle text-amber-500 font-bold text-center">${militar.melhorNota.toFixed(1)} / 10</td>
+                    <td class="p-3 align-middle space-y-1 max-w-[280px]">${listaTentativasHTML}</td>
                 </tr>
             `;
         });
     }
 }
 
-// Inicialização segura imediata
 const appInstance = new AQOIApplication();
