@@ -67,33 +67,11 @@ class AQOIApplication {
 
         const btnDuvida = document.getElementById('btn-enviar-duvida');
         if (btnDuvida) btnDuvida.addEventListener('click', () => this.publicarPerguntaForum());
-
-        const inputNome = document.getElementById('input-nome-militar');
-        if (inputNome) {
-            inputNome.addEventListener('input', (e) => this.atualizarPreviewAvatar(e.target.value.trim()));
-        }
     }
 
     getHabboAvatarUrl(nick) {
         if (!nick) return "https://www.habbo.com.br/habbo-imaging/avatarimage?user=null&direction=2&head_direction=2&gesture=std&size=m";
         return `https://www.habbo.com.br/habbo-imaging/avatarimage?user=${encodeURIComponent(nick)}&direction=2&head_direction=2&gesture=std&size=m`;
-    }
-
-    atualizarPreviewAvatar(nick) {
-        let previewContainer = document.getElementById('avatar-preview-setup');
-        if (!previewContainer) {
-            const inputNome = document.getElementById('input-nome-militar');
-            if (inputNome && inputNome.parentElement) {
-                previewContainer = document.createElement('div');
-                previewContainer.id = 'avatar-preview-setup';
-                previewContainer.className = 'flex justify-center items-center bg-[#060a13] border border-slate-800 rounded-lg p-2 w-20 h-20 mx-auto mb-4';
-                previewContainer.innerHTML = `<img id="img-preview-setup" src="${this.getHabboAvatarUrl(nick)}" class="scale-125" alt="Avatar">`;
-                inputNome.parentElement.insertBefore(previewContainer, inputNome);
-            }
-        } else {
-            const img = document.getElementById('img-preview-setup');
-            if (img) img.src = this.getHabboAvatarUrl(nick);
-        }
     }
 
     mudarAba(aba) {
@@ -104,7 +82,9 @@ class AQOIApplication {
             if (secao) secao.classList.add('hidden');
 
             const botao = document.getElementById(`nav-${a}`);
-            if (botao) botao.className = 'text-slate-400 hover:text-white px-3 py-2 rounded font-mono text-xs transition-all';
+            if (botao) {
+                botao.className = 'text-slate-400 hover:text-white px-3 py-2 rounded font-mono text-xs transition-all';
+            }
         });
 
         const targetSec = document.getElementById(`sec-${aba}`);
@@ -127,6 +107,11 @@ class AQOIApplication {
         }
     }
 
+    shuffleArray(array) {
+        const clone = [...array];
+        return clone.sort(() => Math.random() - 0.5);
+    }
+
     // --- SIMULADO ---
     iniciarExame() {
         const nomeInput = document.getElementById('input-nome-militar');
@@ -136,9 +121,24 @@ class AQOIApplication {
 
         if (!nome) return alert("Por favor, digite o Nickname do oficial que fará a prova.");
 
+        const todasQuestoes = Object.values(AQOI_SIMULADOS).flat();
+
+        const poolCondutaPenal = todasQuestoes.filter(q => q.title === "CONDUTA_PENAL");
+        const poolComando = todasQuestoes.filter(q => q.title === "COMANDO_BATALHAO");
+        const poolPCE = todasQuestoes.filter(q => q.title === "CONTROLE_EMERGENCIAL");
+
+        const selecionadasCondutaPenal = this.shuffleArray(poolCondutaPenal).slice(0, 6);
+        const selecionadasComando = this.shuffleArray(poolComando).slice(0, 2);
+        const selecionadasPCE = this.shuffleArray(poolPCE).slice(0, 2);
+
+        this.state.questoesAtivas = this.shuffleArray([
+            ...selecionadasCondutaPenal,
+            ...selecionadasComando,
+            ...selecionadasPCE
+        ]);
+
         this.state.militarNome = nome;
         this.state.militarDispositivo = dispositivo;
-        this.state.questoesAtivas = [...AQOI_QUESTION_BANK];
         this.state.respostasMilitares = {};
         this.state.notasQuestoes = {};
         this.state.currentQuestionIndex = 0;
@@ -150,6 +150,7 @@ class AQOIApplication {
 
         if (this.DOM.setupMilitar) this.DOM.setupMilitar.classList.add('hidden');
         if (this.DOM.areaProva) this.DOM.areaProva.classList.remove('hidden');
+        if (this.DOM.dashboardResultado) this.DOM.dashboardResultado.classList.add('hidden');
 
         this.renderQuestaoAtiva();
     }
@@ -270,7 +271,7 @@ class AQOIApplication {
         const descResult = document.getElementById('result-desc');
         const notaFinalElement = document.getElementById('result-nota');
 
-        if (notaFinalElement) notaFinalElement.innerText = `${nota.toFixed(1)} / 10`;
+        if (notaFinalElement) notaFinalElement.innerText = `${nota.toFixed(1)}`;
 
         let statusFinal = "";
 
@@ -346,8 +347,11 @@ class AQOIApplication {
 
     navegarFlashcard(direcao) {
         this.state.currentFlashcardIndex += direcao;
-        if (this.state.currentFlashcardIndex < 0) this.state.currentFlashcardIndex = AQOI_FLASHCARDS.length - 1;
-        else if (this.state.currentFlashcardIndex >= AQOI_FLASHCARDS.length) this.state.currentFlashcardIndex = 0;
+        if (this.state.currentFlashcardIndex < 0) {
+            this.state.currentFlashcardIndex = AQOI_FLASHCARDS.length - 1;
+        } else if (this.state.currentFlashcardIndex >= AQOI_FLASHCARDS.length) {
+            this.state.currentFlashcardIndex = 0;
+        }
         this.renderFlashcard();
     }
 
@@ -468,7 +472,7 @@ class AQOIApplication {
             militar.tentativas.push(novaTentativa);
             militar.melhorNota = Math.max(militar.melhorNota, nota);
         } else {
-            ranking.push({ nome: nome, melhorNota: nota, tentatives: [novaTentativa] });
+            ranking.push({ nome: nome, melhorNota: nota, tentativas: [novaTentativa] });
         }
 
         ranking.sort((a, b) => parseFloat(b.melhorNota) - parseFloat(a.melhorNota));
@@ -523,4 +527,7 @@ class AQOIApplication {
     }
 }
 
-const appInstance = new AQOIApplication();
+// Inicializar aplicação
+document.addEventListener('DOMContentLoaded', () => {
+    new AQOIApplication();
+});
