@@ -1,410 +1,1001 @@
-// Banco de dados dinâmico dividido por Simulados Temáticos da AQOI
+// ==========================================================================
+// BANCO DE DADOS UNIFICADO AQOI - EDITAL EDIÇÃO 2026.14
+// COMPOSIÇÃO: CCM (Atualizado), CPM (Anexo I: I e II / Anexo II: III), CCB e PCE
+// ==========================================================================
+
 const AQOI_SIMULADOS = {
-    simulado_1: [
-        {
-            id: 11,
-            title: "CONDUTA_PENAL",
-            text: " O coronel Pistache registrou sua licença no RCCSystem do dia 02 até 17 de abril. Contudo, após resolver suas pendências, registrou seu retorno no dia 11 de abril. Após seu retorno, observou que o tenente Labubu não estava apresentando presença no batalhão. Diante disso, no dia 18 de abril, o coronel decidiu rebaixar o tenente pelo crime de insuficiência para a patente, baseado na falta de quaisquer habilidades necessárias para um Oficial do Corpo Militar, utilizando como prova no requerimento apenas prints do perfil do militar, nos quais constava, reiteradas vezes, o status de 48 horas offline. Com base nas informações fornecidas, analise a ação do rebaixamento e a postagem do coronel, indicando se estão corretas ou incorretas e justificando sua resposta.",
-            answer: "A atitude do coronel em rebaixar está correta, uma vez que este compensou 07 dias de atividade após retornar de sua licença de serviço. Entretanto, as provas utilizadas no rebaixamento estão incorretas. Em casos de rebaixamento de um militar por insuficiência para a patente, feito por um promotor que tenha compensado pelo menos 07 dias de licença, mas que ainda restem dias para compensar, deverá conter obrigatoriamente, como prova, depoimentos de superiores do policial rebaixado.",
-            keywords: ["correta", "compensou", "07 dias", "licenca", "provas", "incorretas", "depoimentos de superiores", "insuficiencia"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 12,
-            title: "CONDUTA_PENAL",
-            text: " O aspirante Caio, inconformado por não ter sido promovido, utilizou-se de seu acesso às dependências por meio do setor de fiscalização de sua companhia para adentrar ao batalhão e fazer baderna com o uso de uma conta fake, identificando-se durante o ato. Diante disso, o capitão Antônio, membro da Repartição de Ações Interventivas e Ostensivas, exonerou o aspirante pelo crime de BADERNA. Contudo, o general Francisco afirmou que a conduta do capitão foi incorreta, sob o argumento de que ele não possui autoridade para aplicar tal punição sem autorização dos órgãos competentes. Além disso, diz que a situação não deveria ser enquadrada no crime mencionado. Diante disso, analise se o general Francisco está correto em suas afirmações, justificando sua resposta. Ademais, quanto à segunda afirmação, com base no princípio da especialidade, indique se o enquadramento está correto; caso contrário, aponte o crime adequado.",
-            answer: "Em relação à primeira afirmação do general, está incorreta, uma vez que o capitão possui autoridade para aplicar a exoneração nos casos de baderna e/ou invasão, sobretudo por ser membro da Repartição de Ações Interventivas e Ostensivas. Ademais, quanto à segunda afirmação, está correto, visto que o crime de baderna não é o enquadramento adequado. Aplicando-se o princípio da especialidade, a conduta deve ser tipificada como utilização de fakes.",
-            keywords: ["primeira", "docas", "autoridade", "exoneracao", "baderna", "invasao", "raio", "segunda", "correto", "especialidade", "fakes"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 13,
-            title: "CONDUTA_PENAL",
-            text: "Joãozinho iniciou a sua carreira como trainee em 2023, encerrando no mesmo como VIP, portador da Especialização Avançada e sem comprar nenhum cargo. Com isso, solicitou o passe de oficial reformado, sendo este aprovado. Em 2024 retornou ao Corpo Executivo, alcançando o posto de inspetor-geral e como não alcançou o cargo exigido para obter o passe, solicitou à Corregedoria em prol de sua carreira passada, sendo concedido. Por fim, no ano de 2025 retornou à instituição, mas dessa vez chegou até supervisor, solicitando novamente o passe de oficial reformado, que também foi aceito. Os pedidos de Joãozinho foram concedidos corretamente? Justifique. Além disso, fale quais requisitos um oficial do corpo executivo precisa ter para obter o passe de oficial reformado.",
-            answer: "Não. Ele só poderá solicitar o seu passe em prol da carreira anterior uma única vez, sendo restrito a uma solicitação por cada conquista de reformado. En relação aos requisitos, são: Ter se reformado no cargo de superintendente ou superior, desde que tenha iniciado como trainee ou sido reintegrado como analista, e não tenha efetuado compra de cargo até o posto em que se reformou; Ser portador da Especialização Avançada; Obter o reconhecimento como oficial reformado em segunda instância, mediante o envio de pedido à Corregedoria.",
-            keywords: ["nao", "anterior", "unica vez", "superintendente", "trainee", "compra", "avancada", "corregedoria"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 14,
-            title: "CONDUTA_PENAL",
-            text: " O capitão Lucas presenciou, em uma chamada por voz, o marechal Marcos e a general Sofia planejando e promovendo o Aspirante a Oficial Pedro, amigo pessoal de ambos. No entanto, o aspirante havia sido recentemente avaliado com um desempenho abaixo do esperado, tanto documentalmente quanto em suas funções, possuindo pontos a serem aprimorados. Diante disso, Lucas relatou os fatos ao Comandante Ricardo, porém, utilizando apenas o argumento de ter escutado. O capitão agiu de forma correta? Justifique sua resposta, indicando possíveis crimes cometidos, a punição aplicável e, caso a conduta esteja incorreta, em quais circunstâncias ela poderia ser considerada adequada.",
-            answer: "Não, pois o capitão precisaria de provas para acusar o marechal Marcos e a general Sofia. Como não apresentou nenhuma evidência, ele deve ser punido com uma advertência escrita por acusação sem provas. A acusação sem provas não configura crime nas seguintes circunstâncias: I — O levantamento de dados obtidos por testemunhas; II — A denúncia de um suspeito ao Setor de Inteligência.",
-            keywords: ["nao", "provas", "advertencia escrita", "testemunhas", "inteligencia", "indicios"],
-            timeDesktop: 150, timeMobile: 210
-        },
-        {
-            id: 15,
-            title: "CONDUTA_PENAL",
-            text: " A marechal Virgínia, ao ser promovida ao cargo de líder da companhia dos Instrutores, passou a analisar as funções desempenhadas pelo ministério e identificou diversas infrações cometidas pela supervisora-geral e estagiária Ludmilla. Diante dessas irregularidades, no dia 04 de abril, foi aplicada a medida de rebaixamento da supervisora-geral dentro da companhia. No dia 12 de abril, a policial Ludmilla percebeu que ainda possuía acesso à conta do ministério da companhia (Google), sendo assim, insatisfeita com sua punição, resolveu entrar e apagar todos os backups da listagem de membros. Posteriormente, resolveu se desligar, retornando em uma nova carreira como soldado. Diante disso, responda: a) Analisando a situação apresentada, identifique e justifique possíveis enquadramentos em crimes decorrentes das ações da marechal Virgínia, na condição de líder da companhia, bem como indique as punições cabíveis. b) A policial Ludmilla seria punida em sua nova carreira? Justifique sua resposta com base nos termos de extinção de punibilidade.",
-            answer: "a) A líder da companhia, marechal Virgínia, seria enquadrada no crime de conta comprometida, visto que é de sua responsabilidade modificar a senha das contas do grupo de tarefas, dentro do prazo de 72 horas, sempre que um indivíduo que anteriormente tinha acesso a elas perde a permissão para acessá-las. A punição ficará à critério do Setor de Inteligência. b) Sim. A extinção da punibilidade pelo conhecimento do crime quando o militar se encontrar em uma carreira diferente da do cometimento do crime, não se aplicará em fatos passíveis de exoneração por tempo indeterminado.",
-            keywords: ["conta comprometida", "senha", "72 horas", "permissao", "inteligencia", "sim", "carreira diferente", "exonerao por tempo indeterminado"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 16,
-            title: "CONDUTA_PENAL",
-            text: " A capitão Pônei utilizou a ferramenta de alteração de nickname disponível na versão moderna do jogo, optando por modificar seu nome para Maria. Diante disso, solicitou ao general João que realizasse os procedimentos administrativos necessários para prosseguir com a alteração. O general, por sua vez, publicou o requerimento de transferência de conta, e, sem maiores instruções, dispensou a policial. Considerando o caso apresentado e o decurso de 48 horas desde a aprovação do requerimento de transferência, sem a adoção de quaisquer ações, responda: a) Com base no caso apresentado, analise a conduta do general, indicando e justificando, se cabível, o crime cometido e a sanção aplicável. b) Apresente as obrigações, incluindo os prazos, tanto do responsável quanto do requerente após a realização da transferência.",
-            answer: "a) O general cometeu o crime de abandono de dever/negligência e deverá ser punido com advertência escrita, tendo em vista que deixou de prestar as orientações necessárias quanto aos procedimentos a serem adotados pela policial requerente após a efetivação da transferência. b) No prazo máximo de 24 horas após a transferência, é obrigação do responsável orientar o militar requerente acerca de suas responsabilidades. Quanto ao requerente, cabem as seguintes obrigações: realizar a alteração da TAG no prazo de até 48 horas; efetuar o preenchimento do formulário no tópico [FÓRUM] Pedido de Transferência de Nick em até 72 horas; e publicar o requerimento de transferência de conta nos grupos de tarefas também no prazo de até 72 horas.",
-            keywords: ["negligencia", "advertencia escrita", "orientacoes", "24 horas", "tag", "48 horas", "transferencia de nick", "72 horas", "grupos de tarefas"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 17,
-            title: "COMANDO_BATALHAO",
-            text: " O Oficial da Guarda aplicou o comando “sentido” após a entrada de um marechal (maior patente presente) e, minutos depois, o marechal reentrou no quarto e o comando foi novamente dado. Durante o comando sentido, um comandante entrou, mas o Oficial da Guarda não realizou o repasse imediato, pois o marechal havia iniciado sua fala. Em outro momento, um policial solicita o comando sentido para realizar um anúncio, sem autorização do maior superior presente. Com base apenas nas informações dadas, analise as condutas apresentadas e identifique quais estão corretas ou incorretas, justificando cada uma.",
-            answer: "A aplicação do comando “sentido” na reentrada do marechal é incorreta, uma vez que o Oficial da Guarda não se deve aplicá-lo nessa situação, salvo se houver requisição do próprio. Contudo, ainda nesse contexto, apesar de ter aplicado o comando, agiu corretamente ao não o repassar ao comandante em sua entrada, tendo em vista que o marechal iniciou sua fala. A solicitação do comando “sentido” para anúncio, sem autorização prévia, também é incorreta, pois o requerente deve solicitá-la com antecedência a um policial de maior patente ou cargo presente no batalhão.",
-            keywords: ["reentrada", "incorreta", "salvo", "requisicao", "repasse", "iniciou sua fala", "anuncio", "antecedencia", "maior patente"],
-            timeDesktop: 150, timeMobile: 210
-        },
-        {
-            id: 18,
-            title: "COMANDO_BATALHAO",
-            text: " Analise as afirmativas a seguir, classificando-as como verdadeira ou falsa, justificando a(s) falsa(s): I. O Oficial da Guarda pode realizar a migração de batalhão sempre que julgar conveniente para melhorar a organização, independentemente da motivação. II. Caso o batalhão atinja 75 policiais, o Oficial da Guarda pode abrir outro batalhão desde que haja, no mínimo, 10 policiais disponíveis para deslocamento. III. Ao abrir um segundo batalhão, o Oficial da Guarda não precisa se preocupar com a lotação do batalhão principal, desde que ambos permaneçam com quantidade equilibrada de policiais. IV. A atividade de recrutamento pode ser realizada mesmo que o batalhão esteja abaixo do contingente mínimo exigido para outras atividades.",
-            answer: "I. Falsa. A migração entre batalhões é proibida por motivos fúteis, sendo permitida apenas em situações específicas, como baixo ou alto contingente, falta de portadores de direitos ou emergências que inutilizem o funcionamento pleno do batalhão. II. Verdadeira. III. Falsa. Ao abrir outro batalhão, o Oficial da Guarda deve manter o controle do batalhão principal, garantindo que este não fique com menos de 60 policiais e realizando deslocamentos quando necessário. IV. Verdadeira.",
-            keywords: ["i. falsa", "proibida", "futis", "ii. verdadeira", "iii. falsa", "batalhao principal", "60 policiais", "iv. verdadeira"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 19,
-            title: "CONTROLE_EMERGENCIAL",
-            text: " O capitão Diamante, membro do Comando de Segurança Institucional, estava na função de Oficial da Guarda e ocorrem as seguintes situações em sequência: I - Um supervisor com especialização básica e um sargento foram kickados do batalhão. Ao solicitar que enviassem a comprovação no tópico, os policiais informaram que não tiraram print. II - O subtenente Bijuteria foi mutado e perguntou ao capitão como deveria comprovar o mute. Depois da explicação e o devido registro da comprovação no tópico, o capitão printou o chooser e encaminhou os policiais com direitos ao corredor principal. III - Após os portadores retornarem do corredor, houve um ataque de movimentação de mobílias em grande escala, sendo assim, o capitão printou o chooser e encaminhou os policiais com direitos ao corredor principal. Considerando apenas os fatos ocorridos, analise as situações e identifique erros cometidos pelo capitão, bem como os procedimentos corretos a serem adotados em cada situação. Ademais, quanto à situação II, indique a orientação que deveria ser fornecida ao subtenente.",
-            answer: "Em relação à situação I, antes da solicitação das comprovações, o capitão deveria ter acionado o procedimento básico. Além disso, devido aos alvos mencionados não terem registrado a comprovação, o capitão deveria instruir e orientar a registrarem em um futuro ataque. Em relação à situação II, o capitão errou ao acionar o procedimento intermediário, quando o correto seria a adoção do procedimento básico. Ademais, quanto à orientação ao subtenente mutado, deve ser informado que é necessário apresentar um print em tela cheia, contendo o aviso de mute, bem como realizar a devida postagem no tópico [CSI] Central de Comprovações. Em relação à situação III, agiu corretamente acionando o procedimento intermediário.",
-            keywords: ["procedimento basico", "futuro ataque", "errou", "procedimento intermediario", "tela cheia", "aviso de mute", "central de comprovacoes", "corretamente"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 20,
-            title: "CONTROLE_EMERGENCIAL",
-            text: " Durante o comando, o Oficial da Guarda se depara com um ataque de flood, passando a aplicar o procedimento básico de gravidade 2, realizando mute e kick nos usuários mal-intencionados. No entanto, o ataque persiste de forma contínua e impossibilitando o controle da situação, o que leva o Oficial da Guarda a solicitar apoio dos portadores de direitos para conter os envolvidos. Após isso, o teleporte do corredor é movimentado ao saguão e o Oficial da Guarda reposiciona a mobília ao seu local original e questiona os portadores sobre a possível responsabilidade pelo ocorrido, sem obter resposta. Considerando que o Oficial da Guarda seja membro do Comando de Segurança Institucional, indique e descreva os procedimentos corretos a serem adotados nas situações apresentadas.",
-            answer: "No primeiro caso, diante da continuidade do ataque de flood mesmo após o procedimento básico, o correto seria o acionamento do procedimento intermediário de gravidade 2, que consiste na utilização da ferramenta localizada nas preferências do quarto para silenciar todos. Após isso, deverá mutar e kickar os usuários mal-intencionados, controlando o ataque e desativando a ferramenta. No segundo caso, ao ocorrer a movimentação do teleporte com potencial de comprometer a segurança, o correto seria acionar o procedimento básico de gravidade 3, que consiste em printar e salvar toda a lista de usuários presentes no quarto por meio do comando :chooser, sem a necessidade de questionamento, devendo registrar a ocorrência no tópico.",
-            keywords: ["procedimento intermediario", "silenciar todos", "mutar e kickar", "desativando", "movimentacao do teleporte", "gravidade 3", ":chooser", "questionamento", "registrar"],
-            timeDesktop: 180, timeMobile: 240
-        }
-    ],
-    simulado_2: [
-        {
-            id: 21,
-            title: "CONDUTA_PENAL",
-            text: " O tenente Yan, integrante da companhia dos treinadores, presenciou uma situação de BADERNA causada por um sargento durante a aplicação do Curso de Formação de Sargentos. Ele tentou intervir para que o sargento cessasse a conduta inadequada, mas, não obtendo êxito, procurou o inspetor Brian, membro da Repartição de Ações Interventivas e Ostensivas e solicitou permissão para exonerá-lo pelo ato cometido. Após ter o pedido autorizado pelo inspetor, o tenente efetuou a postagem da exoneração cinco minutos depois da solicitação, possuindo também o registro do pedido da permissão. Entretanto, o inspetor só postou a permissão para a exoneração 64 minutos após a publicação do ato pelo tenente. Analise o caso em todos os detalhes apresentados e aponte possíveis falhas no processo, justificando sua resposta e citando as sanções aos envolvidos, caso seja aplicável.",
-            answer: "O inspetor Brian não possui a autonomia correspondente para conceder a permissão, tendo em vista que os membros da Repartição de Ações Interventivas e Ostensivas podem exonerar, mas não são autorizados a permitir. Logo, o inspetor seria punido com uma advertência escrita por abandono de dever/negligência. Além disso, ainda que o inspetor possuísse tal autonomia, falhou ao postar a permissão após 1 hora do registro do tenente, devendo nesta hipótese específica ser punido com uma advertência escrita por abandono de dever/negligência.",
-            keywords: ["brian", "autonomia", "conceder a permissao", "raio", "advertencia escrita", "abandono de dever", "negligencia", "1 hora", "registro"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 22,
-            title: "CONDUTA_PENAL",
-            text: "No dia 22 de março, o aspirante a oficial Ferrete recebeu uma missão e no dia seguinte concluiu. No dia 29 de março às 15h49, o coronel Eduardo decidiu aplicar uma nova missão ao aspirante a oficial, com objetivo de avaliar seu desempenho recente, repassando a atividade por mensagem privada com as devidas orientações e registrou a missão no tópico “[SRP] Central de Postagens” às 17h20. Diante do exposto, analise a situação apresentada e com base nas normativas vigentes, identifique e justifique todas as irregularidades cometidas, bem como o crime configurado e a punição aplicável ao promotor da missão.",
-            answer: "O coronel Eduardo agiu de forma irregular ao designar a missão a um militar que não se encontrava apto a recebê-la, uma vez que desconsiderou o intervalo mínimo de 7 dias desde a conclusão da missão anterior do aspirante. Além disso, descumpriu o prazo para formalização da missão no devido tópico, ao realizá-la fora do limite de 1 hora estabelecido. Diante disso, o coronel incorreu no crime de abandono de dever/negligência, sendo cabível a aplicação de advertência escrita.",
-            keywords: ["eduardo", "irregular", "designar a missao", "intervalo minimo", "7 dias", "formalizacao", "1 hora", "abandono de dever", "negligencia", "advertencia escrita"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 23,
-            title: "CONDUTA_PENAL",
-            text: " O comandante e corregedor Cinza esteve em licença por 30 dias, mas manteve-se presente no batalhão durante os últimos 8 dias de afastamento. No mesmo dia do seu retorno de licença, utilizando sua autonomia de corregedor e de forma simultânea, promoveu o capitão Lilás e concedeu permissão para a promoção do tenente Azul, destinada ao Acionista Majoritário Amarelo, portador da especialização básica. Diante do cenário apresentado, analise as ações do comandante, apontando e justificando possíveis irregularidades identificadas, bem como os respectivos crimes e punições cabíveis ao caso.",
-            answer: "O comandante cometeu irregularidades ao promover e conceder a permissão, visto que a exceção de não compensação de dias apenas enquadra-se para corregedores que tirarem licença de até 21 dias. Dessa forma, ao promover o capitão Lilás, o comandante incorreu no crime de abandono de dever/negligência e deverá ser punido com uma advertência escrita. Além disso, cometeu crime idêntico – abandono de dever/negligência — ao conceder permissão para a promoção do tenente, logo considerando a reincidência dos atos, sem registro de punição em referência ao primeiro, deverá ser acrescentada a punição de 50 medalhas efetivas negativas.",
-            keywords: ["cinza", "irregularidades", "permissao", "21 dias", "lilas", "azul", "advertencia escrita", "reincidencia", "50 medalhas"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 24,
-            title: "CONDUTA_PENAL",
-            text: "O marechal Carlos, no exercício de sua função como membro do Corpo de Oficiais Generais, falhou e aceitou um usuário fake no grupo destinado a aspirantes/analistas, o que possibilitou uma invasão por meio do acesso padrão do batalhão. Diante do ocorrido, o comandante Luís aplicou ao marechal a punição de rebaixamento, fundamentada em abandono de dever e negligência, tendo em vista o impacto da conduta na integridade da instituição. Inconformado com a decisão do comandante, o marechal interpôs recurso junto à Corregedoria, visando à revisão do caso. Dessa forma, com base exclusivamente nas informações apresentadas e nas normativas aplicáveis, analise e responda: a) O comandante Luís cometeu erros na condução e resolução do caso. Diante disso, justifique essa afirmação e, se for o caso, indique as possíveis consequências (crimes e punições) aplicáveis ao comandante. b) O recurso foi corretamente direcionado à Corregedoria? Justifique sua resposta. c) Após a instauração de um processo em segunda instância, quais são os prazos estabelecidos até o veredito dado pelo colegiado? Indique eventuais exceções, se aplicáveis.",
-            answer: "a) O comandante aplicou punição inadequada ao ato praticado pelo marechal, considerando que, para a conduta em questão, deve seguir com a aplicação de advertência escrita. Dessa forma, o comandante incorreu em abandono de dever/negligência e deverá ser punido com uma advertência escrita. b) Não, uma vez que a Corregedoria somente deve ser acionada após julgamento em primeira instância. c) Após a instauração do recurso, o réu dispõe do prazo de 24 horas para apresentação de sua defesa, sendo-lhe assegurado prazo adicional de 24 horas para complementação, caso haja atuação conjunta com a Procuradoria Militar de Justiça. Na sequência, a Corregedoria possui o prazo de 48 horas para proferir decisão, podendo este prazo ser prorrogado por mais 24 horas em situações de negligência que resultem na falta de quórum entre os corregedores.",
-            keywords: ["luis", "carlos", "inadequada", "advertencia escrita", "primeira instancia", "24 horas", "defesa", "procuradoria", "48 horas", "quorum"],
-            timeDesktop: 210, timeMobile: 270
-        },
-        {
-            id: 25,
-            title: "CONDUTA_PENAL",
-            text: " O general Pedro, inconformado com seu rebaixamento por insuficiência para a patente, convoca o coronel Heitor ao Centro de Instrução. Durante a conversa, determina que este realize, de forma furtiva, um ataque ao Batalhão Principal durante a madrugada, proibindo-o de associar seu nome à ação. Ciente de que se trata de uma ordem direta de seu superior, o coronel registra o diálogo e cumpre o que foi determinado, utilizando, contudo, o registro da ordem como meio de defesa para o ato criminoso praticado. Diante do caso apresentado, identifique se o argumento de defesa do coronel é válido com base nos conceitos de extinção de punibilidade, justificando sua resposta e indicando qual deveria ser a ação correta do coronel e quem será punido mediante os atos cometidos.",
-            answer: "O argumento não é válido para a concessão da extinção de punibilidade no caso, uma vez que a ordem coloca em alto grau de risco a integridade da Polícia RCC. Dessa forma, o coronel Heitor deveria recusar-se a cumprir a ordem e, caso fosse enquadrado no crime de desrespeito e insubordinação, deveria apresentar provas para reverter a punição posteriormente. No cenário apresentado, o autor da coação e o coagido serão penalizados.",
-            keywords: ["pedro", "heitor", "nao e valido", "extincao de punibilidade", "alto grau de risco", "recusar-se", "provas", "coacao", "penalizados"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 26,
-            title: "CONDUTA_PENAL",
-            text: " Durante um período inferior a dois meses, o tenente Rafael foi punido, em três ocasiões distintas, com rebaixamentos por desrespeito/insubordinação. Todas as punições foram devidamente registradas e aprovadas no RCCSystem. O general Francisco, promotor do último requerimento de rebaixamento, ao identificar, no prazo de 48 horas após a aprovação no CRH, a configuração de reincidência, procedeu com a postagem do requerimento referente à punição correspondente ao conceito. Contudo, ao formalizar o requerimento, limitou-se a redigir apenas “reincidência” como motivo. Diante do exposto, responda: a) Qual a punição correta a ser aplicada ao tenente Rafael em razão da reincidência? Justifique sua resposta. b) A conduta do general foi adequada? Justifique, apontando as irregularidades, o crime e a sanção cabível.",
-            answer: "a) A punição correta é a demissão, pois houve três rebaixamentos pelo mesmo crime, dentro do período de dois meses. b) Não. O general errou ao não indicar o crime na postagem da reincidência e ao não realizar a postagem dentro do prazo de 24 horas, o que configura abandono de dever/negligência, sendo cabível a aplicação de 50 medalhas efetivas negativas.",
-            keywords: ["rafael", "francisco", "demissao", "tres rebaixamentos", "dois meses", "nao indicar o crime", "24 horas", "negligencia", "50 medalhas"],
-            timeDesktop: 150, timeMobile: 210
-        },
-        {
-            id: 27,
-            title: "COMANDO_BATALHAO",
-            text: " Acerca dos procedimentos de abertura e fechamento dos batalhões, analise as afirmativas a seguir, classificando-as como VERDADEIRA ou FALSA, devendo justificar apenas aquelas que forem consideradas falsas. I. Caso o relatório de abertura/fechamento não seja postado no tópico em até 30 minutos, os oficiais estarão passíveis ao recebimento de uma advertência escrita pelo crime de abandono de dever/negligência, em exceção aos membros do Comando de Segurança Institucional que estão isentos dessa punição. II. Na versão mobile, o registro deverá ser feito em duas etapas: o primeiro registro deverá estar em tela cheia, deixando visível todos os componentes e funções do batalhão; e no segundo registro devem ser apresentados todos os usuários presentes no quarto. III. Tanto nos Batalhões Principais quanto no Batalhão Auxiliar é necessário que o portador de direitos siga todos os procedimentos padrões de abertura, conforme disposto no Código de Comando do Batalhão. IV. O Batalhão Auxiliar somente poderá ser aberto nos turnos da manhã, madrugada ou mediante necessidade devido ao excesso de contingente em um batalhaõ principal.",
-            answer: "A afirmativa I é falsa, pois membros do Comando de Segurança Institucional não estão isentos dessa punição. A afirmativa II é verdadeira. A afirmativa III é falsa, uma vez que na abertura do Batalhão Auxiliar não são necessários todos os procedimentos de abertura padrão. A afirmativa IV é verdadeira.",
-            keywords: ["i é falsa", "nao estao isentos", "ii é verdadeira", "iii é falsa", "nao sao necessarios", "iv é verdadeira"],
-            timeDesktop: 150, timeMobile: 210
-        },
-        {
-            id: 28,
-            title: "COMANDO_BATALHAO",
-            text: " Durante o turno da noite, o Oficial da Guarda identificou que o batalhão atingiu o número de 75 usuários presentes e havia 15 policiais na sala de estado. Diante disso, decide abrir o batalhão auxiliar para melhor controle do contingente. No entanto, não realizou o envio inicial de 10 policiais para o novo batalhão, mantendo a maior parte do efetivo no batalhão principal. Simultaneamente, há atividades em andamento no Corredor Principal, as quais não são interrompidas após a abertura do novo batalhão. Dessa forma, o contingente do batalhão principal caiu para menos de 60 usuários, enquanto o batalhão auxiliar atingiu 10 em número de usuários no quarto. Diante do exposto, analise a conduta do Oficial da Guarda, identificando acertos e justificando os erros cometidos durante a ocorrência, bem como descreva o procedimento correto a serem adotados.",
-            answer: "Ao identificar que o batalhão atingiu a marca de 75 militares, a decisão de abrir o batalhão auxiliar foi correta. Contudo, o Oficial da Guarda incorreu em erro ao não enviar a quantidade mínima de policiais ao batalhão auxiliar no momento de sua abertura, sendo, nesse caso, necessário encaminhar, no mínimo, 10 policiais ao batalhão a ser aberto. Também agiu de forma inadequada ao manter atividades no Corredor Principal após a abertura do batalhão auxiliar, quando o procedimento correto seria cancelá-las e redirecionar os policiais. Ademais, permitiu que o batalhão principal operasse com menos de 60 militares, em desacordo com o controle mínimo de lotação, sendo o correto realocar os policiais do batalhão auxiliar para o principal e, posteriormente, proceder ao fechamento.",
-            keywords: ["75 militares", "auxiliar foi correta", "erro", "quantidade minima", "10 policiais", "corredor principal", "menos de 60", "realocar"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 29,
-            title: "CONTROLE_EMERGENCIAL",
-            text: " O capitão Gyan presenciou, na manhã do dia 21 de fevereiro, um ataque relacionado a negociações e flood. Diante disso, ele seguiu o procedimento básico, realizando o registro de usuários em print do chooser. Analise as ações do capitão, justifique possíveis falhas e descreva os procedimentos corretos a serem acionados nos ataques descritos, assim como a classificação de gravidade destes com base no Plano de Controle Emergencial.",
-            answer: "O print do chooser só deve ser feito em ataques de gravidade 3 ou superior. Em relação ao cenário apresentado, os ataques citados são de gravidade 2, sendo que em ataques de flood e negociações, é necessário mutar e expulsar os responsáveis; e, de forma adicional, em um ataque de negociações, deve orientar os afetados a calarem os infratores.",
-            keywords: ["gyan", "gravidade 3", "gravidade 2", "flood", "negociacoes", "mutar e expulsar", "calarem"],
-            timeDesktop: 150, timeMobile: 210
-        },
-        {
-            id: 30,
-            title: "CONTROLE_EMERGENCIAL",
-            text: " O general Leonardo, integrante da Repartição de Ações Interventivas e Ostensivas (RAIO), encontrava-se na sala de estado do 3º Batalhão quando constatou que todos os sofás da localidade foram girados. Diante desse cenário, identifique a emergência configurada, bem como sua respectiva gravidade conforme o Plano de Controle Emergencial. Ademais, considerando exclusivamente os fatos apresentados, indique e justifique quais procedimentos devem ser adotados tanto pelo Oficial da Guarda, na condição de portador de direitos, quanto pelo general no momento da ocorrência.",
-            answer: "A emergência apresentada caracteriza um ataque de movimentação de mobílias, enquadrando-se como gravidade 3 no Plano de Controle Emergencial. Nesse contexto, o Oficial da Guarda, portador de direitos, deve acionar o procedimento básico, uma vez que é dever deste adotar tal procedimento em ocorrências de gravidade 3, independentemente da presença de membros do Comando de Segurança Institucional (CSI) no batalhão. Por sua vez, o general, na condição de integrante do CSI, deverá acionar o procedimento intermediário, considerando tratar-se de um ataque em grande escala devido às múltiplas movimentações de mobílias.",
-            keywords: ["leonardo", "movimentacao de mobilias", "gravidade 3", "oficial da guarda", "procedimento basico", "csi", "procedimento intermediario", "grande escala"],
-            timeDesktop: 180, timeMobile: 240
-        }
-    ],
-    simulado_3: [
-        {
-            id: 31,
-            title: "CONDUTA_PENAL",
-            text: " Após 3 anos de serviços prestados à Revolução Contra o Crime, o executivo Jean foi exonerado por 1 mês por Ataque. Findada sua pena, retornou às atividades e permaneceu por mais 3 anos, tornando-se chanceler por mérito. Decidido a se aposentar, o oficial resolveu reivindicar seu passe de veterano, argumentando ter todos os requisitos necessários. Cite três dos requisitos aos quais o chanceler Jean teria se referido e responda se, diante do cenário apresentado, ele conseguirá obter o passe de veterano, explicando detalhadamente os motivos para tal.",
-            answer: "Todos os requisitos são: Ter 5 anos ou mais de serviços prestados; Ter feitos para o desenvolvimento da instituição; Finalizar, no mínimo, uma carreira pertencendo, por mérito, ao Corpo de Oficiais Generais; Pertencendo ao Corpo Executivo, deve ter chegado ao posto em que se reformou sem compras de cargo ou ser portador da Especialização Avançada. Ele não conseguirá obter o passe de veterano, pois o período de serviços prestados anterior à exoneração não poderá ser contabilizado, tendo reiniciado a contagem após seu retorno.",
-            keywords: ["jean", "5 anos", "desenvolvimento", "oficiais generais", "sem compras", "avancada", "nao conseguira", "contabilizado", "reiniciado"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 32,
-            title: "CONDUTA_PENAL",
-            text: " Numa madrugada, o aspirante a oficial Cleitinho apresentou problemas de conexão e não conseguiu executar os comandos dados pelo capitão Jefferson. O capitão, então, de maneira impaciente, o rebaixou. Algumas horas depois, antes da atualização do Centro de Recursos Humanos, mudou de ideia e pediu para que um membro da subcompanhia negasse seu requerimento. O capitão cometeu algum crime? Fundamente sua resposta com base nas ações do capitão, citando crimes e punições, caso aplicáveis.",
-            answer: "Não cometeu nenhum crime, uma vez que usou de seu direito ao pedir para que um membro do Centro de Recursos Humanos negasse seu requerimento, isentando-se de quaisquer punitivas por suas ações.",
-            keywords: ["cleitinho", "jefferson", "nao cometeu", "nenhum crime", "recursos humanos", "negasse", "isentando-se"],
-            timeDesktop: 120, timeMobile: 180
-        },
-        {
-            id: 33,
-            title: "CONDUTA_PENAL",
-            text: " O aspirante a oficial Joaozinho foi promovido pelo coronel Gabriel. No Diálogo Pós Promoção, seu promotor citou a importância de realizar o fichamento policial, disponibilizado pelo Comando de Segurança Institucional. Por motivos pessoais, o tenente o realizou somente no dia seguinte, passadas 30 horas. Algum delito foi cometido? Justifique e, caso necessário, cite punições.",
-            answer: "Não cometeu uma irregularidade, uma vez que não há prazo para responder o formulário.",
-            keywords: ["joaozinho", "gabriel", "nao cometeu", "irregularidade", "nao ha prazo", "formulario"],
-            timeDesktop: 120, timeMobile: 180
-        },
-        {
-            id: 34,
-            title: "CONDUTA_PENAL",
-            text: "O âmbito judiciário é regido por normas que defendem a integridade da pessoa, validam seus direitos e explicitam seus trâmites judiciais. Neste sentido, considere “V” para VERDADEIRO e “F” para FALSO ao citar a alternativa que corresponde com os incisos:\nI - Um processo em segunda instância possui duração máxima de 24 horas. O réu deve defender-se em 48 horas e a Corregedoria possuirá 24 horas para um veredito oficial; adiciona-se, se na falta de quórum, 24 horas.\nII - Um subalterno que é intimado por seu superior a atacar uma dependência da Revolução Contra o Crime deve fazê-lo e apresentar provas da coação.\nIII - Somente em casos de advertência escrita a extinção de punibilidade ocorrerá para compra/aumento de cargo, promoção, demissão ou rebaixamento do militar advertido.\nIV - Um policial que é punido em primeira instância por um corregedor pode recorrer diretamente à segunda instância.",
-            answer: "Letra E (F / F / F / F).",
-            keywords: ["letra e", "f / f / f / f"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 35,
-            title: "CONDUTA_PENAL",
-            text: " O coordenador Vitor, para ganhar mais pontos no ranking de executivos da Diretoria, decide criar três contas fakes e promovê-las. Nesta situação, o executivo é punido com uma demissão. A punitiva foi aplicada de maneira correta? Justifique citando também o crime pelo qual o executivo foi punido.",
-            answer: "Não, o coordenador cometeu utilização de fakes de segundo grau, devendo ser exonerado por três meses.",
-            keywords: ["vitor", "nao", "utilizacao de fakes", "segundo grau", "exonerado", "tres meses"],
-            timeDesktop: 120, timeMobile: 180
-        },
-        {
-            id: 36,
-            title: "CONDUTA_PENAL",
-            text: " Uma investigação revelou que a ex-tenente Ester cometeu uma série de ações criminosas: utilizou do grupo da companhia dos Treinadores para acessar o corredor e tirar mobis do lugar, atrapalhou as atividades rotineiras da base e usou informações comprometedoras sobre outro militar para obrigá-lo a lhe dar câmbios. Marque a alternativa que corresponde a todos os crimes cometidos neste caso e contém a punição apropriada:\na) Ataque, Baderna e Estelionato e Extorsão. Exoneração por 6 meses.\nb) Invasão, Ataque, Estelionato e Extorsão e Corrupção. Exoneração por 11 meses.\nc) Invasão, Ataque, Baderna e Estelionato. Exoneração por tempo indeterminado.\nd) Ataque, Baderna, Extorsão e Corrupção. Exoneração por tempo indeterminado.\ne) Invasão, Ataque, Baderna, Extorsão e Corrupção. Exoneração por tempo indeterminado.",
-            answer: "Letra E (Invasão, Ataque, Baderna, Extorsão e Corrupção. Exoneração por tempo indeterminado).",
-            keywords: ["letra e", "invasao", "ataque", "baderna", "extorsao", "corrupcao", "tempo indeterminado"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 37,
-            title: "COMANDO_BATALHAO",
-            text: " A migração de batalhões é uma situação comum na Revolução Contra o Crime, que pode acontecer por diversos motivos. Algumas migrações foram realizadas:\nI - Numa madrugada, o Oficial da Guarda do terceiro batalhão, sendo o único portador de direitos de qualquer batalhão presente, decide migrar para o segundo batalhão.\nII - Ao perceber que algumas mensagens nos mobis de funções estavam trocadas (como, ao sentar na cadeira do operador 1, recebia-se orientações sobre a função de sentinela), o Oficial da Guarda decide migrar de batalhão.\nIII - Ao notar um bom contingente no segundo batalhão, o Oficial da Guarda migra para o terceiro batalhão, na justificativa de que comporta mais pessoas.\nIV - Após assumir o comando do terceiro batalhão, o Oficial da Guarda nota que os comandos para abrir as portas do operador 2 e sentinela não estão funcionando. Apesar do Oficial da Guarda anterior ter decidido abrir manualmente as portinhas para não atrapalhar as atividades do batalhão, o atual decide migrar para o segundo.\nEm quais situações a decisão de migração foi CORRETA?",
-            answer: "Apenas na IV.",
-            keywords: ["iv", "apenas na iv", "quarta"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 38,
-            title: "COMANDO_BATALHAO",
-            text: " O Auxiliar de Oficial da Guarda, notando uma emergência de gravidade 2, não assume o posto de Oficial da Guarda. Sua ação é correta? Ele seria punido? Justifique.",
-            answer: "Sim, uma vez que auxiliares de oficial da guarda só devem assumir o posto de Oficial da Guarda em casos de gravidade 3 ou superior. Não seria punido.",
-            keywords: ["sim", "auxiliares", "gravidade 3", "superior", "nao seria punido"],
-            timeDesktop: 120, timeMobile: 180
-        },
-        {
-            id: 39,
-            title: "CONTROLE_EMERGENCIAL",
-            text: " A coronel Antonieta, membro do Comando de Segurança Institucional, era Oficial da Guarda quando um oficial a avisa ter sido kickado e logo envia comprovação. A oficial, então, dá sentido ao batalhão e ordena que todos os policiais com direitos dirijam-se ao corredor principal. Qual a gravidade della ocorrência? O Plano de Controle Emergencial foi acionado corretamente? Justifique.",
-            answer: "Gravidade 3. Não foi acionado corretamente. Por ser primeira ocorrência, o procedimento básico deveria ser acionado primeiramente.",
-            keywords: ["antonieta", "gravidade 3", "nao foi acionado", "primeira ocorrencia", "procedimento basico", "primeiramente"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 40,
-            title: "CONTROLE_EMERGENCIAL",
-            text: " Cite e explique duas definições do Plano de Controle Emergencial.",
-            answer: "Pode citar: Acidente (situação sem intenção de prejudicar), Emergência (risco estrutural), Procedimento Básico (inicial), Procedimento Intermediário (continuidade), Evacuação (saída ordenada), ou Exercício Simulado (treinamento).",
-            keywords: ["acidente", "emergencia", "procedimento basico", "procedimento intermediario", "evacuacao", "simulado"],
-            timeDesktop: 180, timeMobile: 240
-        }
-    ],
-    simulado_4: [
-        {
-            id: 41,
-            title: "CONDUTA_PENAL",
-            text: " Num dia, o marechal e corregedor Mathyas, que estava em licença de serviço na polícia, foi procurado por um cabo que lhe enviou prints mostrando a ministra-geral Camilinha cometendo Conduta Imprópria ao pular linhas de script, levando o oficial a lhe aplicar uma advertência escrita. Qual o crime e a punição para o militar que realizar punições administrativas estando em licença sem ter autonomia para tal? Neste caso, o marechal poderia ter punido a ministra-geral? Justifique.",
-            answer: "Crime de Abandono de Dever/Negligência, punido com uma advertência escrita. Sim, o marechal poderia tê-la punido, visto que é permitido aos Corregedores a aplicação de punições administrativas estando em licença de serviço.",
-            keywords: ["mathyas", "camilinha", "negligencia", "advertencia escrita", "sim", "corregedores", "licenca de servico"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 42,
-            title: "CONDUTA_PENAL",
-            text: " Um oficial do Corpo Executivo, portador da Especialização Intermediária e membro do Setor de Inteligência, concedeu permissão de promoção para um praça. O requerente, após a concessão, realizou a postagem do requerimento no RCCSystem, porém o oficial ainda não havia registrado-a no site. O concessor, posteriormente, decide revogar a permissão, orientando o praça a cancelar o requerimento, mas não armazenando prints de toda a orientação. Considerando a Especialização do executivo, cite a alternativa que contém a punição correta para as circunstâncias descritas.\na) O concessor será punido com uma advertência escrita por abandono de dever/negligência.\nb) O concessor será punido com 50 medalhas efetivas negativas por abandono de dever/negligência.\nc) O concessor será punido com um rebaixamento por abandono de dever/negligência.\nd) O concessor não será punido, pois integra o Setor de Inteligência e tem autonomia para as ações citadas.",
-            answer: "Letra A (O concessor será punido com uma advertência escrita por abandono de dever/negligência).",
-            keywords: ["letra a", "advertencia escrita", "negligencia"],
-            timeDesktop: 120, timeMobile: 180
-        },
-        {
-            id: 43,
-            title: "CONDUTA_PENAL",
-            text: " O chanceler por mérito Zequinha se reformou. Quando ativo, foi um militar com contribuições relevantes para a instituição e que esteve em atividade por 6 anos, podendo assim obter o passe de veterano. Caso o ex-chanceler decida retornar, ele poderá realizar a reintegração em qual cargo? Cite as ações que, se cometidas, levariam o aposentado a perder seu direito de ser reintegrado.",
-            answer: "No cargo de supervisor. As ações são: alistar-se a outra instituição militar ou cometer alguma transgressão disciplinar enquanto reformado que levasse a Corregedoria ou Alto Comando Supremo a retirar seu passe de veterano.",
-            keywords: ["zequinha", "supervisor", "alistar-se", "transgressao disciplinar", "corregedoria", "alto comando", "retirar seu passe"],
-            timeDesktop: 120, timeMobile: 180
-        },
-        {
-            id: 44,
-            title: "CONDUTA_PENAL",
-            text: "O capitão César, durante suas atividades no Habbo Hotel, faz uso do navegador Puffin, conhecido por alterar, por padrão, o Internet Protocol (IP), sem a prévia autorização do Alto Comando Supremo. No entanto, ele utiliza um navegador convencional fora do ambiente virtual. Qual o crime para a alteração do IP e quais são todas as punições cabíveis a ele? O capitão César será punido? Explique os motivos que embasam a sua resposta.",
-            answer: "Crime de Camuflagem de Internet Protocol (IP), com pena de um rebaixamento imediato, se estendendo a um rebaixamento a cada 24 horas, podendo chegar a uma exoneração de 03 meses. O capitão não será punido, visto que ele utiliza o navegador Puffin apenas no ambiente do Habbo Hotel.",
-            keywords: ["cesar", "camuflagem", "internet protocol", "rebaixamento", "24 horas", "exonerao de 03 meses", "nao sera punido", "puffin", "habbo hotel"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 45,
-            title: "CONDUTA_PENAL",
-            text: " Numa tarde, o tenente Adrian mencionou ao aspirante Carlos sobre o único requisito para ser portador de direitos: confiança do Alto Comando Supremo. Na conversa, no entanto, o superior ordena que ele peça direitos a um supremo, alegando que seu subalterno deveria assumir Oficial da Guarda com mais frequência. Realizando a ação, é rebaixado imediatamente. Ao ser consultado pelo general Camargo sobre o ocorrido, o subtenente alegou que não realizou nada mais que a ordem dada pelo tenente. Nesse contexto, a punição para o subtenente Carlos deverá proceder? Explique o(s) motivo(s).",
-            answer: "Não. O subtenente Carlos terá direito à extinção de punibilidade pela coação irresistível à realização de um crime.",
-            keywords: ["adrian", "carlos", "nao", "extincao de punibilidade", "coacao irresistivel", "crime"],
-            timeDesktop: 120, timeMobile: 180
-        },
-        {
-            id: 46,
-            title: "CONDUTA_PENAL",
-            text: " O Código Penal Militar aborda as definições de três termos que, apesar de carregarem nomenclaturas ou características semelhantes, possuem definições que se diferem entre si. Conhecendo os conceitos de “solo estrangeiro”, “terra estrangeira” e “sede hostil”, apresente-os com todos os detalhes inerentes a eles.",
-            answer: "Solo estrangeiro define quaisquer salas que não estejam sob controle do Alto Comando Supremo ou de Líderes de Grupos de Tarefas; terra estrangeira se refere a quaisquer salas que estão sob jurisdição de polícias neutras, aliadas ou inimigas. Já a sede hostil define quaisquer salas que estão sob o domínio da polícia/organização a qual uma Guerra foi declarada.",
-            keywords: ["solo estrangeiro", "alto comando", "terra estrangeira", "policias neutras", "sede hostil", "guerra foi declarada"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 47,
-            title: "COMANDO_BATALHAO",
-            text: " Num madrugada, o marechal Roxo precisou se ausentar e passar o comando do batalhão. No entanto, não havia outro policial com direitos, assim, diante dessa circunstância, o portador decidiu encerrar as atividades do batalhão. Após seguir os procedimentos para fechar o batalhão e kickar os usuários, ele enfrentou uma interrupção na conexão à internet, impossibilitando o registro adequado dos comandos após desconectado. Ante a situação, explicite assinalando o que deveria ser feito em sua postagem:\na) Comunicar um membro do Comando de Segurança Institucional.\nb) Anexar também a mensagem de desconexão fornecida pelo Habbo.\nc) Anexar apenas as capturas de tela anteriores à desconexão.\nd) Comunicar um membro do Comando de Segurança Institucional e anexar também prints da mensagem de desconexão fornecida pelo Habbo.\ne) Todas as alternativas contêm procedimentos incorretos.",
-            answer: "Letra B (Anexar também a mensagem de desconexão fornecida pelo Habbo).",
-            keywords: ["letra b", "mensagem de desconexao", "habbo"],
-            timeDesktop: 120, timeMobile: 180
-        },
-        {
-            id: 48,
-            title: "COMANDO_BATALHAO",
-            text: " A comunicação entre Oficiais da Guarda em casos de mais de um batalhão aberto é essencial. O batalhão principal (aquele que foi aberto primeiro) deve manter-se sempre com 60 policiais. Considerando o entendimento acerca dos batalhões, responda:\na) Quais procedimentos podem ser executados pelo Oficial da Guarda do segundo batalhão caso a lotação do principal fique abaixo de 60?\nb) Qual procedimento deve ser executado pelo Oficial da Guarda do batalhão principal quando o seu atinge lotação máxima?",
-            answer: "a) O Oficial da Guarda do segundo batalhão deve mandar policiais para o batalhão principal ou realizar o procedimento de fechamento. b) O Oficial da Guarda deve mandar 3 policiais para o batalhão que foi aberto, repetindo esse processo quantas vezes forem necessárias.",
-            keywords: ["batalhão principal", "abaixo de 60", "procedimento de fechamento", "mandar 3 policiais", "lotacao maxima"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 49,
-            title: "CONTROLE_EMERGENCIAL",
-            text: " O tenente José, numa tarde, alega que foi kickado do batalhão. Passados alguns segundos o sargento Mário também alega o mesmo. Nisso, o Oficial da Guarda, capitão Verde, solicita as comprovações e aciona imediatamente o procedimento intermediário. Qual a gravidade do ataque e quais procedimentos foram realizados pelo capitão? Ele agiu corretamente? Justifique citando possíveis crimes e punições que podem ser atribuídas aos policiais.",
-            answer: "Gravidade 3. Tirou print do chooser e enviou os portadores ao corredor. Sua ação foi incorreta e seria punido por abandono de dever/negligência, sendo sua punição à critério da coordenação do Grupamento de Ações Táticas Especiais.",
-            keywords: ["jose", "verde", "gravidade 3", "incorreta", "negligencia", "grupamento de acoes taticas"],
-            timeDesktop: 180, timeMobile: 240
-        },
-        {
-            id: 50,
-            title: "CONTROLE_EMERGENCIAL",
-            text: " Durante la tarde de um domingo, ocorreram diversos ataques de mute no batalhão, sendo o aspirante a oficial Azul uma das vítimas dessa emergência. No entanto, ele não registrou a ocorrência e, quando questionado sobre as comprovações, afirmou não possuir. Considerando que é responsabilidade de qualquer policial que seja vítima de um ataque documentar a comprovação no tópico correspondente, o praça deverá ser punido? Por quê? Como se deve lidar com a situação descrita?",
-            answer: "Não deverá ser punido. Por ser um praça, deve-se orientar e instruir o aspirante a oficial a realizar o registro em futuros ataques.",
-            keywords: ["azul", "nao devera ser punido", "praça", "orientar e instruir", "futuros ataques"],
-            timeDesktop: 120, timeMobile: 180
-        }
-    ]
+  simulado_oficial: [
+    // --- CÓDIGO DE CONDUTA MILITAR (CCM) ---
+    {
+      id: 1,
+      title: "CCM_DISPONIBILIDADE_VAGAS",
+      text: " O general Coringa decide promover o capitão Batman pelo seu bom desempenho, conferindo no RCCSystem que há apenas uma vaga disponível na listagem para a patente de coronel. Porém, após o anúncio e postagem da promoção, notou que havia um requerimento pendente de retorno de licença que ocuparia a vaga disponível. Diante disso, o general solicitou para um membro do Centro de Recursos Humanos (CRH) negar a promoção e notificou o promovido sobre o cancelamento da ação. Disserte acerca do ocorrido, apontando as eventuais falhas do general, os possíveis crimes e sanções cabíveis ao caso, e justifique se o requerimento será negado a pedido do general ou não.",
+      answer:
+        "O general Coringa falhou ao deixar de verificar previamente a disponibilidade da vaga, considerando também a existência de requerimentos pendentes. Como o requerimento pendente poderia preencher a vaga disponível, ele não poderia ter realizado a promoção sem a devida confirmação. Em razão disso, será punido com uma Advertência Escrita pelo crime de Abandono de Dever/Negligência. Além disso, o requerimento NÃO deverá ser negado a pedido do general (como isenção), pois a isenção de punitivas por solicitação de negação não se aplica a situações envolvendo promoção realizada sem a devida confirmação de vaga.",
+      keywords: [
+        "falhou",
+        "disponibilidade da vaga",
+        "requerimentos pendentes",
+        "advertência escrita",
+        "abandono de dever",
+        "negligência",
+        "não deverá ser negado",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 2,
+      title: "CCM_CANCELAMENTO_PROMOCAO_TERCEIROS",
+      text: " O aspirante José foi promovido a tenente pelo capitão Almeida. Contudo, ao analisar a promoção com base em depoimentos e demais elementos, o coronel Marcos entendeu que o aspirante Vinícius estava mais apto ao posto. Assim, o coronel cancelou a promoção realizada pelo capitão, em razão do desempenho superior do militar Vinícius para a única vaga disponível. Indique em detalhes todas as ações que o coronel deverá executar após o cancelamento, destacando os respectivos prazos e a punição cabível em caso de descumprimento.",
+      answer:
+        "O coronel deverá notificar o ocorrido ao promotor do requerimento (capitão Almeida), explicitando os motivos por meio presencial ou via mensagem privada em até 24 horas após o ato. Além disso, haja vista que o cancelamento ocorreu em benefício de outro policial, o coronel deverá realizar a promoção do aspirante Vinícius dentro do prazo máximo de 24 horas. Caso haja descumprimento de uma dessas obrigações, o coronel deve ser punido com uma Advertência Escrita por Abandono de Dever/Negligência.",
+      keywords: [
+        "notificar",
+        "promotor",
+        "mensagem privada",
+        "24 horas",
+        "realizar a promoção",
+        "advertência escrita",
+        "abandono de dever",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 3,
+      title: "CCM_CRIACAO_TAGS",
+      text: " No dia 15 de junho, o graduador da companhia dos professores aplicou graduações para quatro membros e solicitou que criassem suas TAGs, registradas da seguinte forma: I - Palhacinho [PPP]; II - Aparecida [APA]; III - PKDelas [PkD]; IV - ..-Mt-.. [Mtt]. Com base nas regras de criação de TAGs dispostas nas Disposições Complementares do CCM, analise quais serão aprovadas e negadas pelo Centro de Recursos Humanos, justificando cada caso.",
+      answer:
+        "I - Negada, pois contém repetições de caracteres que não ocorrem no nick do requerente. II - Negada, pois apresenta uma combinação idêntica à sigla de uma aula da instituição (Aula de Praças Avançada). III - Negada, devido ao termo 'PK', que corresponde a uma combinação de caracteres utilizada em comandos/funções da base (kick). IV - Aprovada, pois em caso da existência de apenas duas letras/números no nickname, uma destas deverá ser duplicada em meio à criação.",
+      keywords: [
+        "negada",
+        "repetições",
+        "idêntica à sigla",
+        "combinação de caracteres",
+        "aprovada",
+        "duplicada",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+    {
+      id: 4,
+      title: "CCM_LICENCA_PROMOCOES_PENDENTES",
+      text: " O Coronel Silva retornou de uma licença de 14 dias na terça-feira, postando seu retorno no sistema e efetuando a compensação de 4 dias de atividades no batalhão. No sábado, ele promoveu o Aspirante Pedro. O CRH aprovou o requerimento, contudo, o Inspetor Thiago solicitou o cancelamento do ato, alegando que Silva não havia compensado os dias exigidos pela normativa. Julgue a alegação do Inspetor e indique a punição aplicável ao Coronel.",
+      answer:
+        "A alegação do Inspetor está correta. A documentação exige que, ao retornar de licença superior a 7 dias, o policial compense obrigatoriamente 07 dias de atividade antes de promover, ceder permissão no oficialato ou rebaixar por insuficiência. O Coronel Silva compensou apenas 4 dias de atividade na base. Pelo descumprimento, a ação é inválida e o Coronel deverá ser punido com uma advertência escrita pelo crime de Abandono de Dever/Negligência.",
+      keywords: [
+        "correta",
+        "compense 07 dias",
+        "abandono de dever",
+        "negligência",
+        "advertência escrita",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 5,
+      title: "CCM_TRANSFERENCIA_PRAZOS_OFICIAL",
+      text: " A Tenente Júlia teve seu pedido de alteração de nickname e transferência de conta aprovado. Passadas 48 horas da aprovação, Júlia ainda não havia alterado sua TAG no jogo e nem preenchido o formulário no fórum. O responsável pela transferência a advertiu por escrito. Analise os prazos regulamentares da transferência e a legalidade da punição.",
+      answer:
+        "A punição foi aplicada de forma precipitada no tocante ao formulário do fórum, porém correta quanto à TAG. O militar requerente tem o prazo de até 48 horas para alterar a TAG no jogo, e o prazo de até 72 horas para preencher o formulário no tópico [FÓRUM] Pedido de Transferência de Nick e publicar nos grupos de tarefas. O descumprimento do prazo de 48 horas para a TAG já caracteriza Abandono de Dever/Negligência.",
+      keywords: [
+        "precipitada",
+        "tag",
+        "48 horas",
+        "72 horas",
+        "forum",
+        "abandono de dever",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 6,
+      title: "CCM_OBRIGACAO_TURNOS_TAREFAS",
+      text: " Um Oficial foi recém-promovido do Corpo de Praças. Passados 3 dias (72 horas) da promoção, ele não havia atualizado suas tarefas e turnos no RCCSystem, mantendo os marcadores vazios. Qual é a norma temporal e a sanção aplicável a este caso?",
+      answer:
+        "O militar infringiu o prazo regulamentar. Os militares promovidos ao Corpo de Oficiais possuem até 48 horas para a postagem do requerimento de atualização. O descumprimento gera punição de Advertência Escrita pelo crime de Abandono de Dever/Negligência.",
+      keywords: [
+        "infringiu",
+        "48 horas",
+        "advertencia escrita",
+        "abandono de dever",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+
+    // --- CÓDIGO PENAL MILITAR (CPM) ---
+    {
+      id: 7,
+      title: "CPM_ESTELIONATO_EXTORSAO",
+      text: " Em uma conversa informal, o coordenador Amarelo manifestou interesse em adquirir o cargo de Presidente. Diante dessa manifestação, o coronel Verde afirmou ser 'vendedor de cargos' autorizado e concretizou a venda, apropriando-se integralmente das moedas. Após o ocorrido, Amarelo passou a desempenhar as atribuições do novo cargo, até descobrir a fraude. Identifique qual crime foi praticado pelo coronel, apresentando a fundamentação jurídica e as sanções aplicáveis.",
+      answer:
+        "O coronel Verde praticou o crime de Estelionato e Extorsão, tendo em vista que realizou a suposta venda do cargo com a finalidade de obter vantagem ilícita, causando prejuízo ao coordenador Amarelo por meio fraudulento (induzindo-o ao erro). Em razão disso, o coronel Verde poderá ser punido de forma gradativa, iniciando-se em Exoneração de um (01) mês, podendo chegar a uma Exoneração por Tempo Indeterminado.",
+      keywords: [
+        "estelionato",
+        "extorsão",
+        "vantagem ilícita",
+        "meio fraudulento",
+        "exoneração de um mês",
+        "tempo indeterminado",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 8,
+      title: "CPM_POSTAGEM_REINCIDENCIA_PRAZO",
+      text: " Durante um período inferior a 60 dias, o tenente Rafael foi punido, em três ocasiões distintas, com rebaixamentos por desrespeito/insubordinação. O general Francisco, promotor do último rebaixamento, identificou a configuração de reincidência 48 horas após a aprovação no CRH e postou o requerimento referente à reincidência, limitando-se a escrever apenas 'Reincidência' no motivo. Qual a punição correta para o tenente Rafael? A conduta do general Francisco foi adequada? Aponte os erros, crimes e sanções.",
+      answer:
+        "A punição correta a ser aplicada ao tenente Rafael é a Demissão, pois a reincidência de três rebaixamentos pelo mesmo crime em até 60 dias gera essa sanção. A conduta do general Francisco foi totalmente inadequada, pois ele errou ao não indicar o nome do crime inicial no motivo da postagem (apenas 'reincidência' não basta) e por não realizar a postagem dentro do prazo limite de 24 horas após a aprovação do agravante. Por isso, o general cometeu Abandono de Dever/Negligência e deve ser punido com 50 medalhas efetivas negativas.",
+      keywords: [
+        "demissão",
+        "três rebaixamentos",
+        "inadequada",
+        "nome do crime",
+        "prazo limite de 24 horas",
+        "abandono de dever",
+        "50 medalhas efetivas negativas",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 9,
+      title: "CPM_PLAGIO_PRINCIPIO_ESPECIALIDADE",
+      text: " O aspirante a oficial Carlos decidiu promover um sargento. Inseguro sobre como elaborar o requerimento, copiou integralmente os dados e formatações de um requerimento feito por outro militar. O capitão Moura decidiu demiti-lo imediatamente, enquadrando a conduta nos crimes de 'Conduta Imprópria' e 'Utilização Indevida de Canais Externos', justificando que houve inserção de mentiras no RCCSystem. Analise o caso com base no princípio da especialidade e proporcionalidade.",
+      answer:
+        "A decisão do capitão Moura foi incorreta pois violou o Princípio da Especialidade, segundo o qual deve ser aplicado o crime mais específico à conduta. A ação de Carlos configura-se estritamente como Plágio (cópia de dados e informações em documentos oficiais). Ademais, violou o Princípio da Proporcionalidade, pois a Demissão imediata é inadequada para a gravidade da infração; a punição correta para Plágio é de 50 medalhas efetivas negativas (com rebaixamento apenas em reincidência).",
+      keywords: [
+        "princípio da especialidade",
+        "crime mais específico",
+        "plágio",
+        "princípio da proporcionalidade",
+        "50 medalhas efetivas negativas",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 10,
+      title: "CPM_SOMA_CRIMES_EXONERACAO",
+      text: " O Subtenente Juca realizou uma Extorsão (cobrando câmbios de soldados para não rebaixá-los), o que lhe rendeu uma pena de Exoneração por 4 meses após julgamento inicial da Corregedoria. No decorrer do inquérito, contudo, ficou provado que ele havia cometido também um Ataque direto aos sistemas da RCC no passado, ato avaliado pelo CSI com uma sanção temporária de mais 3 meses. Ao realizar o somatório dos crimes passíveis de exoneração temporária (4 meses + 3 meses), o órgão julgador deliberou pela aplicação exata de Exoneração por 7 meses. O veredito procedimental e quantitativo está correto segundo as normativas penais?",
+      answer:
+        "A decisão e a soma procedimental da Corregedoria foram incorretas quanto à quantificação temporal aplicável ao cumprimento final. A regra de Soma dos Crimes determina que, ao realizar o somatório de duração do tempo de dois ou mais crimes passíveis de exoneração, caso o tempo total ultrapasse 06 (seis) meses, obriga-se o órgão julgador a exonerar o infrator por tempo indeterminado, e não por tempo temporário superior ao limite de meio ano.",
+      keywords: [
+        "incorretas",
+        "soma dos crimes",
+        "ultrapassar 06 meses",
+        "seis meses",
+        "exonerar",
+        "tempo indeterminado",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 11,
+      title: "CPM_REINCIDENCIA_ANEXO_I_II",
+      text: " O Major Bernardo recebeu uma Advertência Escrita por Abandono de Dever/Negligência no dia 10 de maio. No dia 18 de maio, cometeu novamente o mesmo crime. O promotor da punição, ao publicar o requerimento no sistema, solicitou diretamente a aplicação de 50 Medalhas Efetivas Negativas (MEN) sob o argumento de reincidência imediata. O Centro de Recursos Humanos (CRH) aprovou o requerimento. Analise se a aplicação direta de 50 MEN foi correta com base no ANEXO I (Capítulo I) e ANEXO II (Capítulo III) do Código Penal Militar.",
+      answer:
+        "A conduta foi incorreta. Conforme o ANEXO I (Capítulo I) e ANEXO II (Capítulo III) do CPM, a reincidência em crime cuja sanção primária seja Advertência Escrita só gera o acréscimo de 50 MEN se a segunda infração for cometida ANTES que a primeira Advertência Escrita seja devidamente aprovada e registrada. Caso a primeira Advertência Escrita já tenha sido homologada e concluída antes do cometimento do novo ato, o militar deve receber uma segunda Advertência Escrita isolada, e não o acréscimo de medalhas.",
+      keywords: [
+        "incorreta",
+        "advertencia escrita",
+        "50 men",
+        "homologada",
+        "capitulo i",
+        "capitulo iii",
+        "aprovada",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 12,
+      title: "CPM_ISENCAO_REINCIDENCIA_DEMISSAO",
+      text: " O Sargento Lucas recebeu três rebaixamentos no intervalo de 50 dias por Insuficiência para a Patente (inatividade contínua). Ao postar o terceiro rebaixamento, o Inspetor Gabriel aplicou a Demissão por reincidência. Julgue a aplicabilidade da demissão baseada na documentação.",
+      answer:
+        "A conduta do Inspetor foi incorreta. O regulamento dispõe de isenção explícita onde não se aplica o agravante de demissão (por três rebaixamentos) para ocorrências decorrentes do crime de Insuficiência Para a Patente ou Cargo. Logo, o Sargento não deveria ser demitido.",
+      keywords: [
+        "incorreta",
+        "isencao explicita",
+        "agravante",
+        "insuficiencia para a patente",
+        "demissao",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 13,
+      title: "CPM_FAKES_BENEFICIO_SI",
+      text: " O Analista-Chefe Bruno, do Setor de Inteligência, constatou que o Cabo Tiago utilizava conta fake secundária no batalhão para obter promoções extras. Bruno postou a Exoneração por Tempo Indeterminado enquadrando-o em Utilização de Fakes em Segundo Grau. No RCCSystem, ele deixou o 'Comentário' em branco e não anexou provas. A punição condiz com o crime? As omissões do Analista no System foram lícitas?",
+      answer:
+        "A punição foi incorreta; Fakes de Segundo Grau (com autobenefício) exige a punição taxativa de Demissão, e não Exoneração. Contudo, a conduta de postagem do Analista foi lícita, pois membros do Setor de Inteligência possuem isenção de preencher o comentário e apresentar provas no System, desde que as armazenem internamente.",
+      keywords: [
+        "incorreta",
+        "segundo grau",
+        "demissao",
+        "licita",
+        "setor de inteligencia",
+        "isencao",
+        "comentario",
+        "provas",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 14,
+      title: "CPM_EXTINCAO_COACAO_RISCO",
+      text: " O General coagiu fisicamente e com ameaças de demissão o Coronel Heitor para que ele realizasse um Ataque de flood nos sistemas do batalhão. O Coronel obedeceu. Alegando coação irresistível, pediu a extinção de sua punibilidade. O pedido deve ser deferido?",
+      answer:
+        "Não. A regra de extinção de punibilidade por coação irresistível não tem validade quando se trata de ordens que coloquem em alto grau de risco a integridade da Polícia RCC. Ambos, autor da coação e coagido, devem ser penalizados.",
+      keywords: [
+        "nao",
+        "extincao",
+        "coacao",
+        "alto grau de risco",
+        "penalizados",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+    {
+      id: 15,
+      title: "CPM_ISENCAO_PROVAS_AQOI_PMJ",
+      text: " O Tenente Gabriel foi alvo de inquérito formal conduzido pela Procuradoria Militar de Justiça (PMJ) sobre fraudes em relatórios da AQOI. Após a conclusão das investigações, a Procuradora-Geral aplicou uma Advertência Escrita no sistema contra Gabriel por Obstrução à Justiça, optando por não publicar os prints comprovatórios publicamente, mas registrando-os internamente na PMJ. Gabriel recorreu em Primeira Instância exigindo a anulação da sanção por falta de provas públicas. Julgue a alegação do Tenente Gabriel e a legalidade da postura da PMJ conforme o regramento de isenção de provas.",
+      answer:
+        "A alegação do Tenente Gabriel é improcedente. De acordo com as normas atualizadas de isenção no System, a Procuradoria-Geral da PMJ possui isenção expressa da apresentação pública de provas no registro de Advertências Escritas e Rebaixamentos resultantes de apurações da AQOI, desde que as evidências sejam armazenadas nos arquivos internos da presidência do órgão. Portanto, a sanção foi aplicada com total legalidade.",
+      keywords: [
+        "improcedente",
+        "isencao",
+        "procuradoria militar de justica",
+        "pmj",
+        "arquivos internos",
+        "legalidade",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 16,
+      title: "CPM_REVERSAO_PUNICAO_PRACAS",
+      text: " O Coronel Thiago flagrou o Cabo Vinícius cometendo Falsificação de Informações em um relatório oficial de uma subcompanhia. Ciente de que a punição mínima aplicável para este delito seria uma Advertência Escrita, Thiago postou o requerimento de Advertência Escrita para o Cabo no RCCSystem, fundamentando devidamente o inciso. Ao avaliar o requerimento, o Centro de Recursos Humanos (CRH) negou a postagem. Indique por qual motivo o CRH negou a postagem e qual seria o procedimento penal correto a ser adotado pelo Coronel Thiago neste caso.",
+      answer:
+        "O requerimento foi negado porque a punição de Advertência Escrita é de aplicação restrita e exclusiva aos oficiais (Corpo Militar e Executivo). O procedimento correto, estipulado pelas normativas de punições, dita que na ocorrência de crimes cometidos por praças na qual a sanção passível seria uma advertência escrita se o indivíduo fosse oficial, a punição deverá ser revertida à atribuição de 50 medalhas efetivas negativas.",
+      keywords: [
+        "negado",
+        "exclusiva",
+        "oficiais",
+        "revertida",
+        "reversao",
+        "50 medalhas efetivas negativas",
+        "pracas",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 17,
+      title: "CPM_LICENCA_ADVERTENCIA_CONGELAMENTO",
+      text: " O Capitão Moura recebeu uma Advertência Escrita por Conduta Imprópria, punição esta que possui 30 dias de duração e 7 dias de bloqueio promocional. No décimo dia de cumprimento da penalidade, Moura solicitou Licença de Serviço por 15 dias. Ao registrar seu retorno oficial ao batalhão, Moura exigiu ser promovido, alegando que o bloqueio promocional havia extinguido e que faltavam apenas 5 dias para sua advertência encerrar. Com base nos dispositivos sobre punições administrativas, julgue a alegação e explique a contagem de tempo nesta situação.",
+      answer:
+        "A alegação do Capitão Moura é incorreta e improcedente. Segundo a documentação, a duração da advertência escrita e o cumprimento do bloqueio promocional ocorrem exclusivamente sobre os dias ativos do militar. Em caso de afastamento por licença, o tempo de duração e de bloqueio congela exatamente no ponto em que parou, voltando a correr somente após o registro de retorno da licença. Portanto, o militar ainda terá de cumprir os 20 dias restantes da sanção ativos na instituição.",
+      keywords: [
+        "incorreta",
+        "dias ativos",
+        "congela",
+        "congelado",
+        "licenca",
+        "retorno",
+        "restantes",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 18,
+      title: "CPM_RESCISAO_CONTRATO_COMPRA_CARGO",
+      text: " A Trainee Júlia adquiria o cargo por compra, porém falhou em quitar a dívida nas datas acordadas com o vendedor. O Coordenador-Geral responsável pelo caso constatou a inadimplência e aplicou a punição de Exoneração por 1 mês, sob o crime de Corrupção (desvio de lucros). Ao tentar retornar após 1 mês, Júlia teve seu acesso barrado. Avalie a punição e o crime escolhidos pelo Coordenador, informando o que a norma dispõe especificamente sobre este caso e qual o método legal de revogação da infração cometida.",
+      answer:
+        "A punição e a tipificação aplicadas estão incorretas. A falta de quitação de dívidas de compra de cargo ou atraso de parcelas configura tipicamente o crime de Rescisão de Contrato, o qual possui pena fixa de Exoneração Imediata por Tempo Indeterminado, e não temporária de 1 mês. Além disso, essa modalidade de exoneração não expira com o tempo, podendo ser revogada única e exclusivamente mediante a quitação da dívida e/ou com autorização do Alto Comando Supremo.",
+      keywords: [
+        "incorretas",
+        "rescisao de contrato",
+        "exoneracao por tempo indeterminado",
+        "revogada",
+        "quitacao",
+        "alto comando supremo",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+
+    // --- CÓDIGO DE COMANDO DO BATALHÃO (CCB) ---
+    {
+      id: 19,
+      title: "CCB_ABERTURA_BATALHAO_AUXILIAR",
+      text: " O Oficial da Guarda identificou que o batalhão principal atingiu 75 usuários e havia 15 policiais na sala de estado. Ele decidiu abrir o Batalhão Auxiliar para controle do contingente, mas manteve o efetivo no principal, não enviando nenhum policial inicialmente. Ao mesmo tempo, não interrompeu as atividades no Corredor Principal. Com isso, o principal caiu para 50 usuários e o auxiliar ficou com 10. Avalie a conduta do Oficial da Guarda, identificando acertos, erros e o procedimento correto.",
+      answer:
+        "Acerto: Decidir abrir o Batalhão Auxiliar ao atingir 75 militares no principal. Erros: O Oficial falhou ao não enviar a quantidade mínima de policiais ao auxiliar no momento de sua abertura (é obrigatório enviar no mínimo 10 policiais). Errou ao manter atividades no Corredor Principal (deveriam ser canceladas e os militares redirecionados). E errou ao permitir que o Batalhão Principal operasse com menos de 60 militares; o correto nessa situação final seria realocar os policiais do auxiliar de volta para o principal e proceder ao fechamento do auxiliar.",
+      keywords: [
+        "acerto",
+        "75 militares",
+        "mínimo 10 policiais",
+        "canceladas",
+        "redirecionados",
+        "menos de 60 militares",
+        "fechamento",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 20,
+      title: "CCB_PALESTRA_PROCEDIMENTOS",
+      text: " O inspetor-geral Vinho, atuando como Oficial da Guarda, foi notificado pelo Chanceler Bege (Diretor da RAIO) que uma palestra sobre o Curso de Ações Táticas seria realizada no batalhão. Indique detalhadamente todos os procedimentos logísticos e de comando que o Oficial da Guarda deve adotar em base para acomodar a palestra.",
+      answer:
+        "O Oficial da Guarda deve: 1) Conferir o agendamento da palestra no Diário de Atividades; 2) Dar sentido ao batalhão; 3) Alertar que os alistamentos serão interrompidos; 4) Encaminhar a totalidade dos recrutas presentes ao Corredor dos Instrutores; 5) Realocar os sofás da Área de Recrutas para a Sala de Estado; 6) Girar as cadeiras da recepção; 7) Dispensar das funções o Operador 4, o Sentinela, o Cabo da Guarda e o Auxiliar do Cabo da Guarda; 8) Manter o batalhão atento durante a palestra.",
+      keywords: [
+        "conferir o agendamento",
+        "sentido",
+        "alistamentos serão interrompidos",
+        "corredor dos instrutores",
+        "realocar os sofás",
+        "girar as cadeiras",
+        "dispensar das funções",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 21,
+      title: "CCB_COMANDO_HONRA_CONTINENCIA",
+      text: " O Oficial da Guarda presenciou o ingresso de um ex-Comandante Supremo portador de Medalha de Honra no Batalhão Principal. Imediatamente, aplicou o comando 'sentido' e, na sequência, executou o comando 'continência'. Um Capitão presente criticou a atitude, alegando que o comando de continência é exclusivo para Comandantes Supremos ativos. Analise a conduta do Oficial da Guarda.",
+      answer:
+        "A atitude do Oficial da Guarda foi plenamente correta. Segundo o Código de Comando do Batalhão, o comando de continência (precedido pelo comando de sentido) deve ser prestado obrigatoriamente aos membros do Alto Comando Supremo ativos e também a ex-Comandantes Supremos agraciados com a Medalha de Honra ao adentrarem as dependências do Batalhão.",
+      keywords: [
+        "correta",
+        "continencia",
+        "sentido",
+        "ex-comandante supremo",
+        "medalha de honra",
+        "alto comando",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+    {
+      id: 22,
+      title: "CCB_MIGRACAO_BATALHAO",
+      text: " O Oficial da Guarda do 1º Batalhão decidiu fechá-lo e abrir o Batalhão Auxiliar porque achava a arquitetura do quarto auxiliar mais atrativa. A migração foi autorizada e ocorreu tranquilamente. A justificativa de migração foi lícita?",
+      answer:
+        "Não. A migração de batalhão por motivos fúteis é proibida. As únicas ocasiões que permitem a migração são: baixo ou alto contingente, falta de portadores de direitos, ou emergências que inutilizem o funcionamento pleno do batalhão principal.",
+      keywords: [
+        "nao",
+        "futeis",
+        "proibida",
+        "contingente",
+        "portadores de direitos",
+        "emergencias",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+    {
+      id: 23,
+      title: "CCB_FECHAMENTO_BP_MANUTENCAO",
+      text: " O Oficial da Guarda, Capitão Diego, recebeu um alerta do Habbo Hotel informando que os servidores entrariam em manutenção no prazo de 2 minutos. Focado em outras tarefas administrativas na Sala de Estado, ele ignorou o procedimento de fechamento do batalhão, permitindo que a queda derrubasse todos os militares presentes de forma abrupta. Um General o puniu com Advertência Escrita por Abandono de Dever. A punição imposta procede administrativamente?",
+      answer:
+        "A punição imposta ao Capitão Diego é indevida e incorreta. De acordo com as normativas do Código de Comando do Batalhão, o procedimento emergencial de fechamento do batalhão antes de uma queda de servidor só se faz estritamente obrigatório caso o alerta de manutenção seja emitido com 03 (três) minutos ou mais de antecedência. Sendo o alerta de apenas 2 minutos, o Oficial não estava obrigado a efetuar os procedimentos formais.",
+      keywords: [
+        "indevida",
+        "incorreta",
+        "três minutos",
+        "antecedência",
+        "não estava obrigado",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 24,
+      title: "CCB_OFICIAL_GUARDA_AUXILIO_SARGENTO",
+      text: " O sargento Felipe estava de Oficial da Guarda no 3° Batalhão, com auxílio do aspirante a oficial Lucas. Em certo momento, ocorreu um ataque de mute e o aspirante a oficial encerrou o auxílio, dispensou o sargento e assumiu a função para acionamento do Plano de Controle Emergencial. Após o ocorrido, o tenente Vaguinho questionou a atuação, alegando irregularidades no cenário apresentado. Analise a situação e responda, justificando se a alegação do tenente está correta.",
+      answer:
+        "Sargentos não podem ser auxiliados na função de oficial da guarda no batalhão principal, sendo apenas válido nos batalhões principais para aspirantes a oficial+/analistas+ com conclusão do CFO. A exceção para sargentos com os cursos obrigatórios assumirem a função existe apenas no Batalhão Auxiliar. Quanto à conduta do aspirante a oficial em dispensar o oficial da guarda e assumir a função está correta, uma vez que em ataque de gravidade 3 ou superior é dever deste assumir o posto.",
+      keywords: [
+        "sargentos",
+        "batalhão principal",
+        "batalhão auxiliar",
+        "dispensar",
+        "gravidade 3",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+
+    // --- PLANO DE CONTROLE EMERGENCIAL (PCE) ---
+    {
+      id: 25,
+      title: "PCE_ACIONAMENTO_ERRONEO_INTERMEDIARIO",
+      text: " O Oficial da Guarda Roxo, membro do CSI, recebeu a comprovação de uma ocorrência de ataque de kick no batalhão. Após quinze minutos, ocorreu um ataque de mute, também comprovado. O Oficial da Guarda acionou o Procedimento Intermediário na primeira ocorrência de kick e o Procedimento Básico na ocorrência de mute. Avalie o acionamento dos procedimentos em ambas as situações.",
+      answer:
+        "O Oficial da Guarda errou a ordem de acionamento. Na primeira ocorrência (ataque de kick), ele deveria ter acionado o Procedimento Básico, e não o Intermediário. O Procedimento Intermediário só deve ser acionado em caso de uma possível reincidência da gravidade, ou seja, em uma próxima ocorrência. Portanto, a segunda ocorrência (ataque de mute) é que justificaria, se fosse o caso e após o básico já ter sido feito, a elevação para o procedimento intermediário.",
+      keywords: [
+        "errou",
+        "procedimento básico",
+        "procedimento intermediário",
+        "reincidência da gravidade",
+        "próxima ocorrência",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+    {
+      id: 26,
+      title: "PCE_BATS_FLOODS",
+      text: " O coronel Lucas (Oficial da Guarda) depara-se com oito usuários (bots) entrando no saguão, movimentando-se simultaneamente e enviando balões de fala de forma constante (floods infindáveis). Conforme o PCE, indique as emergências, a gravidade e o procedimento a ser adotado com sua justificativa.",
+      answer:
+        "As emergências identificadas são Ataque de Bots e Ataque de Flood, ambas enquadradas na Gravidade 2 do Plano de Controle Emergencial. Devido à quantidade de bots enviando balões constantemente, o que caracteriza a situação de 'floods infindáveis', o Oficial da Guarda deverá aplicar o Procedimento Intermediário de Gravidade 2. Este consiste na utilização da ferramenta do quarto para silenciar todos, mutar e kickar os usuários mal-intencionados para controlar o ataque e, posteriormente, desativar a ferramenta.",
+      keywords: [
+        "ataque de bots",
+        "ataque de flood",
+        "gravidade 2",
+        "floods infindáveis",
+        "procedimento intermediário",
+        "silenciar todos",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+    {
+      id: 27,
+      title: "PCE_CHOOSER_TOLERANCIA",
+      text: " Em um ataque de mutação, o Oficial da Guarda demorou 12 segundos para acionar a ferramenta ':chooser' e printar os usuários presentes, utilizando um programa externo que não era o Lightshot. A prova é lícita, mas atende aos requisitos de tempo tolerável do manual de utilização do chooser?",
+      answer:
+        "Não atende. O Anexo I do Manual de Utilização do Chooser estabelece por meio de estudos recentes que o período tolerável de ativação e registro da ferramenta :chooser é de até no máximo 05 (cinco) segundos para assegurar a precisão investigativa.",
+      keywords: [
+        "nao atende",
+        "periodo toleravel",
+        "cinco segundos",
+        "precisao investigativa",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+    {
+      id: 28,
+      title: "PCE_SIMULACAO_ATAQUE_AUTORIZACAO",
+      text: " O marechal Tomas, membro do comando da Repartição de Ações Interventivas e Ostensivas (RAIO), iniciou uma simulação de ataque no terceiro batalhão após obter autorização apenas da direção do próprio órgão. Diante do cenário apresentado, houve alguma falha legal?",
+      answer:
+        "Houve irregularidade, pois a simulação de ataque não poderia ter sido realizada pela RAIO. A autorização para simulações de ataque reais em batalhões é de competência exclusiva do Alto Comando Supremo e, uma vez autorizada, a simulação deverá ser executada unicamente por membros do Setor de Inteligência.",
+      keywords: [
+        "irregularidade",
+        "simulacao",
+        "exclusiva",
+        "alto comando supremo",
+        "setor de inteligencia",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+    {
+      id: 29,
+      title: "PCE_COMPROVACAO_FUTUROS_ATAQUES",
+      text: " Durante a tarde de um domingo, ocorreram diversos ataques de mute no batalhão, sendo o aspirante a oficial Azul uma das vítimas dessa emergência. No entanto, ele não registrou a ocorrência e, quando questionado sobre as comprovações, afirmou não possuir. O praça deverá ser punido? Por quê? Como se deve lidar com a situação descrita?",
+      answer:
+        "Não deverá ser punido. A norma estipula punição de Advertência Escrita por Abandono de Dever/Negligência apenas para Oficiais do Corpo Militar e do Corpo Executivo com Especialização Intermediária ou superior que negligenciarem o registro da comprovação. Por ser um praça, ele deve ser apenas orientado e instruído a realizar o registro em futuros ataques.",
+      keywords: [
+        "não deverá ser punido",
+        "praça",
+        "orientado",
+        "instruído",
+        "futuros ataques",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+    {
+      id: 30,
+      title: "PCE_ATAQUE_MOBILIAS_QUESTIONAMENTO",
+      text: " A coronel Maria, estando na função de Oficial da Guarda, notou que uma mobília do batalhão foi movimentada para dentro da sala de controle. Diante disso, acionou o procedimento básico, retornou a mobília à sua posição original e prosseguiu com o seu comando. Aponte a possível irregularidade da coronel.",
+      answer:
+        "A coronel falhou em não questionar aos portadores de direitos presentes se algum deles moveu a mobília por acidente. O ataque de movimentação de mobílias é de gravidade 3 e requer o procedimento básico, contudo, é dever do Oficial averiguar a intencionalidade caso não haja identificação do autor.",
+      keywords: [
+        "falhou",
+        "questionar",
+        "portadores de direitos",
+        "acidente",
+        "movimentação de mobílias",
+        "gravidade 3",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+
+    {
+      id: 31,
+      title: "MANIPULACAO_QUEBRA_SIGILO",
+      text: " O Tenente-Coronel Marcos, líder de uma subcompanhia, utilizou de persuasão e manipulação psicológica contínua contra o Cabo Lucas, forçando-o a vazar os scripts das avaliações do grupo de tarefas antes de sua divulgação oficial. Lucas, sob forte pressão e temendo ser expulso do grupo, entregou os arquivos. Ambos foram descobertos. Lucas solicitou a extinção de sua punibilidade alegando ter agido sob coação irresistível. Analise os crimes cometidos por ambos e julgue a solicitação de perdão do Cabo Lucas.",
+      answer:
+        "O Tenente-Coronel Marcos cometeu os crimes de Conduta Imprópria, caracterizado pela manipulação de policiais [1], e Quebra de Sigilo, caracterizado pelo compartilhamento de scripts de aulas/avaliações [2]. O Cabo Lucas também incorre em Quebra de Sigilo [2]. A solicitação de extinção de punibilidade do Cabo Lucas deve ser negada [3]. Embora a regra geral isente o subalterno coagido, a exceção da lei determina que ordens que coloquem a integridade da instituição em alto risco não admitem perdão, devendo tanto o autor da coação quanto o coagido serem penalizados [3].",
+      keywords: [
+        "conduta imprópria",
+        "manipulação de policiais",
+        "quebra de sigilo",
+        "scripts",
+        "extinção de punibilidade",
+        "negada",
+        "alto risco",
+        "penalizados",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 32,
+      title: "ABUSO_PODER_VAZAMENTO_COR",
+      text: " A Capitã Lúcia, utilizando-se de seu poder administrativo, obteve informações privadas de um recruta sem autorização do Alto Comando Supremo e as repassou em um grupo de WhatsApp institucional restrito da Corregedoria. Um outro membro desse grupo restrito tirou print da mensagem e enviou para civis no Habbo Hotel. Tipifique as condutas da Capitã Lúcia e do membro do grupo que vazou a informação, indicando as respectivas punições com base no Código Penal Militar.",
+      answer:
+        "A Capitã Lúcia cometeu o crime de Abuso de Poder, caracterizado pela utilização de poder administrativo para obter informações privadas de terceiro sem consentimento prévio ou autorização da Supremacia [4]. A punição aplicável vai de 50 medalhas efetivas negativas a demissão [5]. O membro que vazou a conversa cometeu Quebra de Sigilo, enquadrando-se na divulgação de informações de grupos de WhatsApp e no vazamento de informações sigilosas de grupos restritos como a COR [2]. A punição para a quebra de sigilo é gradativa, iniciando em advertência escrita e podendo chegar a exoneração [6].",
+      keywords: [
+        "abuso de poder",
+        "informações privadas",
+        "sem consentimento",
+        "quebra de sigilo",
+        "whatsapp",
+        "grupos restritos",
+        "advertência escrita",
+        "exoneração",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 33,
+      title: "COMPETENCIA_SI_SIMULACAO_ISENCAO",
+      text: " O Setor de Inteligência (SI) protocolou uma operação de simulação de ataque real a um batalhão com o objetivo de testar o Oficial da Guarda. A operação ocorreu sem aviso prévio e sem o consentimento do Alto Comando Supremo, sendo executada inteiramente por agentes do SI. O Oficial da Guarda falhou e o SI aplicou-lhe uma Exoneração imediata no RCCSystem, isentando-se de preencher o comentário e de apresentar as provas publicamente. Avalie a legalidade da simulação de ataque e da postagem penal feita pelo SI no sistema.",
+      answer:
+        "A simulação de ataque real foi ilegal e irregular, pois o Setor de Inteligência só possui autoridade para realizar simulações em batalhões com a autorização expressa do Alto Comando Supremo [7, 8]. No entanto, a forma de postagem da exoneração no RCCSystem foi plenamente lícita [9, 10]. Os integrantes do Setor de Inteligência possuem isenção parcial obrigatória de preencher o campo de comentário [9], e estão isentos da apresentação de provas para o registro de exoneração, desde que estas sejam devidamente armazenadas pelo membro do órgão [10].",
+      keywords: [
+        "ilegal",
+        "autorização",
+        "alto comando supremo",
+        "lícita",
+        "isenção parcial",
+        "comentário",
+        "apresentação de provas",
+        "armazenadas",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+    {
+      id: 34,
+      title: "VAZAMENTO_AQOI_JURISDICAO_SI",
+      text: " O Coronel Thiago obteve acesso antecipado ao edital e às questões da Avaliação de Qualificação do Oficialato Intermediário (AQOI). Visando garantir o sucesso de seu amigo pessoal no teste, Thiago repassou todo o conteúdo sigiloso. O Setor de Inteligência (SI) descobriu o vazamento e assumiu o caso. Qual crime específico o Coronel cometeu e qual a competência jurisdicional do Setor de Inteligência frente à investigação de um oficial de alta patente?",
+      answer:
+        "O Coronel Thiago cometeu o crime de Quebra de Sigilo, previsto no inciso V, que consiste no vazamento do edital, questões ou respostas da AQOI antes de sua divulgação oficial [2]. Quanto à competência investigativa, o Setor de Inteligência agiu dentro da legalidade, uma vez que este órgão é superior em tudo que diz respeito à segurança institucional e possui jurisdição ilimitada para investigar qualquer policial da Polícia Militar Revolução Contra o Crime, independentemente da patente ou cargo ocupado [7, 11].",
+      keywords: [
+        "quebra de sigilo",
+        "vazamento do edital",
+        "questões",
+        "aqoi",
+        "jurisdição ilimitada",
+        "qualquer policial",
+        "segurança institucional",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+    {
+      id: 35,
+      title: "CONTRAESPIONAGEM_GSS",
+      text: " Durante uma operação ultrassecreta do Gabinete de Segurança da Supremacia (GSS), o Analista João infiltrou-se no servidor de uma polícia aliada (ARTM) utilizando uma conta fake com o propósito de realizar espionagem e coletar dados táticos ameaçadores. A ação foi executada com o pleno aval e sob ordem do Setor de Inteligência. Posteriormente, um policial da base o denunciou exigindo sua exoneração. Ele cometeu Traição e Fakes? A justificativa da operação sigilosa o isenta das punições penais?",
+      answer:
+        "O Analista João não cometeu crimes e a operação o isenta das punições [12, 13]. Embora a infiltração para fins de espionagem configure, em regra, o crime de Traição [12], o Código Penal Militar possui uma ressalva clara: não se considera crime mediante ações especiais autorizadas pelo Setor de Inteligência [13]. Como a ação foi executada sob o comando do GSS (Inteligência Consultiva) para preservar a instituição de ameaças [11, 14], sua conduta é justificada e isenta de punibilidade criminal.",
+      keywords: [
+        "isenta",
+        "não se considera crime",
+        "ações especiais autorizadas",
+        "setor de inteligência",
+        "traição",
+        "gabinete de segurança da supremacia",
+      ],
+      timeDesktop: 180,
+      timeMobile: 240,
+    },
+  ],
 };
 
-// Extensão dos 75 flashcards institucionais da RCC
+// ==========================================================================
+// FLASHCARDS INSTITUCIONAIS AQOI - EDITAL 2026.14
+// ==========================================================================
 const AQOI_FLASHCARDS = [
-    { q: "Qual a punição aplicada a um oficial que concede permissão para uma promoção sem verificar previamente os requisitos do promotor?", a: "Advertência escrita pelo crime de Abandono de Dever/Negligência." },
-    { q: "Em que circunstância um Marechal em licença de serviço possui autonomia para aplicar punições administrativas legitimamente?", a: "Quando o militar ocupa o cargo de Corregedor." },
-    { q: "Qual a sanção para um oficial que permanece em modo offline ou com visibilidade oculta após 24 horas da notificação inicial?", a: "Um rebaixamento a cada 24 horas além da perda de direitos, se aplicável." },
-    { q: "No contexto do Plano de Controle Emergencial, qual a gravidade de um ataque caracterizado por flood constante de balões de fala por civis?", a: "Gravidade 2." },
-    { q: "Qual o procedimento intermediário deve ser adotado em ataques de gravidade 3 no batalhão?", a: "Silenciar todos os usuários do quarto e encaminhar os portadores de direitos ao Corredor Principal." },
-    { q: "Qual a punição mínima e máxima para o crime de Traição, como a infiltração em outras polícias?", a: "Demissão imediata, podendo chegar à exoneração." },
-    { q: "Qual o prazo máximo para um promotor realizar o Diálogo Pós-Promoção (DPP) ou instrução de um subordinado?", a: "24 horas após a divulgação da promoção." },
-    { q: "Qual a consequência para um oficial que realiza uma promoção durante o período de bloqueio das avaliações mensais?", a: "Advertência escrita por Abandono de Dever/Negligência e cancelamento do requerimento." },
-    { q: "Como deve ser punido o militar que aceita um usuário fake em um grupo oficial sem a verificação adequada?", a: "Advertência escrita pelo crime de Abandono de Dever/Negligência." },
-    { q: "Qual a punição para um oficial que registra uma permissão no RCCSystem entre 1 e 2 horas após a postagem do requerimento?", a: "Advertência escrita por Abandono de Dever/Negligência." },
-    { q: "No crime de Utilização de Fakes, qual a punição para o primeiro grau (uso de conta secundária sem autobenefício)?", a: "Rebaixamento." },
-    { q: "Qual o prazo máximo para um policial interpor recurso contra uma punição ou veredito?", a: "7 dias após a publicação ou homologação da decisão." },
-    { q: "Qual a sanção para o militar que realiza a venda de cargos ou contratação de civis em modo offline?", a: "50 medalhas efetivas negativas por Abandono de Dever/Negligência." },
-    { q: "Qual crime é configurado pela reprodução indevida de designs de BBCode ocultando os créditos autorais?", a: "Plágio." },
-    { q: "Qual a punição prevista para o crime de Plágio em casos de reincidência?", a: "Rebaixamento, condicionado ao parecer final do Alto Comando Supremo." },
-    { q: "Sob qual condição um oficial pode ser punido por não registrar a comprovação de um ataque de kick ou mute?", a: "Quando o oficial possui Especialização Intermediária ou superior." },
-    { q: "Qual a punição para o crime de Falsificação de Informações em documentos oficiais?", a: "Advertência escrita, podendo chegar à demissão imediata." },
-    { q: "Qual o procedimento obrigatório do Oficial da Guarda ao identificar a movimentação de uma mobília que impacta a segurança?", a: "Acionar imediatamente o procedimento básico e realizar o print do chooser." },
-    { q: "Em que situação a migração de policiais para o Batalhão Auxiliar torna-se obrigatória?", a: "Quando o batalhão principal atinge 75 usuários e há pelo menos 10 policiais disponíveis para o novo quarto." },
-    { q: "Qual a punição para o Oficial da Guarda que não posta o relatório de abertura ou fechamento no prazo de 30 minutos?", a: "Advertência escrita (para oficiais) ou 50 medalhas efetivas negativas (para praças)." },
-    { q: "Qual o período de validade do Certificado de Qualificação (CQ) após o desligamento ou reforma do policial?", a: "1 ano." },
-    { q: "Qual a sanção para um oficial que utiliza a ferramenta 'bloquear' do Habbo contra outro policial ativo?", a: "Advertência escrita por Abandono de Dever/Negligência." },
-    { q: "Qual a punição para um oficial que pula de 5 a 6 linhas de um script oficial durante uma aplicação?", a: "Advertência escrita." },
-    { q: "Em casos de ataques simultâneos de kick contra todos os operadores, qual ação deve ser tomada pelo Oficial da Guarda?", a: "Acionamento conjunto do procedimento básico e do procedimento intermediário." },
-    { q: "Qual a punição para o militar que ameaça atacar as dependências da instituição (Crime Contra a Paz Pública)?", a: "Advertência verbal até a exoneração." },
-    { q: "Qual o prazo para a Corregedoria proferir um veredito oficial após a instauração de um recurso em segunda instância?", a: "48 horas, com possível prorrogação de 24 horas por falta de quórum." },
-    { q: "Qual a punição para um oficial que realiza migração entre batalhões por motivos fúteis ou sem respaldo documental?", a: "Advertência escrita por Abandono de Dever/Negligência." },
-    { q: "Qual o requisito de lotação mínima para que o Batalhão Principal continue operando após a abertura do Auxiliar?", a: "60 militares." },
-    { q: "Qual a punição para o crime de Conduta Imprópria, como a troca de nickname sem autorização?", a: "Advertência verbal até a exoneração." },
-    { q: "Qual a sanção para um oficial que não realiza a postagem de uma punição por reincidência em até 24 horas?", a: "50 medalhas efetivas negativas por Abandono de Dever/Negligência." },
-    { q: "Qual a punição para o crime de Obstrução à Justiça em casos de mentiras durante processos investigativos?", a: "Advertência escrita até a exoneração por tempo indeterminado." },
-    { q: "Como deve ser punida a acusação de um crime contra outrem sem a apresentação de evidências (Acusação sem Provas)?", a: "Advertência escrita até a demissão." },
-    { q: "Qual a punição para o crime de Abuso de Poder, como o uso do cargo para benefício próprio?", a: "50 medalhas efetivas negativas até a demissão." },
-    { q: "Qual a sanção para o oficial que cancela uma permissão registrada no RCCSystem como justificativa para cancelar um requerimento aprovado?", a: "Advertência escrita por Abandono de Dever/Negligência." },
-    { q: "Em que prazo um requerimento negado pelo CRH deve ser repostado para manter a validade da permissão original?", a: "24 horas." },
-    { q: "Qual a punição para o crime de Desrespeito e Insubordinação contra superiores?", a: "Advertência verbal até a exoneração." },
-    { q: "Qual a sanção para o oficial que realiza promoção sem confirmar a disponibilidade da vaga ou ignorar requerimentos pendentes?", a: "Advertência escrita por Abandono de Dever/Negligência." },
-    { q: "Qual o prazo para um oficial notificar o promotor original sobre o cancelamento de um requerimento de promoção?", a: "24 horas após o ato." },
-    { q: "Qual a punição para o crime de Nepotismo (favorecimento por laços de amizade ou familiares)?", a: "Rebaixamento, podendo chegar à exoneração." },
-    { q: "Em que condição a ocultação de créditos de um autor de projetos é permitida?", a: "Quando o autor é punido com exoneração por tempo indeterminado." },
-    { q: "Qual o procedimento do Oficial da Guarda em casos de manutenção do Habbo Hotel com aviso prévio de 3 minutos?", a: "Realizar imediatamente os procedimentos de fechamento do batalhão." },
-    { q: "Qual a sanção para o oficial que concede uma especialização sem verificar os requisitos exigidos?", a: "Advertência escrita por Abandono de Dever/Negligência." },
-    { q: "No Plano de Controle Emergencial, quem possui autoridade exclusiva para acionar o procedimento intermediário?", a: "Membros do Comando de Segurança Institucional (CSI)." },
-    { q: "Qual a punição para um oficial que utiliza direitos de forma petulante sem necessidade ou consentimento?", a: "50 medalhas efetivas negativas e perda de direitos." },
-    { q: "Qual a punição para o crime de Quebra de Sigilo, como o vazamento de scripts de aulas?", a: "Advertência escrita até a exoneração." },
-    { q: "No caso de reincidência de três rebaixamentos pelo mesmo crime em dois meses, qual a punição final?", a: "Demissão." },
-    { q: "Qual a punição para o crime de Camuflagem de IP em casos mais graves?", a: "Exoneração de 3 meses." },
-    { q: "Qual a sanção para o oficial que negligencia a aplicação de uma punição prevista nos documentos?", a: "Advertência verbal até o rebaixamento imediato." },
-    { q: "Qual a punição para o crime de Utilização Indevida de Canais Externos, como ofensas no RCCSystem?", a: "Rebaixamento imediato até a exoneração." },
-    { q: "Qual a consequência para o militar que comete o crime de Autopromoção falsificando sua própria patente?", a: "Demissão imediata até a exoneração de 1 mês." },
-    { q: "Qual a sanção para o oficial que deixa de responder à avaliação mensal da Diretoria sem estar em licença?", a: "Advertência escrita por Abandono de Dever/Negligência." },
-    { q: "Em que prazo uma sindicância relativa aos resultados da avaliação mensal deve ser protocolada?", a: "72 horas corridas após a divulgação do resultado." },
-    { q: "Qual a punição para o avaliador que deixa de avaliar obrigatoriamente um executivo de seu turno primário?", a: "50 medalhas efetivas negativas por cada executivo não avaliado." },
-    { q: "Qual o crime configurado pelo compartilhamento de senhas do System ou Google Drive da RCC?", a: "Conta Comprometida." },
-    { q: "Qual a punição para o crime de Conta Comprometida quando o militar ainda não concluiu a Aula de Segurança (SEG)?", a: "Advertência verbal." },
-    { q: "Qual a sanção para o militar que não cumpre as metas estabelecidas na subcompanhia Organizadores de Rondas?", a: "Punição interna de Abandono de Dever/Negligência (Advertência interna até Expulsão)." },
-    { q: "Qual a punição para o crime de Baderna, como atrapalhar as atividades rotineiras da instituição?", a: "Demissão imediata até a exoneração de 3 meses." },
-    { q: "Qual a sanção para o crime de Invasão em casos de entrada em local restrito sem autorização?", a: "Rebaixamento imediato até a exoneração de 3 meses." },
-    { q: "Como é punido o crime de Ataque às estruturas da RCC em casos gravosos?", a: "Exoneração por tempo indeterminado." },
-    { q: "Qual a punição para o crime de Corrupção ou Estelionato contra a instituição?", a: "Exoneração de 1 mês até exoneração por tempo indeterminado." },
-    { q: "No contexto da PMJ, qual a frequência de aplicação da Avaliação de Qualificação do Oficialato Intermediário (AQOI)?", a: "A cada 14 dias." },
-    { q: "Qual o comando obrigatório a ser dado pelo Oficial da Guarda quando um ex-Comandante Supremo com medalha de honra entra no batalhão?", a: "Continência (após o comando Sentido)." },
-    { q: "Qual a punição para o oficial que realiza o fechamento de um batalhão para abrir outro por interesse pessoal?", a: "Advertência escrita por Abandono de Dever/Negligência." },
-    { q: "Qual a sanção para o militar que ultrapassa 89 dias offline no RCCSystem sem Especialização Intermediária?", a: "Retirada do sistema por inatividade." },
-    { q: "Qual a punição para um oficial que posta uma fiscalização de listagem sem pertencer à Companhia dos Supervisores?", a: "Advertência escrita pelo crime de Abandono de Dever/Negligência." },
-    { q: "Qual a sanção aplicada ao militar que não quita a dívida de uma compra de cargo na data prevista?", a: "Exoneração de 1 mês até exoneração por tempo indeterminado." },
-    { q: "No caso de um oficial que cai da conexão durante a abertura do batalhão, o que deve ser anexado ao relatório?", a: "O print da mensagem de queda de conexão dada pelo Habbo juntamente com as demais capturas possíveis." },
-    { q: "Qual a punição para o crime de Insuficiência Para a Patente ou Cargo (ineficiência na companhia)?", a: "Regresso de especialização até o rebaixamento imediato." },
-    { q: "Como deve ser punido o oficial que não encaminha o print do chooser ao Setor de Inteligência após um ataque total (Gravidade 4)?", a: "Advertência escrita por Abandono de Dever/Negligência." },
-    { q: "Qual a punição para o membro da liderança da subcompanhia que não comunica formalmente uma punição ao envolvido por MP?", a: "50 medalhas efetivas negativas por Abandono de Dever/Negligência." },
-    { q: "Qual o crime configurado pela mentira dita a um superior para negar uma ofensa comprovada por prints?", a: "Conduta Imprópria." },
-    { q: "Sob qual princípio jurídico a aplicação de um crime mais específico prevalece sobre um menos específico em uma mesma conduta?", a: "Princípio da Especialidade." },
-    { q: "Qual a punição para o oficial que avalia negligentemente um subordinado com comentários genéricos em todas as áreas?", a: "Advertência verbal até o rebaixamento, conforme a gravidade." },
-    { q: "Qual a sanção para o oficial que concede permissão para uma exoneração sem possuir Especialização Básica ou integrar o Setor de Inteligência?", a: "Rebaixamento imediato, conforme o Anexo I do CPM." },
-    { q: "Em que prazo a Corregedoria deve analisar e votar um recurso formal após o recebimento?", a: "48 horas." }
+  // --- CÓDIGO PENAL MILITAR (CPM) ---
+  {
+    q: "Quais são os únicos três órgãos com competência exclusiva para aplicar a punição de Exoneração?",
+    a: "Corregedoria (COR), Grupamento de Ações Táticas Especiais (GATE) e Gabinete de Segurança da Supremacia (GSS).\n\n📍 Encontrado na documentação: Anexo I - Punições do Código Penal Militar, Capítulo I, Seção VI, Art. 1º, § 1º.",
+  },
+  {
+    q: "Na impossibilidade de aplicar uma Advertência Escrita a um Praça infrator, como deve proceder o promotor da punição?",
+    a: "A punição deverá ser compulsoriamente revertida para a atribuição de 50 medalhas efetivas negativas (MEN).\n\n📍 Encontrado na documentação: Anexo I - Punições do Código Penal Militar, Capítulo I, Seção III, Art. 2º, § 3º.",
+  },
+  {
+    q: "Em caso de soma de punições temporárias por crimes diferentes, o que ocorre se o total ultrapassar 6 meses?",
+    a: "O órgão responsável deverá, obrigatoriamente, exonerar o infrator por tempo indeterminado.\n\n📍 Encontrado na documentação: Anexo I - Punições do Código Penal Militar, Capítulo I, Seção VI, Art. 2º.",
+  },
+  {
+    q: "O que acontece com o cumprimento do bloqueio promocional de uma Advertência Escrita caso o Oficial entre em Licença de Serviço?",
+    a: "A duração e o bloqueio serão 'congelados' imediatamente, voltando a correr somente nos dias ativos após o retorno oficial da licença.\n\n📍 Encontrado na documentação: Anexo I - Punições do Código Penal Militar, Capítulo I, Seção III, Art. 2º, § 1º, 'a'.",
+  },
+  {
+    q: "A regra de reincidência que transforma 3 punições de medalhas negativas pelo mesmo crime em 'Advertência Escrita' aplica-se a quem?",
+    a: "Aplica-se exclusivamente aos Oficiais. A norma expressa que esse agravante não será, de nenhuma maneira, aplicável aos praças.\n\n📍 Encontrado na documentação: Anexo I - Punições do Código Penal Militar, Capítulo II, Art. 2º, Parágrafo único.",
+  },
+  {
+    q: "Qual é o prazo limite para postar o agravante de Reincidência no RCCSystem após a aprovação da última punição?",
+    a: "O policial deve realizar a postagem em até 24 horas. O descumprimento gera punição de 50 MEN por Abandono de Dever/Negligência.\n\n📍 Encontrado na documentação: Anexo I - Punições do Código Penal Militar, Capítulo II, Art. 6º.",
+  },
+  {
+    q: "Qual o grau de punição para quem comete 'Utilização de Fakes em Segundo Grau' (uso de conta dupla com autobenefício)?",
+    a: "A punição taxativa para Fakes com autobenefício é a Demissão imediata.\n\n📍 Encontrado na documentação: Anexo II do Código Penal Militar, Capítulo III, Seção II, Art. 1º, § 2º.",
+  },
+  {
+    q: "Qual é o crime e a punição aplicável para quem atrasa ou não quita as parcelas da compra de um cargo executivo?",
+    a: "Configura Rescisão de Contrato, cuja sanção é a Exoneração por Tempo Indeterminado (revogada apenas após quitação e/ou aval do ACS).\n\n📍 Encontrado na documentação: Anexo II do Código Penal Militar, Capítulo III, Seção VI, Art. 1º e 2º.",
+  },
+  {
+    q: "Os membros da RAIO possuem autonomia para aplicar Exonerações, sem a permissão prévia da COR/GSS, apenas em quais crimes?",
+    a: "Possuem autonomia exclusiva para exonerar nos crimes de Baderna e/ou Invasão.\n\n📍 Encontrado na documentação: Anexo I - Punições do Código Penal Militar, Capítulo I, Seção VI, Art. 1º, § 4º.",
+  },
+  {
+    q: "O policial com três rebaixamentos no prazo de 50 dias deverá sofrer a reincidência de Demissão, EXCETO se os atos forem de qual crime?",
+    a: "Isentam-se do agravante de demissão as ocorrências decorrentes do crime de Insuficiência Para a Patente ou Cargo.\n\n📍 Encontrado na documentação: Anexo I - Punições do Código Penal Militar, Capítulo II, Art. 3º, Parágrafo único.",
+  },
+  {
+    q: "Quais isenções probatórias o Setor de Inteligência detém no System ao aplicar uma Exoneração?",
+    a: "Ficam isentos de apresentar as provas publicamente (desde que armazenem) e também isentos de preencher o campo 'Comentário'.\n\n📍 Encontrado na documentação: Anexo I - Punições do Código Penal Militar, Capítulo I, Seção VI, Art. 1º, § 6º e 7º.",
+  },
+  {
+    q: "Qual isenção a Procuradoria Militar de Justiça (PMJ) possui ao aplicar Advertência Escrita relacionada à AQOI?",
+    a: "É isenta da apresentação de provas no RCCSystem, desde que estas fiquem armazenadas internamente pela presidência do órgão.\n\n📍 Encontrado na documentação: Anexo I - Punições do Código Penal Militar, Capítulo I, Seção III, Art. 2º, § 6º.",
+  },
+  {
+    q: "O que o Princípio da Especialidade determina em caso de conflito de normas penais para uma mesma conduta?",
+    a: "Determina que a aplicação do crime mais específico prevalecerá sobre a do crime menos específico.\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo III, Seção I, Art. 1º, inciso VII.",
+  },
+  {
+    q: "Qual é a punição para um praça que copia integralmente os dados de um requerimento de promoção feito por outro militar?",
+    a: "Enquadra-se como Plágio, sendo punível com 50 medalhas efetivas negativas (o rebaixamento ocorre apenas em caso de reincidência).\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo II, Seção V, Art. 2º.",
+  },
+  {
+    q: "Qual a punição mínima para quem vaza o edital, questões ou respostas da AQOI antes da divulgação oficial?",
+    a: "Configura Quebra de Sigilo, cuja punição inicia-se em Advertência Escrita, podendo chegar à Exoneração.\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo II, Seção XIV, Art. 1º, inciso V.",
+  },
+  {
+    q: "Para o crime de Estelionato (obter vantagem enganando outrem), qual a pena mínima de exoneração estabelecida?",
+    a: "A punição inicial para o crime de Estelionato é de Exoneração de 1 (um) mês, podendo chegar a tempo indeterminado.\n\n📍 Encontrado na documentação: Anexo II do Código Penal Militar, Capítulo III, Seção IV, Art. 1º, § único.",
+  },
+  {
+    q: "Mentir em um inquérito apurativo da Corregedoria para esconder uma infração tipifica qual crime?",
+    a: "Configura Obstrução à Justiça, sujeito a penas de Advertência Escrita até Exoneração por Tempo Indeterminado.\n\n📍 Encontrado na documentação: Anexo II do Código Penal Militar, Capítulo III, Seção V, Art. 1º, inciso I.",
+  },
+  {
+    q: "Um Promotor que promove um subalterno sem checar seus dias mínimos e sua porcentagem na companhia incorre em qual infração?",
+    a: "Comete o crime de Abandono de Dever/Negligência, e no caso de Oficiais, gera a punição de Advertência Escrita.\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo II, Seção IX, Art. 1º, inciso VI e Parágrafo único.",
+  },
+  {
+    q: "Se um Subtenente age sob coação para atacar o batalhão, sua punibilidade será extinta?",
+    a: "Não. A coação não extingue a punibilidade quando se tratar de ordens que coloquem a integridade da RCC em alto grau de risco.\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo III, Seção V, Art. 3º, § 1º.",
+  },
+  {
+    q: "Qual o prazo máximo para um policial apresentar sua defesa (réu) num processo de 2ª instância na Corregedoria?",
+    a: "O réu tem 24 horas para defesa (podendo ter +24h de prazo caso tenha auxílio da Procuradoria Militar de Justiça).\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo III, Seção IV, Art. 3º, § 2º e § 3º.",
+  },
+  {
+    q: "A extinção da punibilidade decorrente de retroatividade benéfica de uma nova lei se aplica por qual período de tempo após o ato?",
+    a: "A extinção só ocorrerá se o fato intercorreu num período máximo de 15 (quinze) dias antes da alteração normativa.\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo III, Seção V, Art. 1º, § 2º.",
+  },
+  {
+    q: "Segundo o Anexo I, como atua o Artigo 8 da Reincidência no caso de cometimento duplo de Conduta Imprópria no mesmo dia?",
+    a: "Ocorre o acréscimo de 50 MEN na penalidade de Advertência Escrita, pois a primeira punição ainda não havia sido registrada no sistema.\n\n📍 Encontrado na documentação: Anexo I - Punições do Código Penal Militar, Capítulo II, Art. 8º.",
+  },
+  {
+    q: "A venda de cargos gera lucro para o ACS. Se o Vendedor de Cargos desviar os lucros dessas vendas para si, ele comete Corrupção Institucional?",
+    a: "Não. A norma do crime de Corrupção tem como exceção legal e expressa os lucros virtuais provenientes das vendas de cargos.\n\n📍 Encontrado na documentação: Anexo II do Código Penal Militar, Capítulo III, Seção III, Art. 1º, inciso II.",
+  },
+  {
+    q: "O uso de VPN (Camuflagem de IP) sem autorização, se feito apenas para abrir o client do Habbo Hotel, é crime punível?",
+    a: "Não. A documentação prevê que navegadores ou ferramentas que alterem o IP por padrão podem ser utilizados licitamente apenas no Habbo.\n\n📍 Encontrado na documentação: Anexo II do Código Penal Militar, Capítulo II, Seção III, Art. 1º, § 2º.",
+  },
+  {
+    q: "Usar o poder de Comando para ameaçar alunos que abrem documentos durante o TASA ou AQOI configura qual crime?",
+    a: "Configura Abuso de Poder, visto que o CFO, TASA e a AQOI são exceções legais que permitem consultas restritas.\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo II, Seção VI, Art. 1º, inciso IV.",
+  },
+  {
+    q: "No que consiste a perda de certificados para um policial que recebe a penalidade máxima de Exoneração?",
+    a: "O policial exonerado perde o direito irreversível aos certificados CFO, CFE, CQ, além do acesso ao fórum e passes de Veterano/Reformado.\n\n📍 Encontrado na documentação: Anexo II do Código Penal Militar, Capítulo IV, Art. 2º.",
+  },
+  {
+    q: "As instâncias judiciárias para apelação de recursos seguem uma ordem estrita. Quais são elas?",
+    a: "Hierarquia (1ª Instância), Corregedoria (2ª Instância) e Alto Comando Supremo (Última Instância).\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo III, Seção II, Art. 4º.",
+  },
+  {
+    q: "Para um recurso enviado à Corregedoria ser válido, qual é o prazo legal limite de interposição do réu após ser punido?",
+    a: "O recurso deve ser impetrado em até 07 (sete) dias, a contar da data de homologação/publicação da punição.\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo III, Seção IV, Art. 2º.",
+  },
+  {
+    q: "Punições por Desrespeito a Comandantes em um evento oficial num batalhão estrangeiro da GOPH aplicam-se na PMRCC?",
+    a: "Sim. A Política Externa diz que crimes ofensivos ou infrações cometidos em solo ou terra estrangeira devem ser punidos, e com maior agravante em aliadas.\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo I, Seção II, Art. 5º e § 1º.",
+  },
+  {
+    q: "Um Coronel pune um civil de aliada por Traição. Quais fatos definem Traição para civis?",
+    a: "O CPM atua apenas sob militares, ex-militares e contas envolvidas com a RCC. Traição engloba infiltrações, espionagens ou não prestar proteção às coligadas.\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo II, Seção XII, Art. 1º.",
+  },
+  {
+    q: "Falsificar horas trabalhadas na PMRCC via documentos é crime. Se for um erro técnico provado sem má-fé, como penaliza?",
+    a: "O erro provado não configura falsificação e rende apenas Advertência Verbal como meio instrutivo de não repetição.\n\n📍 Encontrado na documentação: Código Penal Militar, Capítulo II, Seção IV, Art. 1º, § 2º.",
+  },
+  {
+    q: "Membros do Grupo Organizado de Polícias Habbianas (GOPH) podem ter entrada negada em nossas bases?",
+    a: "O acesso é livre, mas se o membro constar na lista de exonerados, o Oficial da Guarda o intimará a se retirar e poderá expulsá-lo compulsoriamente.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo IV, Art. 5º, § 2º.",
+  },
+
+  // --- CÓDIGO DE CONDUTA MILITAR (CCM) ---
+  {
+    q: "Qual é o tempo limite de validade de uma permissão promocional ou de especialização concedida no RCCSystem?",
+    a: "A permissão possui a validade estrita de 24 horas a contar de seu registro. Após isso, expira.\n\n📍 Encontrado na documentação: Código de Conduta Militar - Disposições Complementares, Capítulo I, Seção III, Art. 1º, § 5º.",
+  },
+  {
+    q: "Quando um policial efetua uma transferência de conta acima de 7 dias, em quanto tempo deve alterar a nova TAG in-game?",
+    a: "O prazo obrigatório para que a nova TAG seja atualizada na conta do Habbo Hotel é de 48 horas.\n\n📍 Encontrado na documentação: Código de Conduta Militar - Disposições Complementares, Capítulo III, Art. 4º, inciso I.",
+  },
+  {
+    q: "Para um ex-policial tornar-se um Oficial Reformado no Corpo Executivo, em qual cargo mínimo ele precisa ter se aposentado?",
+    a: "No cargo de Superintendente (iniciando a carreira como trainee/analista e sem compra), ou obter reconhecimento da COR, ou possuir Especialização Avançada.\n\n📍 Encontrado na documentação: Anexo II - Política de Baixa, Aposentadoria e Reintegração, Capítulo II, Art. 2º, § 1º.",
+  },
+  {
+    q: "Se uma promoção for negada pelo CRH por pequenos erros de digitação, quanto tempo o promotor possui para repostá-la consertada?",
+    a: "O promotor tem o prazo de até 24 horas, contadas a partir da negação, para repostar o requerimento corrigido.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo VII, Art. 5º.",
+  },
+  {
+    q: "Quando o promotor decide cancelar a sua promoção aprovada, qual é a sua obrigação pós-cancelamento?",
+    a: "Deve notificar o subordinado em até 24h, presencialmente ou por MP, expondo os motivos e arquivando printscreen da notificação para servir de prova.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo VII, Seção V, Art. 6º.",
+  },
+  {
+    q: "Se a promoção for cancelada para favorecer um terceiro mais apto à vaga, qual a obrigação temporal do Oficial com esse terceiro?",
+    a: "Ele obriga-se a promover o novo candidato mais apto no prazo máximo de 24 horas, sob pena de negligência.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo VII, Seção V, Art. 2º.",
+  },
+  {
+    q: "Ao voltar de uma Licença de Serviço de 14 dias, um Oficial poderá voltar a promover seus subalternos após qual exigência?",
+    a: "Deve obrigatoriamente compensar 07 dias de atividade após a licença, antes de promover, rebaixar ou dar permissões no oficialato.\n\n📍 Encontrado na documentação: Código de Conduta Militar - Disposições Complementares, Capítulo II, Art. 8º.",
+  },
+  {
+    q: "Existem cursos que isentam a reposição compulsória de dias de licença. Quais são as siglas desses 3 cursos?",
+    a: "COEsp (Operações Especiais), CAT (Ações Táticas) e CAPExe (Ações Preparatórias Executivas).\n\n📍 Encontrado na documentação: Código de Conduta Militar - Disposições Complementares, Capítulo II, Art. 7º.",
+  },
+  {
+    q: "Corregedores estão isentos da compensação de atividade após voltar de licença contanto que o afastamento não exceda quantos dias?",
+    a: "Estão isentos desde que tenham tirado uma licença cumulativa máxima de 21 dias.\n\n📍 Encontrado na documentação: Código de Conduta Militar - Disposições Complementares, Capítulo II, Art. 8º, § 3º, III.",
+  },
+  {
+    q: "O policial recém-promovido a Analista (Oficialato) tem que prazo para atualizar as suas Tarefas e Turnos no System?",
+    a: "Possui até 48 horas para realizar a atualização. O descumprimento gera punição de Advertência Escrita por Abandono.\n\n📍 Encontrado na documentação: Código de Conduta Militar - Disposições Complementares, Capítulo I, Art. 3º, § 3º.",
+  },
+  {
+    q: "O que a normativa dita sobre um Promotor realizar missões a um Sargento (Praça) com 8 dias de carreira?",
+    a: "A missão não deve ser atribuída, visto que missões exigem patente/cargo igual ou superior a Aspirante/Analista.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo X, Seção I, Art. 3º, inciso I.",
+  },
+  {
+    q: "Ao aplicar uma missão de Rondas que dura 2 dias, o promotor deve postá-la na Central de Postagens do SRP em que prazo máximo?",
+    a: "O registro formal da missão no tópico SRP deve ser feito em até 01 hora após a aplicação em jogo.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo X, Seção I, Art. 4º, § 1º, inciso II.",
+  },
+  {
+    q: "Se um Coronel entra em licença enquanto possuía uma missão aplicada para um subalterno e em andamento, o que ele faz com o prazo?",
+    a: "Ele deverá optar por aumentar o prazo de entrega da missão para o subordinado ou proceder com o seu cancelamento.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo X, Seção I, Art. 3º, § 4º.",
+  },
+  {
+    q: "As Especializações do Corpo Executivo dividem-se em Nível 1, 2 e 3. Quais os nomes oficiais?",
+    a: "Especialização Básica (Nível 1), Especialização Intermediária (Nível 2) e Especialização Avançada (Nível 3).\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo VII, Seção II, Art. 3º.",
+  },
+  {
+    q: "A Mediação Hierárquica do CEM atende policiais de quais patentes máximas para adiantamento promocional?",
+    a: "Atende do Corpo Militar (Soldado até Subtenente) e Corpo Executivo (Trainee até Analista-Chefe).\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo VIII, Art. 2º, § 1º.",
+  },
+  {
+    q: "Para ser qualificado na Mediação Hierárquica do CEM, o que é exigido em relação ao interstício do praça?",
+    a: "É necessário que o policial possua o DOBRO do tempo mínimo exigido para a sua promoção padrão, além da conclusão de todos os cursos obrigatórios.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo VIII, Art. 2º, § 2º.",
+  },
+  {
+    q: "Na criação de TAGS da RCC, a TAG 'Mtt' para o nick '..-Mt-..' pode ser aprovada?",
+    a: "Sim. Como o nick possui apenas 2 letras, a normativa exige obrigatoriamente que uma das letras seja duplicada na TAG.\n\n📍 Encontrado na documentação: Código de Conduta Militar - Disposições Complementares, Capítulo I, Art. 1º, § 2º.",
+  },
+  {
+    q: "Qual punição recebe um Oficial com patente de Capitão flagrado operando nas dependências da base sem visibilidade do perfil (offline)?",
+    a: "Rebaixamento imediato pela ausência de visibilidade (aplicável sem notificação prévia para todos do oficialato e portadores de direitos).\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo III, Art. 3º, § 1º, inciso III.",
+  },
+  {
+    q: "O prazo mínimo para permanecer em uma Companhia de Tarefas sem ser punido por saída precoce (adaptação) é qual?",
+    a: "O policial possui 14 dias de adaptação para sair impune. Passado isso, somente aos 30 dias. Se sair fora dos prazos, 50 MEN.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo IX, Seção IV, Art. 8º.",
+  },
+  {
+    q: "Se a promoção for realizada estando o Promotor em modo ausente 'Zzz' na Sala de Instrução. Isso acarreta infração?",
+    a: "A norma proíbe inatividade Zzz nas localidades, exceto as destinadas (como Sala de Ausência). O infrator deverá Apresentar Armas.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo IV, Art. 3º.",
+  },
+  {
+    q: "Um projeto devidamente aprovado gera quantas medalhas temporárias ao seu criador na RCC?",
+    a: "Gera de 20 a 40 medalhas temporárias, além da possibilidade de ganhar uma Medalha de Honra de 24h a 48h.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo XI, Seção I, Art. 12º, § 1º.",
+  },
+  {
+    q: "O policial que descumprir o DPP (Diálogo Pós-Promoção) para expor novos desafios ao promovido comete alguma negligência?",
+    a: "Sim. É obrigação do promotor instruir presencial ou via MP o seu subalterno em 24h. A quebra gera Abandono de Dever.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo VII, Art. 3º, inciso I.",
+  },
+  {
+    q: "Quantas vagas máximas existem na listagem para a Patente de Comandante?",
+    a: "São disponibilizadas apenas 04 vagas para a patente de Comandante.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo VI, Art. 5º.",
+  },
+  {
+    q: "Se um Coronel pede baixa da polícia via Sistema (Desligamento Honroso), ele pode cancelar a sua baixa posteriormente?",
+    a: "Apenas se solicitada o cancelamento ao Alto Comando Supremo e autorizado por eles, e antes das 23h59 do dia seguinte.\n\n📍 Encontrado na documentação: Anexo II - Política de Baixa e Aposentadoria, Capítulo I, Art. 3º.",
+  },
+  {
+    q: "Quando um policial recebe a Medalha de Honra Dourada e é desrespeitado durante uma inspeção, ele pode atuar sem autonomia?",
+    a: "A medalha de honra é símbolo do ACS. Contudo, ações penais exigem jurisdição padrão. Quem ofende responde por desrespeito ou insubordinação extrema.\n\n📍 Encontrado na documentação: Anexo I - Normas para Nicknames e Fardas, Seção IV, Art. 7º.",
+  },
+
+  // --- CÓDIGO DE COMANDO DO BATALHÃO (CCB) ---
+  {
+    q: "Na abertura de um Batalhão Auxiliar, qual contingente base o Oficial da Guarda deve alocar do Principal para estabilizar o Quarto?",
+    a: "Deve realizar o envio de, no mínimo, 10 policiais no exato momento da abertura do Batalhão Auxiliar.\n\n📍 Encontrado na documentação: Código de Comando do Batalhão, Capítulo III.",
+  },
+  {
+    q: "O Oficial da Guarda deve obrigatoriamente realizar o repasse do 'Sentido' se o Superior hierárquico iniciar a sua fala antes disso?",
+    a: "Não. A jurisprudência dita que se o Comandante iniciar sua fala e/ou anúncio antes, o repasse formal do OG não será mais feito na ocasião.\n\n📍 Encontrado na documentação: Código de Comando do Batalhão, Seção de Comandos.",
+  },
+  {
+    q: "Qual a condição primária que proíbe o fechamento/migração de um Batalhão Principal por mera preferência de arquitetura?",
+    a: "A migração entre batalhões por motivos fúteis é expressamente proibida pela documentação.\n\n📍 Encontrado na documentação: Código de Comando do Batalhão, Capítulo III.",
+  },
+  {
+    q: "Se o servidor do Habbo envia o alerta de 2 minutos para manutenção, o Oficial da Guarda tem obrigação de fechar as dependências?",
+    a: "Não. O fechamento só se torna procedimento obrigatório se o aviso ocorrer com 03 (três) minutos ou mais de antecedência.\n\n📍 Encontrado na documentação: Código de Comando do Batalhão / Diretrizes AQOI.",
+  },
+  {
+    q: "Um Sargento com Curso de Formação (CFS) pode assumir o posto de Oficial da Guarda sob o auxílio de portadores?",
+    a: "Sim, mas EXCLUSIVAMENTE no Batalhão Auxiliar. No Principal, a função requer mínimo de Aspirante a Oficial.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo V, Art. 4º, § 6º.",
+  },
+  {
+    q: "Ao dar início à uma Palestra Oficial no batalhão principal, qual função da base deve ser temporariamente dispensada?",
+    a: "Deve-se dispensar imediatamente o Operador 4, o Sentinela, o Cabo da Guarda e o Auxiliar do Cabo da Guarda.\n\n📍 Encontrado na documentação: Código de Comando do Batalhão / Logística de Eventos.",
+  },
+  {
+    q: "Qual patente/cargo a recepção exige do militar escalado para o controle principal do palanque (Cabo da Guarda)?",
+    a: "Exige ser mínimo Sargento com CFS ou Secretário com APA e SEG, sendo ele obrigatoriamente subalterno/par ao Oficial da Guarda.\n\n📍 Encontrado na documentação: O Código de Conduta Militar 001, Capítulo V, Seção I, Art. 2º, § 2º.",
+  },
+  {
+    q: "Se o Quarto atingir 75 militares e a Sala de Estado possuir excedentes, qual atitude gerencial do OG é cobrada?",
+    a: "É esperada e correta a abertura de um Batalhão Auxiliar para distribuir o fluxo contínuo de usuários do quarto.\n\n📍 Encontrado na documentação: Código de Comando do Batalhão, Diretrizes de Lotação.",
+  },
+  {
+    q: "O Oficial da Guarda pode ser advertido por abandono de dever se abrir o Batalhão e atrasar a postagem do relatório do Fórum?",
+    a: "Sim. O registro de Abertura ou Fechamento nos tópicos de Comando possui o prazo estrito de até 30 minutos.\n\n📍 Encontrado na documentação: Código de Comando do Batalhão, Procedimento Padrão.",
+  },
+  {
+    q: "Na migração, em vez de expulsar todos direto com o portão fechado, o Oficial da Guarda deve usar qual ferramenta do Habbo?",
+    a: "Deve utilizar o teleporte do Corredor Principal para criar uma rota segura, trancando a saída enquanto estabiliza o Batalhão Auxiliar.\n\n📍 Encontrado na documentação: Código de Comando do Batalhão, Migração e Lotação.",
+  },
+
+  // --- PLANO DE CONTROLE EMERGENCIAL (PCE) ---
+  {
+    q: "Qual é a tolerância máxima, em segundos, estabelecida pelo manual de operações para a ativação do comando :chooser no PC?",
+    a: "A tolerância estipulada para garantir a veracidade da prova sem margem para fraudes é de até 05 (cinco) segundos.\n\n📍 Encontrado na documentação: Anexo I - Manual de Utilização do Chooser, Item 1.",
+  },
+  {
+    q: "O ataque de Mute Sem Identificação (com a vítima apresentando print de tela cheia com a comprovação do bloqueio) exige qual comando?",
+    a: "Exige o Procedimento Básico (gravidade 3), devendo o OG realizar o registro :chooser na íntegra de todos os usuários do quarto.\n\n📍 Encontrado na documentação: Plano de Controle Emergencial, Item 5 (Gravidade 3).",
+  },
+  {
+    q: "Num ataque emergencial com múltiplos chutes contínuos (Kick), quem possui competência vitalícia para silenciar o Batalhão?",
+    a: "O acionamento da ferramenta de Silenciar Quarto (Procedimento Intermediário) é de competência EXCLUSIVA dos membros do CSI.\n\n📍 Encontrado na documentação: Plano de Controle Emergencial, Item 5 (Procedimentos).",
+  },
+  {
+    q: "Um recruta começa a xingar de forma constante na recepção. O OG aplica print chooser. A atitude tática dele está validada no PCE?",
+    a: "Não. Xingamentos (Baderna) são ataques de Gravidade 2. O OG errou ao acionar o chooser, já que ele destina-se a ataques de Gravidade 3 ou 4.\n\n📍 Encontrado na documentação: Plano de Controle Emergencial, Item 5.",
+  },
+  {
+    q: "Se um baderneiro desvia um sofá da Sala de Estado sem intenção letal, o Oficial da Guarda questiona o motivo?",
+    a: "Não. Em caso de Movimentação de Mobílias (Gravidade 3), o OG aplica o Procedimento Básico instantaneamente ANTES de inquirir alguém por acidente.\n\n📍 Encontrado na documentação: Plano de Controle Emergencial, Item 5.",
+  },
+  {
+    q: "Se um Coronel do Setor de Inteligência for comandar a aplicação de uma 'Simulação de Ataque', quem deve autorizá-lo previamente?",
+    a: "O Alto Comando Supremo. As simulações de base ficam com o RAIO, enquanto as Simulações de Ataque são do SI com o aval expresso do ACS.\n\n📍 Encontrado na documentação: Plano de Controle Emergencial, Item 7.2.",
+  },
+  {
+    q: "Qual falha o Tenente (Oficial do Corpo Militar) comete caso não envie o print comprovatório do seu kick emergencial ao fórum CSI?",
+    a: "Como oficial, comete Abandono de Dever/Negligência, e deverá ser advertido por escrito pelo Setor competente. (Diferente dos praças, que apenas recebem orientação).\n\n📍 Encontrado na documentação: Plano de Controle Emergencial, Norma 2.",
+  },
+  {
+    q: "Em qual cenário do PCE admite-se que o Procedimento Intermediário seja aplicado DIRETAMENTE, pulando o básico?",
+    a: "Em ataques generalizados ou em grande escala simultânea (ex: kick em massa do palanque), admitindo-se antes mesmo das vitimas postarem a comprovação.\n\n📍 Encontrado na documentação: Plano de Controle Emergencial, Instruções Especiais de Invasão.",
+  },
+  {
+    q: "O Oficial da Guarda que pertence ao GATE acionou o Procedimento Intermediário na primeira infração de mute na base. Julgue.",
+    a: "Embora do CSI, ele errou. O Procedimento Intermediário deve ser acionado apenas se o ataque for reincidente à primeira tentativa contida pelo básico.\n\n📍 Encontrado na documentação: Plano de Controle Emergencial, Procedimentos CSI.",
+  },
+  {
+    q: "A comprovação de um mute deve focar obrigatoriamente no quê, para ser validada juridicamente no tópico da CSI?",
+    a: "Deve exibir o print em tela cheia com o balão do sistema indicando o silenciamento instantaneamente APÓS o envio de qualquer fala no chat.\n\n📍 Encontrado na documentação: Plano de Controle Emergencial, Norma 2.",
+  },
+
+  // --- DIRETRIZES DE AVALIAÇÃO DA CE E DO CORPO MILITAR ---
+  {
+    q: "Qual é a penalidade automática para o Diretor do Corpo Executivo que não avalia nenhum executivo no período do mês?",
+    a: "Caso ele não tenha solicitado licença sem a dispensa do Presidente, receberá uma Advertência Escrita por Abandono de Dever/Negligência.\n\n📍 Encontrado na documentação: Regulamento das Avaliações, Capítulo V, Art. 1º.",
+  },
+  {
+    q: "Qual é a nota e parâmetro matemático que se deve dar em Avaliações no Corpo Executivo e Oficialato?",
+    a: "A atribuição de notas deve ser baseada de 0 (zero) a 10 (dez), sendo terminantemente proibida a utilização de números decimais nas cédulas.\n\n📍 Encontrado na documentação: Regulamento das Avaliações, Capítulo I, Art. 5º, Parágrafo único.",
+  },
+  {
+    q: "O veredito de 'Observação' nas pesquisas e sondagens corporativas pune o policial com qual limitação administrativa?",
+    a: "A 'Observação' pune o oficial limitando sua promoção, promovendo um bloqueio compulsório da promoção durante o período letivo de 7 dias úteis.\n\n📍 Encontrado na documentação: Regulamento das Avaliações, Capítulo IV, Art. 4º, inciso I.",
+  },
+  {
+    q: "Na coleta de horários, qual penalidade ou consideração sofre o Executivo que atrasar seu envio além das 24h delimitadas?",
+    a: "Ele será julgado com a ausência de defesa, considerado apto/presente em todos os turnos registrados, sofrendo avaliação massiva de todos no seu respectivo turno.\n\n📍 Encontrado na documentação: Regulamento das Avaliações, Capítulo II, Art. 5º.",
+  },
+  {
+    q: "Caso haja empate na votação final (Veredito Promoção vs Mantém), a quem é deferida a palavra final de desempate legal?",
+    a: "A resolução do desempate ficará a cargo decisório inquestionável e conclusivo do Presidente da Diretoria (ou Presidente do COG).\n\n📍 Encontrado na documentação: Regulamento das Avaliações, Capítulo IV, Art. 3º, inciso I.",
+  },
+  {
+    q: "Punições para executivos que atribuem avaliações genéricas e copiadas na Diretoria consistem em que tipo criminal?",
+    a: "Constituem falta de zelo, incorrendo desde 50 MEN (Praça) até Advertência Escrita, e em casos críticos rebaixamento no respectivo órgão.\n\n📍 Encontrado na documentação: Regulamento das Avaliações, Capítulo V, Art. 3º, inciso III.",
+  },
+  {
+    q: "O que a documentação proíbe o Diretor de fazer publicamente durante o andamento fechado do período de avaliações?",
+    a: "A diretoria deve ordenar o bloqueio de todas as promoções de portadores da especialização intermediária. O descumprimento por quem promove é Adv. Escrita.\n\n📍 Encontrado na documentação: Regulamento das Avaliações, Capítulo I, Art. 8º.",
+  },
+
+  // --- REGRAS GERAIS DE NICKNAMES, FARDAMENTOS E ADORNOS ---
+  {
+    q: "É proibido contratar civis com nicknames compostos exaustivamente por pontuações ou traços seguidos. Qual é a penalidade?",
+    a: "Realizar o recrutamento de civis irregulares gera o crime de Abandono de Dever/Negligência, penalisando o Operador em 50 MEN.\n\n📍 Encontrado na documentação: Anexo I - Normas para Nicknames e Fardas, Capítulo I, Art. 1º, Parágrafo Único.",
+  },
+  {
+    q: "Quais cores de boina são restritamente limitadas para apenas uma Divisão sem exceções de patentes?",
+    a: "A boina vermelha (CSI), sendo restrita apenas aos policiais ativos no Comando de Segurança Institucional.\n\n📍 Encontrado na documentação: Anexo I - Normas para Nicknames e Fardas, Seção IV, Art. 12º.",
+  },
+  {
+    q: "A barba deve ser preferencialmente da mesma cor do cabelo. Se for de cor diferente, quais as regras limitantes?",
+    a: "Deve obrigatoriamente seguir um tom neutro e natural e realístico (preto, branco, loiro ou castanho avermelhado).\n\n📍 Encontrado na documentação: Anexo I - Normas para Nicknames e Fardas, Seção IV, Art. 6º, § 2º.",
+  },
+  {
+    q: "Os óculos em design clássico são permitidos para membros de qual patente mínima e em quais cores exclusivas?",
+    a: "Para membros à partir de Sargentos e/ou Trainees. Somente permitidos em molduras sólidas nas cores Preto, Branco ou Cinza.\n\n📍 Encontrado na documentação: Anexo I - Normas para Nicknames e Fardas, Seção IV, Art. 2º.",
+  },
+  {
+    q: "Membros do GATE são os únicos detentores da autonomia vitalícia do uso de qual artigo e/ou utensílio estético no Batalhão?",
+    a: "Possuem a autonomia permanente do Lenço estético com a farda. Caso veteranos, portarão o brevê inteiramente Preto.\n\n📍 Encontrado na documentação: Anexo I - Normas para Nicknames e Fardas, Seção IV, Art. 14º e Art. 15º, § 2º.",
+  },
+  {
+    q: "Um recruta possui um nickname no Habbo Hotel chamado 'zerartempo'. Ele pode ser ingressado na polícia?",
+    a: "Absolutamente não. A política veta o registro de nicks idênticos a comandos do Habbo ou do Sistema (ex: zerartempo, abrirsc, chooser, pk).\n\n📍 Encontrado na documentação: Anexo I - Normas para Nicknames e Fardas, Capítulo I, Art. 1º, inciso IV e VIII.",
+  },
+  {
+    q: "Quando uma punição de Rebaixamento ou Demissão é postada, os Executivos podem omitir seu parecer motivacional de que forma?",
+    a: "De forma alguma. Todos os Executivos (exceto Inteligência que oculta e Corregedoria que só expõe o Anexo) devem fundamentar publicamente e incisivamente o motivo e a cláusula.\n\n📍 Encontrado na documentação: Anexo I - Punições, Capítulo I, Seção IV, Art. 1º, § 2º.",
+  },
+  {
+    q: "A 'Auto-Promoção' só é concretizada sob a farda quando, além do fardamento fraudulento, o militar agir com que postura?",
+    a: "Se ele assumir também o preenchimento da missão da pseudo-patente ou quando fizer declarações de autoridade jurisdicional a subalternos.\n\n📍 Encontrado na documentação: Anexo II do Código Penal Militar, Capítulo II, Seção IV, Art. 1º, § 1º.",
+  },
 ];

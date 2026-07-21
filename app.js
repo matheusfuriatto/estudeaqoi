@@ -13,6 +13,7 @@ class AQOIApplication {
       currentQuestionIndex: 0,
       tempoRestanteQuestoes: {},
       activeTimerId: null,
+      speechTimeoutId: null,
       currentFlashcardIndex: 0,
       ranking: this.carregarRanking(),
       forumPosts: this.carregarForum(),
@@ -147,12 +148,12 @@ class AQOIApplication {
   }
 
   shuffleArray(array) {
-    const clone = [...array];
+    const clone = [...(array || [])];
     return clone.sort(() => Math.random() - 0.5);
   }
 
-  // Divide as diretrizes em balões de até 200 caracteres para garantir legibilidade
   dividirTextoEmBaloes(texto, limite = 200) {
+    if (!texto) return ["(Sem enunciado)"];
     const palavras = texto.split(" ");
     const blocos = [];
     let blocoAtual = "";
@@ -184,32 +185,41 @@ class AQOIApplication {
     if (!nome)
       return alert("Por favor, digite o Nickname do oficial que fará a prova.");
 
-    const todasQuestoes = Object.values(AQOI_SIMULADOS).flat();
+    // Carregamento resiliente do banco de dados de questões
+    let todasQuestoes = [];
+    if (typeof AQOI_SIMULADOS !== "undefined") {
+      if (Array.isArray(AQOI_SIMULADOS)) {
+        todasQuestoes = AQOI_SIMULADOS;
+      } else if (typeof AQOI_SIMULADOS === "object" && AQOI_SIMULADOS !== null) {
+        todasQuestoes = Object.values(AQOI_SIMULADOS).flat();
+      }
+    }
 
-    const poolCondutaPenal = todasQuestoes.filter(
-      (q) => q.title === "CONDUTA_PENAL",
-    );
-    const poolComando = todasQuestoes.filter(
-      (q) => q.title === "COMANDO_BATALHAO",
-    );
-    const poolPCE = todasQuestoes.filter(
-      (q) => q.title === "CONTROLE_EMERGENCIAL",
-    );
+    if (!todasQuestoes || todasQuestoes.length === 0) {
+      return alert("Erro: Nenhuma questão encontrada no arquivo questions.js. Verifique se o arquivo foi salvo corretamente.");
+    }
 
-    // Cota exata da AQOI (3 Conduta + 3 Penal = 6 Conduta/Penal, 2 Comando, 2 PCE)
-    const selecionadasCondutaPenal = this.shuffleArray(poolCondutaPenal).slice(
-      0,
-      6,
-    );
-    const selecionadasComando = this.shuffleArray(poolComando).slice(0, 2);
-    const selecionadasPCE = this.shuffleArray(poolPCE).slice(0, 2);
+    // Filtro flexível para capturar tags antigas e novas
+    const poolCCM = todasQuestoes.filter((q) => q && q.title && (q.title.startsWith("CCM") || q.title.includes("CONDUTA")));
+    const poolCPM = todasQuestoes.filter((q) => q && q.title && (q.title.startsWith("CPM") || q.title.includes("PENAL") || q.title === "CONDUTA_PENAL"));
+    const poolCCB = todasQuestoes.filter((q) => q && q.title && (q.title.startsWith("CCB") || q.title.includes("COMANDO") || q.title === "COMANDO_BATALHAO"));
+    const poolPCE = todasQuestoes.filter((q) => q && q.title && (q.title.startsWith("PCE") || q.title.includes("EMERGENCIAL") || q.title === "CONTROLE_EMERGENCIAL"));
 
-    this.state.questoesAtivas = this.shuffleArray([
-      ...selecionadasCondutaPenal,
-      ...selecionadasComando,
-      ...selecionadasPCE,
-    ]);
+    let selecionadas = [
+      ...this.shuffleArray(poolCCM).slice(0, 3),
+      ...this.shuffleArray(poolCPM).slice(0, 3),
+      ...this.shuffleArray(poolCCB).slice(0, 2),
+      ...this.shuffleArray(poolPCE).slice(0, 2),
+    ];
 
+    // Fallback: se a filtragem temática não atingir 10 questões, completa com qualquer questão disponível
+    if (selecionadas.length < 10) {
+      const restantes = todasQuestoes.filter((q) => !selecionadas.includes(q));
+      const necessarias = 10 - selecionadas.length;
+      selecionadas = [...selecionadas, ...this.shuffleArray(restantes).slice(0, necessarias)];
+    }
+
+    this.state.questoesAtivas = this.shuffleArray(selecionadas).slice(0, 10);
     this.state.militarNome = nome;
     this.state.militarDispositivo = dispositivo;
     this.state.respostasMilitares = {};
@@ -220,8 +230,8 @@ class AQOIApplication {
     this.state.questoesAtivas.forEach((q, idx) => {
       this.state.tempoRestanteQuestoes[idx] =
         this.state.militarDispositivo === "mobile"
-          ? q.timeMobile
-          : q.timeDesktop;
+          ? (q.timeMobile || 240)
+          : (q.timeDesktop || 180);
     });
 
     if (this.DOM.setupMilitar) this.DOM.setupMilitar.classList.add("hidden");
@@ -233,8 +243,18 @@ class AQOIApplication {
   }
 
   prepararEIniciarQuestao() {
+    if (this.state.speechTimeoutId) {
+      clearTimeout(this.state.speechTimeoutId);
+      this.state.speechTimeoutId = null;
+    }
+
     const idx = this.state.currentQuestionIndex;
     const q = this.state.questoesAtivas[idx];
+
+    if (!q) {
+      console.error("Erro: Questão inválida ou inexistente no índice", idx);
+      return;
+    }
 
     this.state.baloesExibidos = [];
     this.state.indiceBalaoAtual = 0;
@@ -255,7 +275,7 @@ class AQOIApplication {
 
       this.atualizarBaloesNaSala();
 
-      setTimeout(() => {
+      this.state.speechTimeoutId = setTimeout(() => {
         this.processarFalaDoAvaliador();
       }, 1800);
     } else {
@@ -307,12 +327,15 @@ class AQOIApplication {
 
     const idx = this.state.currentQuestionIndex;
     const q = this.state.questoesAtivas[idx];
-    const tempoRestante = this.state.tempoRestanteQuestoes[idx];
+
+    if (!q) return;
+
+    const tempoRestante = this.state.tempoRestanteQuestoes[idx] || 180;
     const respostaSalva = this.state.respostasMilitares[idx] || "";
 
-    let pilarText = q.title.replace("_", " ");
+    let pilarText = (q.title || "QUESTÃO").replace(/_/g, " ");
     let borderStyle = "border-slate-800";
-    if (q.title === "CONTROLE_EMERGENCIAL") {
+    if ((q.title && q.title.startsWith("PCE")) || q.title === "CONTROLE_EMERGENCIAL") {
       pilarText = "CONTROLE EMERGENCIAL (PCE) - CRÍTICO";
       borderStyle = "border-rose-500/30";
     }
@@ -332,19 +355,13 @@ class AQOIApplication {
 
                     <div class="flex justify-between items-center bg-[#0a1020] px-5 py-3 border-b border-slate-800 text-xs font-mono">
                         <span class="text-amber-500 font-bold uppercase tracking-widest">${pilarText}</span>
-                        <span class="text-slate-400">PERGUNTA ${idx + 1} DE 10</span>
+                        <span class="text-slate-400">PERGUNTA ${idx + 1} DE ${this.state.questoesAtivas.length}</span>
                     </div>
 
-                    <!-- Cenário de Sala do Habbo com novas classes responsivas -->
                     <div class="habbo-room-container">
-
-                        <!-- Chat de Balões de Fala -->
                         <div id="habbo-speech-area" class="scrollbar-thin"></div>
 
-                        <!-- Rodapé do Cenário (Palco) -->
                         <div class="habbo-floor-stage">
-
-                            <!-- LADO ESQUERDO: Avaliado -->
                             <div class="habbo-character-slot">
                                 <div class="habbo-podium-stand stand-evaluated">
                                     <div class="w-10 h-1.5 bg-amber-500/20 rounded-full"></div>
@@ -353,7 +370,6 @@ class AQOIApplication {
                                 <span class="habbo-char-tag text-amber-500">${this.state.militarNome}</span>
                             </div>
 
-                            <!-- LADO DIREITO: Avaliador -->
                             <div class="habbo-character-slot">
                                 <div class="habbo-podium-stand stand-evaluator">
                                     <div class="w-10 h-1.5 bg-slate-950/40 rounded-full"></div>
@@ -361,7 +377,6 @@ class AQOIApplication {
                                 <img src="${this.getHabboAvatarUrl("matheuslatrel", 4)}" class="habbo-char-img" alt="Avaliador">
                                 <span class="habbo-char-tag text-slate-300">matheuslatrel</span>
                             </div>
-
                         </div>
                     </div>
 
@@ -388,6 +403,7 @@ class AQOIApplication {
 
     this.atualizarBaloesNaSala();
   }
+
   iniciarTimerAtivo(index) {
     const waitingPanel = document.getElementById("habbo-waiting-panel");
     if (waitingPanel) waitingPanel.classList.add("hidden");
@@ -396,7 +412,9 @@ class AQOIApplication {
     if (responderPanel) responderPanel.classList.remove("hidden");
 
     this.state.activeTimerId = setInterval(() => {
-      this.state.tempoRestanteQuestoes[index]--;
+      if (typeof this.state.tempoRestanteQuestoes[index] === "number") {
+        this.state.tempoRestanteQuestoes[index]--;
+      }
       const tempo = this.state.tempoRestanteQuestoes[index];
 
       const timerElement = document.getElementById("timer-ativo");
@@ -435,7 +453,7 @@ class AQOIApplication {
   }
 
   formatarTempo(segundos) {
-    if (segundos <= 0) return "0:00";
+    if (!segundos || segundos <= 0) return "0:00";
     const m = Math.floor(segundos / 60);
     const s = segundos % 60;
     return `${m}:${s < 10 ? "0" : ""}${s}`;
@@ -448,17 +466,22 @@ class AQOIApplication {
         txtArea.value.trim();
 
     if (this.state.activeTimerId) clearInterval(this.state.activeTimerId);
+    if (this.state.speechTimeoutId) clearTimeout(this.state.speechTimeoutId);
 
     let totalSomaDasNotas = 0;
     let errosNoPce = 0;
 
     this.state.questoesAtivas.forEach((q, idx) => {
       const userResp = this.state.respostasMilitares[idx] || "";
-      const nota = AQOIEvaluator.evaluateAnswer(userResp, q.keywords);
+      const nota = (typeof AQOIEvaluator !== "undefined")
+        ? AQOIEvaluator.evaluateAnswer(userResp, q.keywords)
+        : 0;
       this.state.notasQuestoes[idx] = nota;
 
       totalSomaDasNotas += nota;
-      if (q.title === "CONTROLE_EMERGENCIAL" && nota < 50) errosNoPce++;
+      if (q.title && (q.title.startsWith("PCE") || q.title === "CONTROLE_EMERGENCIAL") && nota < 50) {
+        errosNoPce++;
+      }
     });
 
     const mediaFinal = parseFloat(((totalSomaDasNotas / 1000) * 10).toFixed(1));
@@ -482,22 +505,34 @@ class AQOIApplication {
 
     if (reprovadoPeloPce) {
       statusFinal = "ELIMINADO (PCE)";
-      badgeResult.innerText = statusFinal;
-      badgeResult.className =
-        "text-rose-500 bg-rose-500/10 border border-rose-500/20 text-xs font-mono font-bold px-4 py-2 rounded inline-block";
-      descResult.innerHTML = `⚠️ <strong>Reprovado por Regra Crítica:</strong> Apesar de obter nota de aprovação, o militar foi eliminado por errar ambas as questões de <strong>Plano de Controle Emergencial (PCE)</strong>.`;
+      if (badgeResult) {
+        badgeResult.innerText = statusFinal;
+        badgeResult.className =
+          "text-rose-500 bg-rose-500/10 border border-rose-500/20 text-xs font-mono font-bold px-4 py-2 rounded inline-block";
+      }
+      if (descResult) {
+        descResult.innerHTML = `⚠️ <strong>Reprovado por Regra Crítica:</strong> Apesar de obter nota de aprovação, o militar foi eliminado por errar ambas as questões de <strong>Plano de Controle Emergencial (PCE)</strong>.`;
+      }
     } else if (nota >= 7.0) {
       statusFinal = "APROVADO";
-      badgeResult.innerText = "APROVADO OPERACIONAL";
-      badgeResult.className =
-        "text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono font-bold px-4 py-2 rounded inline-block";
-      descResult.innerHTML = `🏆 Excelente desempenho! O militar obteve nota compatível com os requisitos exigidos e foi aprovado.`;
+      if (badgeResult) {
+        badgeResult.innerText = "APROVADO OPERACIONAL";
+        badgeResult.className =
+          "text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono font-bold px-4 py-2 rounded inline-block";
+      }
+      if (descResult) {
+        descResult.innerHTML = `🏆 Excelente desempenho! O militar obteve nota compatível com os requisitos exigidos e foi aprovado.`;
+      }
     } else {
       statusFinal = "REPROVADO";
-      badgeResult.innerText = "REPROVADO POR NOTA";
-      badgeResult.className =
-        "text-rose-500 bg-rose-500/10 border border-rose-500/20 text-xs font-mono font-bold px-4 py-2 rounded inline-block";
-      descResult.innerHTML = `🚨 O militar não obteve a média mínima exigida de 7.0 pontos para admissão ou especialização.`;
+      if (badgeResult) {
+        badgeResult.innerText = "REPROVADO POR NOTA";
+        badgeResult.className =
+          "text-rose-500 bg-rose-500/10 border border-rose-500/20 text-xs font-mono font-bold px-4 py-2 rounded inline-block";
+      }
+      if (descResult) {
+        descResult.innerHTML = `🚨 O militar não obteve a média mínima exigida de 7.0 pontos para admissão ou especialização.`;
+      }
     }
 
     this.salvarTentativaNoRanking(this.state.militarNome, nota, statusFinal);
@@ -510,7 +545,7 @@ class AQOIApplication {
         cardFeedback.className =
           "bg-[#0a1020] border border-slate-800 p-4 rounded-lg space-y-2 mb-2 text-left";
         cardFeedback.innerHTML = `
-                    <p class="text-xs font-mono text-slate-500 uppercase">Questão ${idx + 1} - Pontuação Individual: ${this.state.notasQuestoes[idx]}%</p>
+                    <p class="text-xs font-mono text-slate-500 uppercase">Questão ${idx + 1} - Pontuação Individual: ${this.state.notasQuestoes[idx] || 0}%</p>
                     <p class="text-sm font-semibold text-slate-200">${q.text}</p>
                     <p class="text-xs text-rose-400 font-light mt-1">Sua resposta: "${this.state.respostasMilitares[idx] || "Nenhuma resposta inserida."}"</p>
                     <p class="text-xs text-emerald-400 font-light mt-1">Gabarito esperado: "${q.answer}"</p>
@@ -522,8 +557,12 @@ class AQOIApplication {
 
   // --- FLASHCARDS ---
   renderFlashcard() {
+    if (typeof AQOI_FLASHCARDS === "undefined" || !AQOI_FLASHCARDS.length) return;
+
     const idx = this.state.currentFlashcardIndex;
     const fc = AQOI_FLASHCARDS[idx];
+
+    if (!fc) return;
 
     const contEl = document.getElementById("fc-contador");
     const qEl = document.getElementById("fc-pergunta");
@@ -555,6 +594,8 @@ class AQOIApplication {
   }
 
   navegarFlashcard(direcao) {
+    if (typeof AQOI_FLASHCARDS === "undefined" || !AQOI_FLASHCARDS.length) return;
+
     this.state.currentFlashcardIndex += direcao;
     if (this.state.currentFlashcardIndex < 0) {
       this.state.currentFlashcardIndex = AQOI_FLASHCARDS.length - 1;
@@ -776,7 +817,7 @@ class AQOIApplication {
   }
 }
 
-// Inicializar aplicação
+// Inicializar aplicação com segurança
 document.addEventListener("DOMContentLoaded", () => {
   new AQOIApplication();
 });
