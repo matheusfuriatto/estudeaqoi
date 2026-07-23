@@ -406,19 +406,20 @@ const AQOI_SIMULADOS = {
     },
     {
       id: 24,
-      title: "CCB_OFICIAL_GUARDA_AUXILIO_SARGENTO",
-      text: " O sargento Felipe estava de Oficial da Guarda no 3° Batalhão, com auxílio do aspirante a oficial Lucas. Em certo momento, ocorreu um ataque de mute e o aspirante a oficial encerrou o auxílio, dispensou o sargento e assumiu a função para acionamento do Plano de Controle Emergencial. Após o ocorrido, o tenente Vaguinho questionou a atuação, alegando irregularidades no cenário apresentado. Analise a situação e responda, justificando se a alegação do tenente está correta.",
+      title: "PCE_BATS_FLOODS",
+      text: " O coronel Lucas (Oficial da Guarda e membro do CSI) depara-se com oito usuários (bots) entrando no saguão, movimentando-se simultaneamente e enviando balões de fala de forma constante (floods infindáveis). Conforme o PCE, indique as emergências, a gravidade e o procedimento a ser adotado com sua justificativa.",
       answer:
-        "Sargentos não podem ser auxiliados na função de oficial da guarda no batalhão principal, sendo apenas válido nos batalhões principais para aspirantes a oficial+/analistas+ com conclusão do CFO. A exceção para sargentos com os cursos obrigatórios assumirem a função existe apenas no Batalhão Auxiliar. Quanto à conduta do aspirante a oficial em dispensar o oficial da guarda e assumir a função está correta, uma vez que em ataque de gravidade 3 ou superior é dever deste assumir o posto.",
+        "As emergências identificadas são Ataque de Bots e Ataque de Flood, ambas enquadradas na Gravidade 2 do Plano de Controle Emergencial. Devido à quantidade de bots enviando balões constantemente, o que caracteriza a situação de 'floods infindáveis', o Oficial da Guarda deverá aplicar o Procedimento Intermediário de Gravidade 2. Este consiste na utilização da ferramenta do quarto para silenciar todos, mutar e kickar os usuários mal-intencionados para controlar o ataque e, posteriormente, desativar a ferramenta.",
       keywords: [
-        "sargentos",
-        "batalhão principal",
-        "batalhão auxiliar",
-        "dispensar",
-        "gravidade 3",
+        "ataque de bots",
+        "ataque de flood",
+        "gravidade 2",
+        "floods infindáveis",
+        "procedimento intermediário",
+        "silenciar todos",
       ],
-      timeDesktop: 180,
-      timeMobile: 240,
+      timeDesktop: 150,
+      timeMobile: 210,
     },
 
     // --- PLANO DE CONTROLE EMERGENCIAL (PCE) ---
@@ -472,32 +473,33 @@ const AQOI_SIMULADOS = {
     },
     {
       id: 28,
-      title: "PCE_SIMULACAO_ATAQUE_AUTORIZACAO",
-      text: " O marechal Tomas, membro do comando da Repartição de Ações Interventivas e Ostensivas (RAIO), iniciou uma simulação de ataque no terceiro batalhão após obter autorização apenas da direção do próprio órgão. Diante do cenário apresentado, houve alguma falha legal?",
-      answer:
-        "Houve irregularidade, pois a simulação de ataque não poderia ter sido realizada pela RAIO. A autorização para simulações de ataque reais em batalhões é de competência exclusiva do Alto Comando Supremo e, uma vez autorizada, a simulação deverá ser executada unicamente por membros do Setor de Inteligência.",
-      keywords: [
-        "irregularidade",
-        "simulacao",
-        "exclusiva",
-        "alto comando supremo",
-        "setor de inteligencia",
-      ],
-      timeDesktop: 150,
-      timeMobile: 210,
-    },
-    {
-      id: 29,
       title: "PCE_COMPROVACAO_FUTUROS_ATAQUES",
-      text: " Durante a tarde de um domingo, ocorreram diversos ataques de mute no batalhão, sendo o aspirante a oficial Azul uma das vítimas dessa emergência. No entanto, ele não registrou a ocorrência e, quando questionado sobre as comprovações, afirmou não possuir. O praça deverá ser punido? Por quê? Como se deve lidar com a situação descrita?",
+      text: " Durante a tarde de um domingo, ocorreram diversos ataques de mute no batalhão, sendo o Sargento Azul uma das vítimas dessa emergência. No entanto, ele não registrou a ocorrência no tópico correspondente e, quando questionado sobre as comprovações, afirmou não possuir. O praça deverá ser punido? Por quê? Como se deve lidar com a situação descrita?",
       answer:
-        "Não deverá ser punido. A norma estipula punição de Advertência Escrita por Abandono de Dever/Negligência apenas para Oficiais do Corpo Militar e do Corpo Executivo com Especialização Intermediária ou superior que negligenciarem o registro da comprovação. Por ser um praça, ele deve ser apenas orientado e instruído a realizar o registro em futuros ataques.",
+        "Não deverá ser punido. A norma estipula punição de Advertência Escrita por Abandono de Dever/Negligência apenas para Oficiais do Corpo Militar e do Corpo Executivo com Especialização Intermediária ou superior que negligenciarem o registro da comprovação de ataque. Por ser um praça, ele deve ser apenas orientado e instruído a realizar o registro em futuros ataques.",
       keywords: [
         "não deverá ser punido",
         "praça",
         "orientado",
         "instruído",
         "futuros ataques",
+      ],
+      timeDesktop: 150,
+      timeMobile: 210,
+    },
+    {
+      id: 29,
+      title: "PCE_ATAQUE_MOBILIAS_QUESTIONAMENTO",
+      text: " A coronel Maria, estando na função de Oficial da Guarda, notou que uma mobília decorativa do batalhão (um sofá rosa) foi movimentada da recepção para dentro da sala de controle. Diante disso, acionou o procedimento básico, retornou a mobília à sua posição original e prosseguiu com o seu comando sem inquirir a base. Aponte a possível irregularidade da coronel.",
+      answer:
+        "A coronel falhou em não questionar aos portadores de direitos presentes se algum deles moveu a mobília decorativa por acidente. O ataque de movimentação de mobílias é de gravidade 3 e requer o procedimento básico, contudo, por se tratar de um item estético e não-vital para a segurança imediata, é dever do Oficial averiguar a intencionalidade de acidentes caso não haja identificação óbvia do autor.",
+      keywords: [
+        "falhou",
+        "questionar",
+        "portadores de direitos",
+        "acidente",
+        "movimentação de mobílias",
+        "gravidade 3",
       ],
       timeDesktop: 150,
       timeMobile: 210,
