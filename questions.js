@@ -62,9 +62,9 @@ const AQOI_SIMULADOS = {
     {
       id: 4,
       title: "CCM_LICENCA_PROMOCOES_PENDENTES",
-      text: " O Coronel Silva retornou de uma licença de 14 dias na terça-feira, postando seu retorno no sistema e efetuando a compensação de 4 dias de atividades no batalhão. No sábado, ele promoveu o Aspirante Pedro. O CRH aprovou o requerimento, contudo, o Inspetor Thiago solicitou o cancelamento do ato, alegando que Silva não havia compensado os dias exigidos pela normativa. Julgue a alegação do Inspetor e indique a punição aplicável ao Coronel.",
+      text: " O Coronel Silva retornou de uma licença de 14 dias na terça-feira, postando seu retorno no sistema e efetuando a compensação de 4 dias de atividades no batalhão. No sábado, ele promoveu o Aspirante Pedro. O CRH aprovou o requerimento, contudo, o General Thiago solicitou o cancelamento do ato, alegando que Silva não havia compensado os dias exigidos pela normativa. Julgue a alegação do General e indique a punição aplicável ao Coronel.",
       answer:
-        "A alegação do Inspetor está correta. A documentação exige que, ao retornar de licença superior a 7 dias, o policial compense obrigatoriamente 07 dias de atividade antes de promover, ceder permissão no oficialato ou rebaixar por insuficiência. O Coronel Silva compensou apenas 4 dias de atividade na base. Pelo descumprimento, a ação é inválida e o Coronel deverá ser punido com uma advertência escrita pelo crime de Abandono de Dever/Negligência.",
+        "A alegação do General está correta. A documentação exige que, ao retornar de licença superior a 7 dias, o policial compense obrigatoriamente 07 dias de atividade antes de promover, ceder permissão no oficialato ou rebaixar por insuficiência. O Coronel Silva compensou apenas 4 dias de atividade na base. Pelo descumprimento, a ação é inválida e o Coronel deverá ser punido com uma advertência escrita pelo crime de Abandono de Dever/Negligência.",
       keywords: [
         "correta",
         "compense 07 dias",
